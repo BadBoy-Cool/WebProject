@@ -13,7 +13,9 @@ Class AuthController extends Controller
     }
 
     public function login(){
-        
-       return view('backend.auth.login');
+       return view('backend.login');
+    }
+     public function signup(){
+       return view('backend.signup');
     }
 }

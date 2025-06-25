@@ -14,41 +14,37 @@
     <link href="backend/css/animate.css" rel="stylesheet">
     <link href="backend/css/style.css" rel="stylesheet">
 
+     {{-- Local CSS --}}
+    <link rel="stylesheet" href="{{ asset('backend/css/login.css') }}">
 </head>
 
 <body class="gray-bg">
 
     <div class="loginColumns animated fadeInDown">
         <div class="row">
-
-            <div class="col-md-6">
-                <h2 class="font-bold">Welcome to Travio</h2>
+            <div class="slogan col-md-6">
+                <h2 class="font-bolder">Belong anywhere</h2>
 
                 <p>
-                    Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+                    Love it or hate it, there’s no denying that Travio has disrupted the industry. The online marketplace for travel experiences has positioned itself as one of the best ways to live like a local when you travel.
                 </p>
 
                 <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                </p>
-
-                <p>
-                    When an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </p>
-
-                <p>
-                    <small>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</small>
+                    Each journey is crafted as a storyteller, embracing real human experiences and touching the emotions within you.
                 </p>
 
             </div>
             <div class="col-md-6">
                 <div class="ibox-content">
-                    <form class="m-t" role="form" action="index.html">
+                    <form class="m-t" role="form" action="index.blade.php">
+                        <h2 class="text-center font-weight-bold text-primary">Login</h2>
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Username" required="">
+                            <i class="fa fa-user icon-input"></i>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Password" required="">
+                            <i class="fa fa-lock icon-input"></i>
                         </div>
                         <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
@@ -59,10 +55,10 @@
                         <p class="text-muted text-center">
                             <small>Do not have an account?</small>
                         </p>
-                        <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
+                        <a class="btn btn-sm btn-white btn-block" href="{{ route('signup') }}">Create an account</a>
                     </form>
                     <p class="m-t">
-                        <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
+                        <small>Travio – Turning every journey into a memory &copy; 2025</small>
                     </p>
                 </div>
             </div>
@@ -70,10 +66,10 @@
         <hr/>
         <div class="row">
             <div class="col-md-6">
-                Copyright Example Company
+                Copyright Travio VietNam
             </div>
             <div class="col-md-6 text-right">
-               <small>© 2014-2015</small>
+               <small>© 2024-2025</small>
             </div>
         </div>
     </div>

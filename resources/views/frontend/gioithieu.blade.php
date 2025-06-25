@@ -36,7 +36,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     {{-- Local CSS --}}
-    <link rel="stylesheet" href="{{ asset('frontend/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}">
 </head>
 <body>
@@ -139,7 +139,7 @@
 							<a
 								type="button"
 								class="btn"
-								
+								href="{{ route('signup') }}"
 								id="sign-up-btn">
 								Đăng ký
 							</a>
@@ -155,7 +155,7 @@
         </main>
 
 		<!-- Footer -->
-		<footer class="bg-black py-4 fixed-bottom">
+		<footer class="bg-black py-4">
 			<div
 				class="container-fluid container-lg text-white font-weight-light">
 				<div class="row align-items-center">

@@ -36,7 +36,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     {{-- Local CSS --}}
-    <link rel="stylesheet" href="{{ asset('frontend/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -141,7 +141,7 @@
 							<a
 								type="button"
 								class="btn"
-
+                                href="{{ route('signup') }}"
 								id="sign-up-btn">
 								Đăng ký
 							</a>
@@ -400,7 +400,7 @@
 <!-- Contact Map End -->
 
 		<!-- Footer -->
-		<footer class="bg-black py-4 fixed-bottom">
+		<footer class="bg-black py-4">
 			<div
 				class="container-fluid container-lg text-white font-weight-light">
 				<div class="row align-items-center">

@@ -150,7 +150,7 @@
 							<a
 								type="button"
 								class="btn"
-
+                                href="{{ route('signup') }}"
 								id="sign-up-btn">
 								Đăng ký
 							</a>
@@ -737,7 +737,7 @@
         </main>
 
 		<!-- Footer -->
-		<footer class="bg-black py-4 fixed-bottom">
+		<footer class="bg-black py-4">
 			<div
 				class="container-fluid container-lg text-white font-weight-light">
 				<div class="row align-items-center">

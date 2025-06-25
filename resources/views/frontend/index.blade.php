@@ -38,7 +38,7 @@
 
 
     {{-- Local CSS --}}
-    <link rel="stylesheet" href="{{ asset('frontend/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}">
     {{-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap&subset=vietnamese" rel="stylesheet">
     <!-- Google Fonts hỗ trợ tiếng Việt -->
@@ -104,9 +104,8 @@
 								>Đăng nhập</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link"
-									>Đăng ký</a
-								>
+    							<a class="nav-link" href="{{ route('signup') }}"
+								>Đăng ký</a>
 							</li>
 						</ul>
 						<div id="button-group" class="d-none d-lg-flex">
@@ -145,7 +144,7 @@
 							<a
 								type="button"
 								class="btn"
-
+                                href="{{ route('signup') }}"
 								id="sign-up-btn">
 								Đăng ký
 							</a>
@@ -510,7 +509,7 @@
         </main>
 
 		<!-- Footer -->
-		<footer class="bg-black py-4 fixed-bottom">
+		<footer class="bg-black py-4">
 			<div
 				class="container-fluid container-lg text-white font-weight-light">
 				<div class="row align-items-center">

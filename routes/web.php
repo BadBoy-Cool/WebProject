@@ -3,31 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/', [AuthController::class, 'login']);
-
 // Trang chủ
 Route::get('/', function () {
     return view('frontend.index');
-})->name('index'); //  Thêm tên route 'index'
+})->name('index');
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+// Các trang khác
+Route::view('/gioithieu', 'frontend.gioithieu');
+Route::view('/tour', 'frontend.tour');
+Route::view('/lienhe', 'frontend.lienhe');
 
-Route::get('/gioithieu', function () {
-    return view('frontend.gioithieu');
-});
-
-Route::get('/tour', function () {
-    return view('frontend.tour');
-});
-
-Route::get('/lienhe', function () {
-    return view('frontend.lienhe');
-});
-
+// Auth
 Route::get('/dangnhap', [AuthController::class, 'login'])->name('dangnhap');
+Route::view('/signup', 'backend.signup')->name('signup');
