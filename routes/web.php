@@ -9,6 +9,11 @@ Route::get('/', function () {
 
 Route::get('/', [AuthController::class, 'login']);
 
+// Trang chủ
+Route::get('/', function () {
+    return view('frontend.index');
+})->name('index'); //  Thêm tên route 'index'
+
 Route::get('/', function () {
     return view('frontend.index');
 });

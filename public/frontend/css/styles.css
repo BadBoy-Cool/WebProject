@@ -1,96 +1,188 @@
-body {
-	font-family: "Montserrat", sans-serif !important;
+/* ================================ CSS Thiết kế hiện đại cho Trang Chủ Travio ================================ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #0ea5e9;
+  --accent-color: #f59e0b;
+  --success-color: #10b981;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-accent: #f1f5f9;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
-header {
-	top: 0;
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.header-logo {
-	height: 24px;
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  min-height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  padding-bottom: 160px;
 }
 
-#navbarSupportedContent {
-    z-index: 5;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-#navbarSupportedContent a:hover {
-	text-decoration: underline;
-	text-underline-offset: 4px;
+.contact-info-area {
+  background-color: #fff;
+  padding-top: 100px;
+  position: relative;
+  z-index: 1;
 }
 
-#button-group button {
-	margin-left: 10px;
+.section-title h2 {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 32px;
+  color: #333;
+  text-align: left;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+  margin: 20px 0;
+  padding-left: 20px;
 }
 
-#display-cart-button {
-	position: relative;
+.contact-info-content p {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+  text-align: justify;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  margin: 20px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
 }
 
-#cart-quantity {
-    width: 18px;
-    height: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-	position: absolute;
-	top: 2px;
-	right: 5px;
-	font-size: 10px;
-	border-radius: 50%;
-	background-color: #f95454;
+.features-team-box h6 {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin: 20px 0;
 }
 
-#sign-in-btn,
-#sign-up-btn {
-	border: 1px solid black;
-    margin-left: 10px;
-    text-decoration: none !important;
+.feature-authors img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 6px;
+  object-fit: cover;
 }
 
-#sign-up-btn {
-	color: white;
-	background-color: black;
+.feature-authors span {
+  font-weight: bold;
+  font-size: 20px;
+  color: #444;
+  margin-left: 5px;
 }
 
-#sign-in-btn:hover,
-#sign-up-btn:hover {
-	border-radius: 0;
+.contact-info-item {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.offcanvas-title {
-	font-size: 20px;
+.contact-info-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.decrease-button {
-	border-top-right-radius: 0 !important;
-	border-bottom-right-radius: 0 !important;
+.contact-info-item .icon {
+  font-size: 28px;
+  color: #0077cc;
+  margin-top: 8px;
 }
 
-.increase-button {
-	border-top-left-radius: 0 !important;
-	border-bottom-left-radius: 0 !important;
+.contact-info-item .content h5 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
 }
 
-.delete-button {
-	color: #f95454;
-	padding: 10px;
-	border: 0;
-	background: white;
+.contact-info-item .content .text a,
+.contact-info-item .content .text {
+  font-size: 16px;
+  color: #555;
+  text-decoration: none;
 }
 
-.delete-button:hover {
-	cursor: pointer;
+.contact-info-item .content .text a:hover {
+  text-decoration: underline;
+  color: #0077cc;
 }
 
-#total-cost-block {
-	width: 100%;
-	position: sticky;
-	bottom: 0;
+footer {
+  position: relative;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 15px;
 }
 
-@media screen and (min-width: 992px) {
-	.offcanvas {
-		width: 40vw !important;
-	}
+footer a {
+  color: #f1f1f1;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-lg-4, .col-lg-8, .col-md-6 {
+    width: 100%;
+    padding: 10px 0;
+  }
 }
