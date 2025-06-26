@@ -216,7 +216,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="contact-info-item">
-                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <div class="icon"><i class="fa fa-envelope"></i></div>
                             <div class="content">
                                 <h5>Cần sự giúp đỡ & hỗ trợ</h5>
                                 <div class="text"><a href="mailto:support@gmail.com">duyenb2203435@student.ctu.edu.vn</a></div>
@@ -225,7 +225,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="contact-info-item">
-                            <div class="icon"><i class="fas fa-phone"></i></div>
+                            <div class="icon"><i class="fa fa-phone"></i></div>
                             <div class="content">
                                 <h5>Cần gấp bất kỳ điều gì</h5>
                                 <div class="text"><a href="callto:+0001234588">+000 (123) 45 88</a></div>
@@ -234,7 +234,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="contact-info-item">
-                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="icon"><i class="fa fa-map-marker"></i></div>
                             <div class="content">
                                 <h5>Chi nhánh Việt Nam</h5>
                                 <div class="text">Số 55, đường 10, thành phố Hồ Chí Minh</div>
@@ -243,7 +243,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="contact-info-item">
-                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="icon"><i class="fa fa-map-marker"></i></div>
                             <div class="content">
                                 <h5>Địa chỉ văn phòng chính</h5>
                                 <div class="text">Số nhà 55 trên Đường 10, Vietnam</div>
