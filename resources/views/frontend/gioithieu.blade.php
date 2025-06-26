@@ -151,7 +151,7 @@
 
 		<!-- Main -->
 		<main class="container my-5">
-			<h1 class="text-center mb-4">Chào mừng đến với Travio</h1>
+			<h1 class="text-center mb-4 fs-1">Chào mừng đến với Travio</h1>
 			<!-- Phần giới thiệu tóm tắt-->
 			<section class="mb-5">
 				<div class="row justify-content-center align-items-center g-4">
@@ -171,10 +171,10 @@
 			</section>
 
 			<section class="container my-5">
-				<h2 class="text-center mb-5 fs-2">Hành trình phát triển Travio</h2>
+				<h2 class="text-center mb-5 fs-2" style="margin-top: 1cm;">Hành trình phát triển Travio</h2>
 
 				<!-- Mốc 2022 -->
-				<div class="row align-items-center mb-5">
+				<div class="row align-items-center mb-5" style="margin-top: 1cm;">
 					<div class="col-md-5 text-center">
 						<img src="{{ asset('backend/img/hanhtrinh2022.jpg') }}"
 							alt="2022 milestone"
@@ -188,7 +188,7 @@
 				</div>
 
 				<!-- Mốc 2024 -->
-				<div class="row align-items-center mb-5 flex-md-row-reverse">
+				<div class="row align-items-center mb-5 flex-md-row-reverse ">
 					<div class="col-md-5 text-center">
 						<img src="{{ asset('backend/img/hanhtrinh2024.jpg') }}"
 							alt="2024 milestone"
@@ -219,7 +219,7 @@
 
 
 			<section class="mb-5">
-				<h2 class="text-center mb-5 fw-bold" style="font-size: 2.5rem;">TRẢI NGHIỆM DU LỊCH</h2>
+				<h2 class="text-center mb-4 fs-2" style="margin-top: 1cm;">TRẢI NGHIỆM DU LỊCH</h2>
 				<div class="container">
 					<div class="row row-cols-1 row-cols-md-2 g-4">
 
@@ -281,8 +281,8 @@
 			</section>
 
 
-			<section class="my-5">
-				<h2 class="text-center mb-4">Khám phá tour cùng Travio</h2>
+			<section class="my-5" >
+				<h2 class="text-center mb-4 fs-2" style="margin-top: 1cm;">Khám phá tour cùng Travio</h2>
 				<div class="row justify-content-center">
 					<div class="col-md-10 text-center">
 						<video controls class="w-100 rounded shadow">
@@ -296,7 +296,7 @@
     
 
     <section class="mb-5">
-        <h2 class="text-center mb-4">Cam kết của Travio</h2>
+        <h2 class="text-center mb-4 fs-2" style="margin-top: 1cm;">Cam kết của Travio</h2>
         <ul class="list-group list-group-flush fs-5">
             <li class="list-group-item">✅ Dịch vụ chất lượng cao, rõ ràng và minh bạch.</li>
             <li class="list-group-item">✅ Hoàn tiền nếu không đúng cam kết.</li>
