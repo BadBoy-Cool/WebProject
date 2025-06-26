@@ -164,7 +164,7 @@
 		<main>
 
         <!-- Tour Grid Area start -->       
-            <section class="tour-grid-page py-100 rel z-1">
+            <section class="tour-grid-page py-20 rel z-1">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
@@ -406,7 +406,7 @@
 
                         <div class="tour-grid-wrap">
                             <div class="row">
-                                <div class="col-xl-4 col-md-6">
+                                <div class="col-xl-4 col-md-6" id="halong">
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-offset="50">
                                         <div class="image">
@@ -439,7 +439,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-md-6">
+                                <div class="col-xl-4 col-md-6" id="Tokyo">
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
                                         <div class="image">
@@ -505,7 +505,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-md-6">
+                                <div class="col-xl-4 col-md-6" id="bangkok">
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-offset="50">
                                         <div class="image">
@@ -570,7 +570,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-md-6">
+                                <div class="col-xl-4 col-md-6" id="bali">
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
                                         <div class="image">
@@ -604,7 +604,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-md-6">
+                                <div class="col-xl-4 col-md-6" id="barcelona">
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-offset="50">
                                         <div class="image">
@@ -638,7 +638,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-md-6">
+                                
+                                <div class="col-xl-4 col-md-6" id="newyork">
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
                                         <div class="image">
@@ -706,7 +707,7 @@
                                     </div>
                                 </div>
 
-                                    <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up"
+                                    <!-- <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-offset="50">
                                         <li class="page-item disabled">
                                             <span class="page-link"><i class="far fa-chevron-left"></i></span>
@@ -724,7 +725,7 @@
                                             <a class="page-link" href="#"><i
                                                     class="far fa-chevron-right"></i></a>
                                         </li> --}}
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div>
                         </div>

@@ -204,3 +204,16 @@
   color: #fff;
   border-color: #06b6d4;
 }
+
+#halong:target {
+    box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.4);
+    border: 2px solid #ff4d6d;
+    border-radius: 15px;
+    animation: highlightFade 2s ease-in-out;
+}
+
+/* Tùy chọn thêm hiệu ứng mờ dần */
+@keyframes highlightFade {
+    0% { background-color: #ffeaea; }
+    100% { background-color: transparent; }
+}

@@ -189,29 +189,31 @@
 									<span class="input-group-text bg-white">
 										<i class="fa fa-map-marker text-primary"></i>
 									</span>
-									<select class="form-select">
-										<option selected>Chọn một điểm đến</option>
+									<select class="form-select" onchange="window.location.href = '/tour';">
+										<option>Chọn một điểm đến</option>
 										<option value="halong">Vịnh Hạ Long</option>
 										<option value="sapa">Sapa</option>
 										<option value="phuquoc">Phú Quốc</option>
 									</select>
+
 								</div>
 							</div>
 						</div>
 
 						<!-- Dòng 2: Ô tìm kiếm nằm thấp hơn và về bên phải -->
 						<div class="row justify-content-end" style="margin-bottom: 1cm;">
-							<div class="col-md-5">
-								<div class="input-group">
-									<span class="input-group-text bg-white">
-										<i class="fa fa-search text-primary"></i>
-									</span>
-									<input type="text" class="form-control" placeholder="Tìm kiếm địa điểm hoặc hoạt động">
-									<button class="btn btn-primary" type="submit">Tìm</button>
-								</div>
+   							<div class="col-md-5">
+								<form action="/tour" method="GET">
+									<div class="input-group">
+										<span class="input-group-text bg-white">
+											<i class="fa fa-search text-primary"></i>
+										</span>
+										<input type="text" name="search" class="form-control" placeholder="Tìm kiếm địa điểm hoặc hoạt động">
+										<button class="btn btn-primary" type="submit">Tìm</button>
+									</div>
+								</form>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</section>
@@ -231,7 +233,7 @@
 								<div class="card-body">
 									<h5 class="card-title">Du lịch Hạ Long 3N2Đ</h5>
 									<p class="card-text">Khám phá vịnh Hạ Long - kỳ quan thiên nhiên thế giới với nhiều hoạt động hấp dẫn.</p>
-									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+									<a href="/tour#halong" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
@@ -239,23 +241,28 @@
 						<!-- Tour 2 -->
 						<div class="col-md-4">
 							<div class="card h-100 shadow-sm">
-								<img src="{{ asset('backend/img/dalat.jpg') }}" class="card-img-top" alt="Đà Lạt">
+								<img src="{{ asset('backend/img/destinations/bali.jpg') }}" class="card-img-top" alt="Bali">
 								<div class="card-body">
-									<h5 class="card-title">Khám phá Đà Lạt mộng mơ</h5>
-									<p class="card-text">Trải nghiệm khí hậu se lạnh, cảnh sắc thiên nhiên và văn hóa đặc sắc của Đà Lạt.</p>
-									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+									<h5 class="card-title">Khám phá Bali quyến rũ</h5>
+									<p class="card-text">
+										Tận hưởng thiên đường nhiệt đới với bãi biển tuyệt đẹp, đền cổ linh thiêng và văn hóa Balinese độc đáo.
+									</p>
+									<a href="/tour#bali" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
 
+
 						<!-- Tour 3 -->
 						<div class="col-md-4">
 							<div class="card h-100 shadow-sm">
-								<img src="{{ asset('backend/img/phuquoc.jpg') }}" class="card-img-top" alt="Phú Quốc">
+								<img src="{{ asset('backend/img/destinations/barcelona.jpg') }}" class="card-img-top" alt="Barcelona">
 								<div class="card-body">
-									<h5 class="card-title">Phú Quốc - Thiên đường nghỉ dưỡng</h5>
-									<p class="card-text">Tận hưởng kỳ nghỉ tuyệt vời tại các resort cao cấp và bãi biển tuyệt đẹp.</p>
-									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+									<h5 class="card-title">Barcelona - Thành phố biển cả</h5>
+									<p class="card-text">
+										Chiêm ngưỡng kiến trúc độc đáo của Gaudí, dạo bước trên phố La Rambla và thư giãn bên bờ Địa Trung Hải.
+									</p>
+									<a href="/tour#barcelona" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
@@ -267,7 +274,7 @@
 								<div class="card-body">
 									<h5 class="card-title">Bangkok - Thái Lan</h5>
 									<p class="card-text">Khám phá thành phố sôi động Bangkok với những ngôi chùa vàng, ẩm thực đường phố hấp dẫn và trung tâm mua sắm hiện đại.</p>
-									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+									<a href="/tour#bangkok" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
@@ -279,22 +286,25 @@
 								<div class="card-body">
 									<h5 class="card-title">New York - Mỹ</h5>
 									<p class="card-text">Trải nghiệm thành phố không ngủ với những địa danh nổi tiếng như Tượng Nữ thần Tự do, Times Square và Central Park.</p>
-									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+									<a href="/tour#newyork" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
 
-						<!-- Tour 6: Osaka -->
+						<!-- Tour 6: Tokyo -->
 						<div class="col-md-4">
 							<div class="card h-100 shadow-sm">
-								<img src="{{ asset('backend/img/osaka.jpg') }}" class="card-img-top" alt="Osaka">
+								<img src="{{ asset('backend/img/tokyo.jpg') }}" class="card-img-top" alt="Tokyo">
 								<div class="card-body">
-									<h5 class="card-title">Osaka - Nhật Bản</h5>
-									<p class="card-text">Thành phố của ẩm thực và văn hóa hiện đại, nổi bật với lâu đài Osaka, phố đi bộ Dotonbori và món takoyaki trứ danh.</p>
-									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+									<h5 class="card-title">Tokyo - Nhật Bản</h5>
+									<p class="card-text">
+										Thành phố hiện đại sôi động bậc nhất châu Á, nổi tiếng với tháp Tokyo, Shibuya Crossing và nền văn hóa truyền thống pha lẫn công nghệ tiên tiến.
+									</p>
+									<a href="/tour#Tokyo" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
+
 
 					</div>
 				</div>

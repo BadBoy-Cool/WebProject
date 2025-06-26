@@ -8261,3 +8261,17 @@ blockquote {
   border: none;
   cursor: pointer;
 }
+
+
+#halong:target, #bali:target, #barcelona:target, #bangkok:target, #newyork:target, #Tokyo:target {
+    border: 2px solid #ff4d6d;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.4);
+    animation: highlightFade 2s ease-in-out;
+    scroll-margin-top: 100px; /* tránh bị che bởi header cố định */
+}
+
+@keyframes highlightFade {
+    0% { background-color: #fff0f3; }
+    100% { background-color: transparent; }
+}
