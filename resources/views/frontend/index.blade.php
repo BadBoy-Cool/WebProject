@@ -33,16 +33,11 @@
         crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap&subset=vietnamese" rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     {{-- Local CSS --}}
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}">
-    {{-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap&subset=vietnamese" rel="stylesheet">
-    <!-- Google Fonts hỗ trợ tiếng Việt -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&subset=vietnamese" rel="stylesheet"> --}}
 
 </head>
 <body>
@@ -53,7 +48,7 @@
 			<nav class="navbar navbar-expand-lg">
 				<div class="container-fluid container-lg">
 					<a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('frontend/img/logo/logo.png') }}"
+                        <img src="{{ asset('frontend/img/logo/logo.png') }}" 
                              alt="Travio"
                              class="header-logo" />
                         <span class="fw-bold fs-4" style="font-family: 'Playfair Display', serif;">Travio</span>
@@ -104,8 +99,9 @@
 								>Đăng nhập</a>
 							</li>
 							<li class="nav-item">
-    							<a class="nav-link" href="{{ route('signup') }}"
-								>Đăng ký</a>
+								<a class="nav-link"
+									>Đăng ký</a
+								>
 							</li>
 						</ul>
 						<div id="button-group" class="d-none d-lg-flex">
@@ -144,7 +140,7 @@
 							<a
 								type="button"
 								class="btn"
-                                href="{{ route('signup') }}"
+								href="{{ route('signup') }}"
 								id="sign-up-btn">
 								Đăng ký
 							</a>
@@ -156,357 +152,184 @@
 
 		<!-- Main -->
 		<main>
-           <!-- Destinations Area start -->
-<section class="destinations-area bgc-black pt-100 pb-70 rel z-1">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="section-title text-white text-center counter-text-wrap mb-70" data-aos="fade-up"
-                    data-aos-duration="1500" data-aos-offset="50">
-                    <h2 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); text-transform: none;">Mở ra vẻ đẹp của từng điểm đến cùng Travela</h2>
-                    <p  style="font-family: 'Poppins', sans-serif; font-size: 28px; color: #ffffff; font-weight: 600; text-align: center; line-height: 1.5;" >Một địa điểm với<span class="count-text plus" data-speed="3000" data-stop="24080" style="color: inherit; font-weight: 600;">0</span>trải nghiệm phổ biến mà bạn sẽ nhớ mãi.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="destination-item" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="image">
-                        <div class="ratting"><i class="fas fa-star"></i>4.8</div>
-                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="{{asset('backend/img/destinations/Paris.jpg')}}" alt="Destination">
-                    </div>
-                    <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i> Paris, Pháp</span>
-                        <h5><a href="destination-details.html">Tháp Eiffel – Biểu tượng của Paris</a></h5>
-                        <span class="time">3 ngày 2 đêm</span>
-                    </div>
-                    <div class="destination-footer">
-                        <span class="price"><span>$59.00</span>/người</span>
-                        <a href="#" class="read-more">Đặt ngay <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="destination-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="image">
-                        <div class="ratting"><i class="fas fa-star"></i> 4.8</div>
-                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="{{asset('backend/img/destinations/Venice.jpg')}}" alt="Destination">
-                    </div>
-                    <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i> Venice, Ý</span>
-                        <h5><a href="destination-details.html">Venice – Thành phố tình yêu & kênh đào lãng mạn </a></h5>
-                        <span class="time">4 ngày 3 đêm</span>
-                    </div>
-                    <div class="destination-footer">
-                        <span class="price"><span>$63.00</span>/người</span>
-                        <a href="#" class="read-more">Đặt ngay <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="destination-item" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="image">
-                        <div class="ratting"><i class="fas fa-star"></i> 4.8</div>
-                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="{{asset('backend/img/destinations/dao-jeju.jpg')}}" alt="Destination">
-                    </div>
-                    <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i> Đảo Jeju, Hàn Quốc</span>
-                        <h5><a href="destination-details.html">Đảo Jeju - được ví như "Hawaii của Hàn Quốc"</a></h5>
-                        <span class="time">5 ngày 4 đêm</span>
-                    </div>
-                    <div class="destination-footer">
-                        <span class="price"><span>$42.00</span>/người</span>
-                        <a href="#" class="read-more">Đặt ngay<i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="destination-item" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="image">
-                        <div class="ratting"><i class="fas fa-star"></i> 4.8</div>
-                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="{{asset('backend/img/destinations/laudaithuysi.jpg')}}" alt="Destination">
-                    </div>
-                    <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i> Lâu đài Chillon, Thụy Sĩ</span>
-                        <h5><a href="destination-details.html">Lâu đài Chillon cổ tích, báu vật lịch sử của Thụy Sĩ </a></h5>
-                        <span class="time">3 days 2 nights - Couple</span>
-                    </div>
-                    <div class="destination-footer">
-                        <span class="price"><span>$52.00</span>/per person</span>
-                        <a href="#" class="read-more">Book Now <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Destinations Area end -->
+			<section class="mb-5">
+				<div class="bg-image p-5 text-white" 
+					style="background-image: url('{{ asset('backend/img/trangchutk.jpg') }}'); 
+						width: 100%; 
+						min-height: 250px; 
+						background-size: cover; 
+						background-position: center; 
+						border-radius: 0.5rem;">
+					<div class="container">
+						<!-- Tiêu đề Du lịch -->
+						<!-- Dòng chữ "du lịch năm châu" -->
+						<h4 class="fw-semibold fst-italic text-center" style="
+							color: #ff4d6d; 
+							font-size: 2.5rem;
+							text-shadow: 1px 1px 3px rgba(255,255,255,0.6); transform: rotate(-5deg);">
+							du lịch năm châu
+						</h4>
 
-<!-- Popular Destinations Area start -->
-<section class="popular-destinations-area rel z-1">
-    <div class="container-fluid">
-        <div class="popular-destinations-wrap br-20 bgc-lighter pt-100 pb-70">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="section-title text-center counter-text-wrap mb-70" data-aos="fade-up"
-                        data-aos-duration="1500" data-aos-offset="50">
-                        <h2 style="font-size: 28px; color: #2c3e50; font-weight: 700;" >Khám phá các điểm đến phổ biến</h2>
-                        <p>Một trang web với <span class="count-text plus" data-speed="3000" data-stop="240800">0</span> trải nghiệm phổ biến nhất</p>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-duration="1500"
-                            data-aos-offset="50">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('backend/img/destinations/cungdienthai.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">Thailand Bangkok</a></h6>
-                                <span class="time">Hơn 500 tours & 830 hoạt động</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-delay="100"
-                            data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('backend/img/destinations/Parga.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">Parga, Hy Lạp</a></h6>
-                                <span class="time">Hơn 800 tours & 500 hoạt động</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-delay="200"
-                            data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('backend/img/destinations/Hoian.png')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">Hội An, Việt Nam</a></h6>
-                                <span class="time">Hơn 300 tours & 250 hoạt động</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-duration="1500"
-                            data-aos-offset="50">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('backend/img/destinations/vuonquocgia.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">Vườn quốc gia Banff, Canada</a></h6>
-                                <span class="time">Hơn 650 tours & 340 hoạt động</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-delay="100"
-                            data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('backend/img/destinations/destination5.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">Dubai united states</a></h6>
-                                <span class="time">Hơn 990 tours & 1000 hoạt động</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-delay="200"
-                            data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('backend/img/destinations/Roma.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">Thành phố Vatican, Roma</a></h6>
-                                <span class="time">Hơn 1200 tours & 300 hoạt động</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Popular Destinations Area end -->
+						<!-- Dòng chữ "GIÁ CẢ CHẲNG LO ÂU" -->
+						<h2 class="fw-bold text-uppercase text-center" style="
+							font-size: 3.5rem;
+							background: linear-gradient(to right, #0044ff, #00cfff); 
+							-webkit-background-clip: text;
+							-webkit-text-fill-color: transparent;
+							text-shadow: 2px 2px 0 #fff, 4px 4px 10px rgba(0,0,0,0.2); 
+							transform: rotate(-5deg); margin-bottom: 1cm;">
+							
+							GIÁ CẢ CHẲNG LO ÂU
+						</h2>
 
-<!-- Features Area start -->
-<section class="features-area pt-100 pb-45 rel z-1">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6">
-                <div class="features-content-part mb-55" data-aos="fade-left" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="section-title mb-60">
-                        <h2>Khám Phá Sự Khác Biệt Trong Mỗi Hành Trình Du Lịch Cùng Chúng Tôi</h2>
-                    </div>
-                    <div class="features-customer-box">
-                        <div class="image">
-                            <img src="{{asset('backend/img/features/features-box.jpg')}}" alt="Features">
-                        </div>
-                        <div class="content">
-                            <div class="feature-authors mb-15">
-                                <img src="{{asset('backend/img/features/feature-author1.jpg')}}" alt="Author">
-                                <img src="{{asset('backend/img/features/feature-author2.jpg')}}" alt="Author">
-                                <img src="{{asset('backend/img/features/feature-author3.jpg')}}" alt="Author">
-                                <span>4k+</span>
-                            </div>
-                            <h6>Hơn 800K+ khách hàng hài lòng</h6>
-                            <div class="divider style-two counter-text-wrap my-25"><span><span class="count-text plus"
-                                        data-speed="3000" data-stop="20">0</span> Năm</span></div>
-                            <p> Chúng tôi tự hào tạo ra những hành trình được cá nhân hóa theo sở thích riêng của bạn.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                <div class="row pb-25">
-                    <div class="col-md-6">
-                        <div class="feature-item">
-                            <div class="icon"><i class="flaticon-tent"></i></div>
-                            <div class="content">
-                                <h5 style="font-family: 'Montserrat', sans-serif; font-size: 22px; color: #2c3e50; font-weight: 600; margin-bottom: 10px;"><a href= "tour-details.html" style="text-decoration: none; color: #2c3e50;">Cắm trại bằng lều</a></h5>
-                                <p  style="font-family: 'Open Sans', sans-serif; font-size: 16px; color: #7f8c8d; line-height: 1.6;">Một cách tuyệt vời để trải nghiệm vẻ đẹp của thiên nhiên.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="icon"><i class="flaticon-tent"></i></div>
-                            <div class="content">
-                                <h5 style="font-family: 'Montserrat', sans-serif; font-size: 22px; color: #2c3e50; font-weight: 600; margin-bottom: 10px;"><a href="tour-details.html" style="text-decoration: none; color: #2c3e50;">Kayaking</a></h5>
-                                <p style="font-family: 'Open Sans', sans-serif; font-size: 16px; color: #7f8c8d; line-height: 1.6;"> Một môn thể thao ngoài trời đầy kích thích giúp bạn kết nối với thiên nhiên.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="feature-item mt-20">
-                            <div class="icon"><i class="flaticon-tent"></i></div>
-                            <div class="content">
-                                <h5 style="font-family: 'Montserrat', sans-serif; font-size: 22px; color: #2c3e50; font-weight: 600; margin-bottom: 10px;"><a href="tour-details.html" style="text-decoration: none; color: #2c3e50;">Đạp xe địa hình</a></h5>
-                                <p style="font-family: 'Open Sans', sans-serif; font-size: 16px; color: #7f8c8d; line-height: 1.6;">Một cuộc phiêu lưu đầy phấn khích thử thách giới hạn thể chất của bạn.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="icon"><i class="flaticon-tent"></i></div>
-                            <div class="content">
-                                <h5 style="font-family: 'Montserrat', sans-serif; font-size: 22px; color: #2c3e50; font-weight: 600; margin-bottom: 10px;"><a href="tour-details.html" style="text-decoration: none; color: #2c3e50;">Câu cá & Chèo thuyền</a></h5>
-                                <p style="font-family: 'Open Sans', sans-serif; font-size: 16px; color: #7f8c8d; line-height: 1.6;"> Cách hoàn hảo để thư giãn và hòa mình vào thiên nhiên.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Features Area end -->
+						<!-- Dòng 1: Dropdown chọn điểm đến -->
+						<div class="row mb-3">
+							<div class="col-md-4 ">
+								<div class="input-group">
+									<span class="input-group-text bg-white">
+										<i class="fa fa-map-marker text-primary"></i>
+									</span>
+									<select class="form-select">
+										<option selected>Chọn một điểm đến</option>
+										<option value="halong">Vịnh Hạ Long</option>
+										<option value="sapa">Sapa</option>
+										<option value="phuquoc">Phú Quốc</option>
+									</select>
+								</div>
+							</div>
+						</div>
 
-<!-- Testimonials Area start -->
-<section class="testimonials-area rel z-1">
-    <div class="container">
-        <div class="testimonials-wrap bgc-lighter">
-            <div class="row">
-                <div class="col-lg-5 rel" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="testimonial-image"
-                        style="background-image: url({{asset('clients/assets/images/testimonials/chi1.png')}});"></div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="testimonial-right-content" data-aos="fade-left" data-aos-duration="1500"
-                        data-aos-offset="50">
-                        <div class="section-title mb-55">
-                            <h2  style="font-family: 'Segoe UI', sans-serif; font-size: 32px; color: #333; text-align: center; margin: 20px 0;"><span style="display: inline-block; background-color: #FFD700; padding: 10px 20px; border-radius: 6px;font-weight: bold; font-size: 32px; line-height: 1; text-align: center;">5280</span> khách hàng toàn cầu chia sẻ trải nghiệm về dịch vụ của chúng tôi</h2>
-                        </div>
-                        <div class="testimonials-active">
-                            <div class="testimonial-item">
-                                <div class="testi-header">
-                                    <div class="quote"><i class="flaticon-double-quotes"></i></div>
-                                    <h4  style="font-family: 'Segoe UI', sans-serif; font-size: 22px; color: #333; text-align: center; margin: 20px 0;
-                                    font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
-                                    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); transition: color 0.3s;">Dịch vụ chất lượng</h4>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="text" style="font-family: 'Segoe UI', sans-serif; font-size: 18px; color: #555; text-align: center;line-height: 1.6; font-style: italic; padding: 20px; border-left: 4px solid #007bff; margin: 20px auto; max-width: 80%;">"Chuyến đi của chúng tôi thật sự hoàn hảo, cảm ơn công ty du lịch này! Họ đã lo mọi chi tiết, từ chỗ ở cho đến việc gợi ý những trải nghiệm tuyệt vời"</div>
-                                <div class="author">
-                                    <div class="image"><img src="{{asset('backend/img/testimonials/myduyen.jpg')}}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;"
-                                            alt="Author"></div>
-                                    <div class="content">
-                                        <h5 style="font-family: 'Segoe UI', sans-serif; font-size: 24px; color: #333; text-align: center;
-                                        font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 10px 0;
-                                        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); transition: color 0.3s;">Mỹ Duyên</h5>
-                                        <span  style="font-family: 'Segoe UI', sans-serif; font-size: 18px; color: #333; text-align: center;
-                                        font-weight: normal; text-transform: capitalize; letter-spacing: 0.5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-                                        transition: color 0.3s;">Mỹ Mỹ</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <div class="testi-header">
-                                    <div class="quote"><i class="flaticon-double-quotes"></i></div>
-                                    <h4 style="font-family: 'Segoe UI', sans-serif; font-size: 22px; color: #333; text-align: center; margin: 20px 0;
-                                    font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
-                                    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); transition: color 0.3s;">Dịch vụ chất lượng</h4>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="text" style="font-family: 'Segoe UI', sans-serif; font-size: 18px; color: #555; text-align: center; line-height: 1.6; font-style: italic; padding: 20px; border-left: 4px solid #007bff; margin: 20px auto; max-width: 80%;">"Chúng tôi đã có một hành trình khó quên, nhờ sự chăm chút đến từng chi tiết của công ty du lịch, từ đặt khách sạn đến các hoạt động độc đáo họ gợi ý"</div>
-                                <div class="author">
-                                    <div class="image"><img src="{{asset('backend/img/testimonials/ok.jpg')}}"
-                                            alt="Author"></div>
-                                    <div class="content">
-                                        <h5 style="font-family: 'Segoe UI', sans-serif; font-size: 24px; color: #333; text-align: center;
-                                        font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 10px 0;
-                                        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); transition: color 0.3s;">Mỹ Linh</h5>
-                                        <span style="font-family: 'Segoe UI', sans-serif; font-size: 18px; color: #333; text-align: center;
-                                        font-weight: normal; text-transform: capitalize; letter-spacing: 0.5px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-                                        transition: color 0.3s;">Linh Linh</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Testimonials Area end -->
+						<!-- Dòng 2: Ô tìm kiếm nằm thấp hơn và về bên phải -->
+						<div class="row justify-content-end" style="margin-bottom: 1cm;">
+							<div class="col-md-5">
+								<div class="input-group">
+									<span class="input-group-text bg-white">
+										<i class="fa fa-search text-primary"></i>
+									</span>
+									<input type="text" class="form-control" placeholder="Tìm kiếm địa điểm hoặc hoạt động">
+									<button class="btn btn-primary" type="submit">Tìm</button>
+								</div>
+							</div>
+						</div>
 
-        </main>
+					</div>
+				</div>
+			</section>
+
+			<!-- Featured tours -->
+			<section class="featured-tours p-2 bg-white">
+				<div class="container">
+					<h2 class="text-center mb-4">Tour nổi bật</h2>
+
+					<!-- Sửa khoảng cách giữa các tour -->
+					<div class="row gx-4" style="row-gap: 2cm;">
+
+						<!-- Tour 1 -->
+						<div class="col-md-4">
+							<div class="card h-100 shadow-sm">
+								<img src="{{ asset('backend/img/halongbay.jpg') }}" class="card-img-top" alt="Hạ Long">
+								<div class="card-body">
+									<h5 class="card-title">Du lịch Hạ Long 3N2Đ</h5>
+									<p class="card-text">Khám phá vịnh Hạ Long - kỳ quan thiên nhiên thế giới với nhiều hoạt động hấp dẫn.</p>
+									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Tour 2 -->
+						<div class="col-md-4">
+							<div class="card h-100 shadow-sm">
+								<img src="{{ asset('backend/img/dalat.jpg') }}" class="card-img-top" alt="Đà Lạt">
+								<div class="card-body">
+									<h5 class="card-title">Khám phá Đà Lạt mộng mơ</h5>
+									<p class="card-text">Trải nghiệm khí hậu se lạnh, cảnh sắc thiên nhiên và văn hóa đặc sắc của Đà Lạt.</p>
+									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Tour 3 -->
+						<div class="col-md-4">
+							<div class="card h-100 shadow-sm">
+								<img src="{{ asset('backend/img/phuquoc.jpg') }}" class="card-img-top" alt="Phú Quốc">
+								<div class="card-body">
+									<h5 class="card-title">Phú Quốc - Thiên đường nghỉ dưỡng</h5>
+									<p class="card-text">Tận hưởng kỳ nghỉ tuyệt vời tại các resort cao cấp và bãi biển tuyệt đẹp.</p>
+									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Tour 4: Bangkok -->
+						<div class="col-md-4">
+							<div class="card h-100 shadow-sm">
+								<img src="{{ asset('backend/img/bangkok.jpg') }}" class="card-img-top" alt="Bangkok">
+								<div class="card-body">
+									<h5 class="card-title">Bangkok - Thái Lan</h5>
+									<p class="card-text">Khám phá thành phố sôi động Bangkok với những ngôi chùa vàng, ẩm thực đường phố hấp dẫn và trung tâm mua sắm hiện đại.</p>
+									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Tour 5: New York -->
+						<div class="col-md-4">
+							<div class="card h-100 shadow-sm">
+								<img src="{{ asset('backend/img/newyork.jpg') }}" class="card-img-top" alt="New York">
+								<div class="card-body">
+									<h5 class="card-title">New York - Mỹ</h5>
+									<p class="card-text">Trải nghiệm thành phố không ngủ với những địa danh nổi tiếng như Tượng Nữ thần Tự do, Times Square và Central Park.</p>
+									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Tour 6: Osaka -->
+						<div class="col-md-4">
+							<div class="card h-100 shadow-sm">
+								<img src="{{ asset('backend/img/osaka.jpg') }}" class="card-img-top" alt="Osaka">
+								<div class="card-body">
+									<h5 class="card-title">Osaka - Nhật Bản</h5>
+									<p class="card-text">Thành phố của ẩm thực và văn hóa hiện đại, nổi bật với lâu đài Osaka, phố đi bộ Dotonbori và món takoyaki trứ danh.</p>
+									<a href="#" class="btn btn-outline-primary">Xem chi tiết</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<!-- Why choose Travio -->
+			<section class="why-choose-us py-5 bg-light">
+				<div class="container">
+					<h2 class="text-center mb-4">Vì sao chọn Travio?</h2>
+					<div class="row text-center">
+						<div class="col-md-4 mb-4">
+							<div class="p-4 border rounded h-100">
+								<i class="fa fa-map fa-2x mb-3 text-primary"></i>
+								<h5>Hành trình đa dạng</h5>
+								<p>Hơn 100+ tour trong và ngoài nước cho bạn lựa chọn.</p>
+							</div>
+						</div>
+						<div class="col-md-4 mb-4">
+							<div class="p-4 border rounded h-100">
+								<i class="fa fa-star fa-2x mb-3 text-primary"></i>
+								<h5>Dịch vụ chất lượng</h5>
+								<p>Đội ngũ tư vấn và hướng dẫn viên chuyên nghiệp, tận tâm.</p>
+							</div>
+						</div>
+						<div class="col-md-4 mb-4">
+							<div class="p-4 border rounded h-100">
+								<i class="fa fa-shield fa-2x mb-3 text-primary"></i>
+								<h5>An toàn & Tin cậy</h5>
+								<p>Bảo hiểm du lịch và hỗ trợ 24/7 trong suốt hành trình.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 
 		<!-- Footer -->
 		<footer class="bg-black py-4">
@@ -530,12 +353,12 @@
 					</div>
 					<div class="col-3 d-none d-lg-flex flex-column gap-2">
 						<a
-							href="./gioithieu.html"
+							href="{{ url('/gioithieu') }}"
 							class="link-underline-opacity-0 link-light"
 							>Giới thiệu</a
 						>
 						<a
-							href="./sanpham.html"
+							href="{{ url('/tour') }}"
 							class="link-underline-opacity-0 link-light"
 							>Tour</a
 						>

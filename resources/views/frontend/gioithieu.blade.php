@@ -150,9 +150,166 @@
 		</header>
 
 		<!-- Main -->
-		<main>
-            
-        </main>
+		<main class="container my-5">
+			<h1 class="text-center mb-4">Chào mừng đến với Travio</h1>
+			<!-- Phần giới thiệu tóm tắt-->
+			<section class="mb-5">
+				<div class="row justify-content-center align-items-center g-4">
+					<div class="col-lg-5 text-center">
+						<img src="{{ asset('backend/img/gioithieutk.jpg') }}"
+							class="img-fluid rounded-4 shadow"
+							style="max-width: 100%; width: 500px; height: auto;"
+							alt="Giới thiệu Travio">
+					</div>
+					<div class="col-lg-7">
+						<div class="fs-5">
+							<p><strong>Travio</strong> là nền tảng du lịch trực tuyến chuyên nghiệp, giúp hàng nghìn du khách khám phá vẻ đẹp Việt Nam và thế giới mỗi năm. Chúng tôi cung cấp các tour du lịch đa dạng, từ nghỉ dưỡng biển, du lịch sinh thái, cho đến hành trình khám phá văn hóa, lịch sử và ẩm thực đặc sắc.</p>
+							<p>Không chỉ là nhà cung cấp dịch vụ, Travio còn là người đồng hành tận tâm trong từng chuyến đi. Chúng tôi tin rằng mỗi hành trình đều mang lại giá trị, kết nối và cảm hứng sống mới.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="container my-5">
+				<h2 class="text-center mb-5 fs-2">Hành trình phát triển Travio</h2>
+
+				<!-- Mốc 2022 -->
+				<div class="row align-items-center mb-5">
+					<div class="col-md-5 text-center">
+						<img src="{{ asset('backend/img/hanhtrinh2022.jpg') }}"
+							alt="2022 milestone"
+							class="img-fluid rounded shadow-sm"
+							style="max-width: 100%; height: auto;">
+					</div>
+					<div class="col-md-7">
+						<h4 class="text-info fs-3" style="margin-bottom: 0.5cm;">2022: 100.000 khách hàng hài lòng</h4>
+						<p class="fs-5">Travio cán mốc 100.000 khách hàng với hàng loạt tour chất lượng và dịch vụ chuyên nghiệp – đánh dấu một bước ngoặt lớn trong hành trình phát triển.</p>
+					</div>
+				</div>
+
+				<!-- Mốc 2024 -->
+				<div class="row align-items-center mb-5 flex-md-row-reverse">
+					<div class="col-md-5 text-center">
+						<img src="{{ asset('backend/img/hanhtrinh2024.jpg') }}"
+							alt="2024 milestone"
+							class="img-fluid rounded shadow-sm"
+							style="width: 100%; max-width: 800px; height: 80%;">
+					</div>
+					<div class="col-md-7">
+						<h4 class="text-info fs-3" style="margin-bottom: 0.5cm;">2024: Mở rộng tour quốc tế</h4>
+						<p class="fs-5">Travio vươn tầm quốc tế với hệ thống tour Nhật, Hàn, châu Âu, mang lại trải nghiệm du lịch đẳng cấp cho khách Việt yêu thích khám phá thế giới.</p>
+					</div>
+				</div>
+
+				<!-- Mốc 2025 -->
+				<div class="row align-items-center mb-5">
+					<div class="col-md-5 text-center">
+						<img src="{{ asset('backend/img/hanhtrinh2025.jpg') }}"
+							alt="2025 milestone"
+							class="img-fluid rounded shadow-sm"
+							style="max-width: 100%; height: auto;">
+					</div>
+					<div class="col-md-7">
+						<h4 class="text-info fs-3">2025: Chuyển đổi số toàn diện</h4>
+						<p class="fs-5">Travio ứng dụng công nghệ AI, chatbot, và hệ thống đặt tour thông minh giúp cá nhân hóa hành trình và nâng tầm trải nghiệm khách hàng.</p>
+					</div>
+				</div>
+			</section>
+
+
+
+			<section class="mb-5">
+				<h2 class="text-center mb-5 fw-bold" style="font-size: 2.5rem;">TRẢI NGHIỆM DU LỊCH</h2>
+				<div class="container">
+					<div class="row row-cols-1 row-cols-md-2 g-4">
+
+						<!-- Bài 1 -->
+						<div class="d-flex">
+							<img src="{{ asset('backend/img/chiangmai.jpg') }}" class="me-3 rounded shadow-sm"
+								style="width: 180px; height: 120px; object-fit: cover;" alt="Chiang Mai">
+							<div>
+								<h6 class="fw-semibold text-primary">Kinh nghiệm du lịch Chiang Mai – Thái Lan tự túc 2024</h6>
+								<p class="mb-1">Chiang Mai được mệnh danh là bông hồng của miền Bắc Thái Lan bởi cảnh sắc thiên nhiên tươi đẹp và bầu không khí mát mẻ quanh năm.</p>
+								<div class="text-end">
+									<a href="#" class="text-decoration-none text-muted">Xem chi tiết</a>
+								</div>
+
+							</div>
+						</div>
+
+						<!-- Bài 2 -->
+						<div class="d-flex">
+							<img src="{{ asset('backend/img/condao.jpg') }}" class="me-3 rounded shadow-sm"
+								style="width: 180px; height: 120px; object-fit: cover;" alt="Côn Đảo">
+							<div>
+								<h6 class="fw-semibold text-primary">Kinh nghiệm du lịch Côn Đảo tự túc mới nhất 2024</h6>
+								<p class="mb-1">Côn Đảo là hòn đảo có cảnh quan tươi đẹp, hoang sơ và vẫn giữ được nét bình yên không xô bồ như Phú Quốc.</p>
+								<div class="text-end">
+									<a href="#" class="text-decoration-none text-muted">Xem chi tiết</a>
+								</div>
+
+							</div>
+						</div>
+
+						<!-- Bài 3 -->
+						<div class="d-flex">
+							<img src="{{ asset('backend/img/quanlan.jpg') }}" class="me-3 rounded shadow-sm"
+								style="width: 180px; height: 120px; object-fit: cover;" alt="Quan Lạn">
+							<div>
+								<h6 class="fw-semibold text-primary">Kinh nghiệm du lịch Quan Lạn Quảng Ninh chi tiết 2024</h6>
+								<p class="mb-1">Quan Lạn nổi lên như một “hiện tượng” du lịch biển với vẻ đẹp hoang sơ, nước trong xanh và bãi cát trắng mịn.</p>
+								<div class="text-end">
+									<a href="#" class="text-decoration-none text-muted">Xem chi tiết</a>
+								</div>
+
+							</div>
+						</div>
+
+						<!-- Bài 4 -->
+						<div class="d-flex">
+							<img src="{{ asset('backend/img/taybac.jpg') }}" class="me-3 rounded shadow-sm"
+								style="width: 180px; height: 120px; object-fit: cover;" alt="Tây Bắc">
+							<div>
+								<h6 class="fw-semibold text-primary">Kinh nghiệm du lịch Tây Bắc mới nhất [từ A đến Z]</h6>
+								<p class="mb-1">Cập nhật đầy đủ kinh nghiệm du lịch Tây Bắc: địa điểm hấp dẫn, ẩm thực đa dạng và văn hóa bản địa đặc sắc.</p>
+								<div class="text-end">
+									<a href="#" class="text-decoration-none text-muted">Xem chi tiết</a>
+								</div>
+
+							</div>
+						</div>
+			</section>
+
+
+			<section class="my-5">
+				<h2 class="text-center mb-4">Khám phá tour cùng Travio</h2>
+				<div class="row justify-content-center">
+					<div class="col-md-10 text-center">
+						<video controls class="w-100 rounded shadow">
+							<source src="{{ asset('frontend/videocuoi.mp4') }}" type="video/mp4">
+							Trình duyệt của bạn không hỗ trợ video.
+						</video>
+					</div>
+				</div>
+			</section>
+
+    
+
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Cam kết của Travio</h2>
+        <ul class="list-group list-group-flush fs-5">
+            <li class="list-group-item">✅ Dịch vụ chất lượng cao, rõ ràng và minh bạch.</li>
+            <li class="list-group-item">✅ Hoàn tiền nếu không đúng cam kết.</li>
+            <li class="list-group-item">✅ Hỗ trợ 24/7 qua hotline, email, và mạng xã hội.</li>
+            <li class="list-group-item">✅ Hợp tác cùng các nhà cung cấp uy tín trong và ngoài nước.</li>
+        </ul>
+    </section>
+
+    <div class="text-center mt-4">
+        <a href="{{ url('/tour') }}" class="btn btn-primary btn-lg">Khám phá các tour hiện có</a>
+    </div>
+</main>
+
 
 		<!-- Footer -->
 		<footer class="bg-black py-4">
@@ -176,12 +333,12 @@
 					</div>
 					<div class="col-3 d-none d-lg-flex flex-column gap-2">
 						<a
-							href="./gioithieu.html"
+							href="{{ url('/gioithieu') }}"
 							class="link-underline-opacity-0 link-light"
 							>Giới thiệu</a
 						>
 						<a
-							href="./sanpham.html"
+							href="{{ url('/tour') }}"
 							class="link-underline-opacity-0 link-light"
 							>Tour</a
 						>

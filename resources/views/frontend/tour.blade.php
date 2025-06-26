@@ -163,8 +163,8 @@
 		<!-- Main -->
 		<main>
 
-        <!-- Tour Grid Area start -->
-        <section class="tour-grid-page py-100 rel z-1">
+        <!-- Tour Grid Area start -->       
+            <section class="tour-grid-page py-100 rel z-1">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
@@ -732,7 +732,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+            </section>
         <!-- Tour Grid Area end -->
         </main>
 
