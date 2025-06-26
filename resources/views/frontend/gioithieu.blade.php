@@ -1,53 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travio | Giới thiệu</title>
-
-    {{-- Favicon --}}
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('frontend/img/favicon/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('frontend/img/favicon/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('frontend/img/favicon/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('frontend/img/favicon/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('frontend/img/favicon/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('frontend/img/favicon/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('frontend/img/favicon/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('frontend/img/favicon/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/img/favicon/apple-icon-180x180.png') }}">
-
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('frontend/img/favicon/android-icon-192x192.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/img/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('frontend/img/favicon/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/img/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('frontend/img/favicon/manifest.json') }}">
-
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('frontend/img/favicon/ms-icon-144x144.png') }}">
-    <meta name="theme-color" content="#ffffff">
-
-    {{-- Fonts & CDN --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    {{-- Local CSS --}}
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}">
-</head>
-<body>
-
+@extends('layouts.app')
+@section('title', 'Travio | Giới thiệu')
+@section('content')
 	<body>
 		<!-- Header -->
 		<header class="border-bottom sticky-top bg-white">
 			<nav class="navbar navbar-expand-lg">
 				<div class="container-fluid container-lg">
 					<a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('frontend/img/logo/logo.png') }}" 
+                        <img src="{{ asset('frontend/img/logo/logo.png') }}"
                              alt="Travio"
                              class="header-logo" />
                         <span class="fw-bold fs-4" style="font-family: 'Playfair Display', serif;">Travio</span>
@@ -293,7 +253,7 @@
 				</div>
 			</section>
 
-    
+
 
     <section class="mb-5">
         <h2 class="text-center mb-4 fs-2" style="margin-top: 1cm;">Cam kết của Travio</h2>
@@ -476,4 +436,4 @@
 			crossorigin="anonymous"></script>
 		<script src="../js/shopping-cart.js"></script>
 	</body>
-</html>
+@endsection

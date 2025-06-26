@@ -1,56 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travio | Tour</title>
-
-    {{-- Favicon --}}
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('frontend/img/favicon/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('frontend/img/favicon/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('frontend/img/favicon/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('frontend/img/favicon/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('frontend/img/favicon/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('frontend/img/favicon/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('frontend/img/favicon/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('frontend/img/favicon/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/img/favicon/apple-icon-180x180.png') }}">
-
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('frontend/img/favicon/android-icon-192x192.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/img/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('frontend/img/favicon/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/img/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('frontend/img/favicon/manifest.json') }}">
-
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('frontend/img/favicon/ms-icon-144x144.png') }}">
-    <meta name="theme-color" content="#ffffff">
-
-    {{-- Fonts & CDN --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    {{-- Local CSS --}}
-    <link rel="stylesheet" href="{{ asset('frontend/css/styles.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('frontend/css/tour.css') }}"> --}}
-        <!-- Main Style -->
-    <link rel="stylesheet"href="{{ asset('frontend/css/style.css') }}">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">\
-
-    <!-- jQuery & jQuery UI -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-
-
-</head>
-<body>
+@extends('layouts.app')
+@section('title', 'Travio | Trang chủ')
+@section('content')
 
 	<body>
 		<!-- Header -->
@@ -163,7 +113,7 @@
 		<!-- Main -->
 		<main>
 
-        <!-- Tour Grid Area start -->       
+        <!-- Tour Grid Area start -->
             <section class="tour-grid-page py-100 rel z-1">
             <div class="container">
                 <div class="row">
@@ -255,13 +205,13 @@
                                         <input class="form-check-input" type="radio" checked name="ByReviews"
                                             id="review1">
                                         <label for="review1">
-                                            <span class="ratting">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </span>
+                                        <span class="ratting">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>
                                         </label>
                                     </li>
                                     <li>
@@ -269,11 +219,11 @@
                                             id="review2">
                                         <label for="review2">
                                             <span class="ratting">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt white"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-alt white"></i>
                                             </span>
                                         </label>
                                     </li>
@@ -282,11 +232,11 @@
                                             id="review3">
                                         <label for="review3">
                                             <span class="ratting">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star white"></i>
-                                                <i class="fas fa-star-half-alt white"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star white"></i>
+                                                <i class="fa fa-star-half-alt white"></i>
                                             </span>
                                         </label>
                                     </li>
@@ -295,11 +245,11 @@
                                             id="review4">
                                         <label for="review4">
                                             <span class="ratting">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star white"></i>
-                                                <i class="fas fa-star white"></i>
-                                                <i class="fas fa-star-half-alt white"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star white"></i>
+                                                <i class="fa fa-star white"></i>
+                                                <i class="fa fa-star-half-alt white"></i>
                                             </span>
                                         </label>
                                     </li>
@@ -308,11 +258,11 @@
                                             id="review5">
                                         <label for="review5">
                                             <span class="ratting">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star white"></i>
-                                                <i class="fas fa-star white"></i>
-                                                <i class="fas fa-star white"></i>
-                                                <i class="fas fa-star-half-alt white"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star white"></i>
+                                                <i class="fa fa-star white"></i>
+                                                <i class="fa fa-star white"></i>
+                                                <i class="fa fa-star-half-alt white"></i>
                                             </span>
                                         </label>
                                     </li>
@@ -411,18 +361,18 @@
                                         data-aos-duration="1500" data-aos-offset="50">
                                         <div class="image">
                                             <span class="badge bgc-pink">Nổi bật</span>
-                                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="heart"><i class="fa fa-heart"></i></a>
                                             <img src="{{asset('backend/img/destinations/vhl2.png')}}" alt="Tour List">
                                         </div>
                                         <div class="content">
                                             <div class="destination-header">
                                                 <span class="location"><i class="fal fa-map-marker-alt"></i>Vịnh Hạ Long, Việt Nam</span>
                                                 <div class="ratting">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
                                             <h6 style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5;"><a href="tour-details.html"  style="text-decoration: none; color: inherit;">Vịnh Hạ Long là kỳ quan thiên nhiên nổi bật của Quảng Ninh, nằm ở phía bắc Việt Nam.</a></h6>
@@ -443,7 +393,7 @@
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
                                         <div class="image">
-                                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="heart"><i class="fa fa-heart"></i></a>
                                             <img src="{{ asset('backend/img/destinations/japan.png') }}"
                                                 alt="Tour List">
                                         </div>
@@ -451,11 +401,11 @@
                                             <div class="destination-header">
                                                 <span class="location"><i class="fal fa-map-marker-alt"></i>Đền Asakusa, Tokyo, Nhật Bản</span>
                                                 <div class="ratting">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
                                             <h6 style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5;"><a href="tour-details.html" style="text-decoration: none; color: inherit;">Senso-ji là ngôi đền cổ nhất Tokyo, nổi tiếng với kiến trúc truyền thống.</a></h6>
@@ -476,7 +426,7 @@
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
                                         <div class="image">
-                                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="heart"><i class="fa fa-heart"></i></a>
                                             <img src="{{ asset('backend/img/destinations/samac.png') }}"
                                                 alt="Tour List">
                                         </div>
@@ -484,11 +434,11 @@
                                             <div class="destination-header">
                                                 <span class="location"><i class="fal fa-map-marker-alt"></i>Tamnougalt, Morocco</span>
                                                 <div class="ratting">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
                                             <h6 style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5;"><a href="tour-details.html"  style="text-decoration: none; color: inherit;">Một ốc đảo cổ kính nằm bên dòng sông Draa, nổi bật với pháo đài cổ kasbah và nét văn hóa Berber.</a></h6>
@@ -509,7 +459,7 @@
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-offset="50">
                                         <div class="image">
-                                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="heart"><i class="fa fa-heart"></i></a>
                                             <img src="{{ asset('backend/img/destinations/Bangkok.png') }}"
                                                 alt="Tour List">
                                         </div>
@@ -517,11 +467,11 @@
                                             <div class="destination-header">
                                                 <span class="location"><i class="fal fa-map-marker-alt"></i>Bangkok, Thái Lan</span>
                                                 <div class="ratting">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
                                             <h6 style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5;"><a href="tour-details.html" style="text-decoration: none; color: inherit;"> Thành phố sôi động kết hợp giữa truyền thống và hiện đại.</a></h6>
@@ -542,18 +492,18 @@
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
                                         <div class="image">
-                                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="heart"><i class="fa fa-heart"></i></a>
                                             <img src="{{asset('backend/img/destinations/Roma.png')}}" alt="Tour List">
                                         </div>
                                         <div class="content">
                                             <div class="destination-header">
                                                 <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Ý</span>
                                                 <div class="ratting">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
                                             <h6 style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5;"><a href="tour-details.html" style="text-decoration: none; color: inherit;"> Thủ đô lịch sử lừng danh với những công trình cổ đại như Đấu trường La Mã, Đền Pantheon...</a></h6>
@@ -575,7 +525,7 @@
                                         data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
                                         <div class="image">
                                             <span class="badge">giảm 10%</span>
-                                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="heart"><i class="fa fa-heart"></i></a>
                                             <img src="{{ asset('backend/img/destinations/bali.png') }}"
                                                 alt="Tour List">
                                         </div>
@@ -583,11 +533,11 @@
                                             <div class="destination-header">
                                                 <span class="location"><i class="fal fa-map-marker-alt"></i> Bali, Indonesia</span>
                                                 <div class="ratting">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
                                             <h6 style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5;"><a href="tour-details.html" style="text-decoration: none; color: inherit;">Thiên đường nhiệt đới nổi tiếng với những bãi biển tuyệt đẹp, thu hút du khách khắp thế giới.</a></h6>
@@ -609,7 +559,7 @@
                                         data-aos-duration="1500" data-aos-offset="50">
                                         <div class="image">
                                             <span class="badge">giảm 10%</span>
-                                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="heart"><i class="fa fa-heart"></i></a>
                                             <img src="{{ asset('backend/img/destinations/tbn.png') }}"
                                                 alt="Tour List">
                                         </div>
@@ -617,11 +567,11 @@
                                             <div class="destination-header">
                                                 <span class="location"><i class="fal fa-map-marker-alt"></i> Barcelona, Tây Ban Nha</span>
                                                 <div class="ratting">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
                                             <h6 style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5;"><a href="tour-details.html" style="text-decoration: none; color: inherit;">Thành phố nổi tiếng với kiến trúc độc đáo của Gaudí, bãi biển xinh đẹp và văn hóa sống động.</a></h6>
@@ -642,7 +592,7 @@
                                     <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
                                         <div class="image">
-                                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="heart"><i class="fa fa-heart"></i></a>
                                             <img src="{{ asset('backend/img/destinations/newyork.png') }}"
                                                 alt="Tour List">
                                         </div>
@@ -650,11 +600,11 @@
                                             <div class="destination-header">
                                                 <span class="location"><i class="fal fa-map-marker-alt"></i> New York, Mỹ</span>
                                                 <div class="ratting">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
                                             <h6 style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5;"><a href="tour-details.html" style="text-decoration: none; color: inherit;"> Thành phố sôi động với biểu tượng như tượng Nữ thần Tự do, Central Park và Times Square.</a></h6>
@@ -676,7 +626,7 @@
                                         data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
                                         <div class="image">
                                             <span class="badge bgc-pink">Nổi bật</span>
-                                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                            <a href="#" class="heart"><i class="fa fa-heart"></i></a>
                                             <img src="{{ asset('backend/img/destinations/aicap.png') }}"
                                                 alt="Tour List">
                                         </div>
@@ -684,11 +634,11 @@
                                             <div class="destination-header">
                                                 <span class="location"><i class="fal fa-map-marker-alt"></i>Cairo, Ai Cập</span>
                                                 <div class="ratting">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
                                                 </div>
                                             </div>
                                             <h6 style="font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; color: #333; line-height: 1.5;"><a href="tour-details.html" style="text-decoration: none; color: inherit;"> Thành phố lịch sử nổi tiếng với những kim tự tháp cổ đại và bảo tàng Ai Cập.</a></h6>
@@ -901,7 +851,7 @@
 			crossorigin="anonymous"></script>
 		<script src="../js/shopping-cart.js"></script>
 	</body>
-</html>
+@endsection
 <script>
 
     $(function () {
