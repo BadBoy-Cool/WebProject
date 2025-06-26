@@ -8261,6 +8261,7 @@ blockquote {
   border: none;
   cursor: pointer;
 }
+<<<<<<< HEAD
 
 
 #halong:target, #bali:target, #barcelona:target, #bangkok:target, #newyork:target, #Tokyo:target {
@@ -8274,4 +8275,20 @@ blockquote {
 @keyframes highlightFade {
     0% { background-color: #fff0f3; }
     100% { background-color: transparent; }
+=======
+.rating-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: orange;
+    font-size: 24px;
+    z-index: 999;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.rating-link:hover {
+    transform: scale(1.2);
+    color: gold;
+>>>>>>> 55c9e8b38433839a30ffc5b9605c046a0139a6e7
 }

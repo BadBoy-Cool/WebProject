@@ -1,54 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travio | Trang Chủ</title>
-
-    {{-- Favicon --}}
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('frontend/img/favicon/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('frontend/img/favicon/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('frontend/img/favicon/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('frontend/img/favicon/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('frontend/img/favicon/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('frontend/img/favicon/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('frontend/img/favicon/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('frontend/img/favicon/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/img/favicon/apple-icon-180x180.png') }}">
-
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('frontend/img/favicon/android-icon-192x192.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/img/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('frontend/img/favicon/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/img/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('frontend/img/favicon/manifest.json') }}">
-
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('frontend/img/favicon/ms-icon-144x144.png') }}">
-    <meta name="theme-color" content="#ffffff">
-
-    {{-- Fonts & CDN --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    {{-- Local CSS --}}
-    <link rel="stylesheet" href="{{ asset('frontend/css/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}">
-
-</head>
-<body>
-
+@extends('layouts.app')
+@section('title', 'Travio | Trang chủ')
+@section('content')
 	<body>
 		<!-- Header -->
 		<header class="border-bottom sticky-top bg-white">
 			<nav class="navbar navbar-expand-lg">
 				<div class="container-fluid container-lg">
 					<a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('frontend/img/logo/logo.png') }}" 
+                        <img src="{{ asset('frontend/img/logo/logo.png') }}"
                              alt="Travio"
                              class="header-logo" />
                         <span class="fw-bold fs-4" style="font-family: 'Playfair Display', serif;">Travio</span>
@@ -153,18 +112,18 @@
 		<!-- Main -->
 		<main>
 			<section class="mb-5">
-				<div class="bg-image p-5 text-white" 
-					style="background-image: url('{{ asset('backend/img/trangchutk.jpg') }}'); 
-						width: 100%; 
-						min-height: 250px; 
-						background-size: cover; 
-						background-position: center; 
+				<div class="bg-image p-5 text-white"
+					style="background-image: url('{{ asset('backend/img/trangchutk.jpg') }}');
+						width: 100%;
+						min-height: 250px;
+						background-size: cover;
+						background-position: center;
 						border-radius: 0.5rem;">
 					<div class="container">
 						<!-- Tiêu đề Du lịch -->
 						<!-- Dòng chữ "du lịch năm châu" -->
 						<h4 class="fw-semibold fst-italic text-center" style="
-							color: #ff4d6d; 
+							color: #ff4d6d;
 							font-size: 2.5rem;
 							text-shadow: 1px 1px 3px rgba(255,255,255,0.6); transform: rotate(-5deg);">
 							du lịch năm châu
@@ -173,12 +132,12 @@
 						<!-- Dòng chữ "GIÁ CẢ CHẲNG LO ÂU" -->
 						<h2 class="fw-bold text-uppercase text-center" style="
 							font-size: 3.5rem;
-							background: linear-gradient(to right, #0044ff, #00cfff); 
+							background: linear-gradient(to right, #0044ff, #00cfff);
 							-webkit-background-clip: text;
 							-webkit-text-fill-color: transparent;
-							text-shadow: 2px 2px 0 #fff, 4px 4px 10px rgba(0,0,0,0.2); 
+							text-shadow: 2px 2px 0 #fff, 4px 4px 10px rgba(0,0,0,0.2);
 							transform: rotate(-5deg); margin-bottom: 1cm;">
-							
+
 							GIÁ CẢ CHẲNG LO ÂU
 						</h2>
 
@@ -506,4 +465,4 @@
 			crossorigin="anonymous"></script>
 		<script src="../js/shopping-cart.js"></script>
 	</body>
-</html>
+@endsection

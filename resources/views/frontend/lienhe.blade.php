@@ -1,48 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travio | Liên hệ</title>
-
-    {{-- Favicon --}}
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('frontend/img/favicon/apple-icon-57x57.png') }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('frontend/img/favicon/apple-icon-60x60.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('frontend/img/favicon/apple-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('frontend/img/favicon/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('frontend/img/favicon/apple-icon-114x114.png') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('frontend/img/favicon/apple-icon-120x120.png') }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('frontend/img/favicon/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('frontend/img/favicon/apple-icon-152x152.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/img/favicon/apple-icon-180x180.png') }}">
-
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('frontend/img/favicon/android-icon-192x192.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/img/favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('frontend/img/favicon/favicon-96x96.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/img/favicon/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('frontend/img/favicon/manifest.json') }}">
-
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{ asset('frontend/img/favicon/ms-icon-144x144.png') }}">
-    <meta name="theme-color" content="#ffffff">
-
-    {{-- Fonts & CDN --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-        crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    {{-- Local CSS --}}
-    <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/css/index.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-</head>
-<body>
-
+@extends('layouts.app')
+@section('title', 'Travio | Liên hệ')
+@section('content')
 	<body>
 		<!-- Header -->
 		<header class="border-bottom sticky-top bg-white">
@@ -258,7 +216,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="contact-info-item">
-                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <div class="icon"><i class="fa fa-envelope"></i></div>
                             <div class="content">
                                 <h5>Cần sự giúp đỡ & hỗ trợ</h5>
                                 <div class="text"><a href="mailto:support@gmail.com">duyenb2203435@student.ctu.edu.vn</a></div>
@@ -267,7 +225,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="contact-info-item">
-                            <div class="icon"><i class="fas fa-phone"></i></div>
+                            <div class="icon"><i class="fa fa-phone"></i></div>
                             <div class="content">
                                 <h5>Cần gấp bất kỳ điều gì</h5>
                                 <div class="text"><a href="callto:+0001234588">+000 (123) 45 88</a></div>
@@ -276,7 +234,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="contact-info-item">
-                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="icon"><i class="fa fa-map-marker"></i></div>
                             <div class="content">
                                 <h5>Chi nhánh Việt Nam</h5>
                                 <div class="text">Số 55, đường 10, thành phố Hồ Chí Minh</div>
@@ -285,7 +243,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="contact-info-item">
-                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="icon"><i class="fa fa-map-marker"></i></div>
                             <div class="content">
                                 <h5>Địa chỉ văn phòng chính</h5>
                                 <div class="text">Số nhà 55 trên Đường 10, Vietnam</div>
@@ -564,4 +522,4 @@
 			crossorigin="anonymous"></script>
 		<script src="../js/shopping-cart.js"></script>
 	</body>
-</html>
+@endsection
