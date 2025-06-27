@@ -1,78 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travio | Đăng ký </title>
-  <link rel="stylesheet" href="{{ asset('backend/css/signup.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travio | Đăng ký </title>
+    <link rel="stylesheet" href="{{ asset('backend/css/signup.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/img/favicon/favicon-32x32.png') }}">
 
 </head>
 <body>
   <div class="container">
     <!-- Title section -->
-    <div class="title">SignUp</div>
+    <div class="title">Đăng ký</div>
     <div class="content">
       <!-- Registration form -->
       <form action="#">
         <div class="user-details">
           <!-- Input for Full Name -->
           <div class="input-box">
-            <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" required>
+            <span class="details">Họ và tên</span>
+            <input type="text" placeholder="Nhập họ và tên" required>
           </div>
           <!-- Input for Username -->
           <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" required>
+            <span class="details">Tên đăng nhập</span>
+            <input type="text" placeholder="Nhập tên đăng nhập" required>
           </div>
           <!-- Input for Email -->
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" required>
+            <input type="text" placeholder="Nhập email" required>
           </div>
           <!-- Input for Phone Number -->
           <div class="input-box">
-            <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" required>
+            <span class="details">Số điện thoại liên hệ</span>
+            <input type="text" placeholder="Nhập số điện thoại liên hệ" required>
           </div>
           <!-- Input for Password -->
           <div class="input-box">
-            <span class="details">Password</span>
-            <input type="text" placeholder="Enter your password" required>
+            <span class="details">Mật khẩu</span>
+            <input type="text" placeholder="Nhập mật khẩu" required>
           </div>
           <!-- Input for Confirm Password -->
           <div class="input-box">
-            <span class="details">Confirm Password</span>
-            <input type="text" placeholder="Confirm your password" required>
+            <span class="details">Xác nhận mật khẩu</span>
+            <input type="text" placeholder="Xác nhận mật khẩu" required>
           </div>
-        </div>
-        <div class="gender-details">
+           {{-- Input for Address --}}
+          <div class="input-box">
+            <span class="details">Địa chỉ</span>
+            <input class="address" type="text" placeholder="Nhập địa chỉ của bạn" required>
+          </div>
+          {{-- Select Gender --}}
+          <div class="gender-details input-box">
           <!-- Radio buttons for gender selection -->
           <input type="radio" name="gender" id="dot-1">
           <input type="radio" name="gender" id="dot-2">
-          <input type="radio" name="gender" id="dot-3">
-          <span class="gender-title">Gender</span>
+          <span class="details">Giới tính</span>
           <div class="category">
             <!-- Label for Male -->
             <label for="dot-1">
               <span class="dot one"></span>
-              <span class="gender">Male</span>
+              <span class="gender">Nam</span>
             </label>
             <!-- Label for Female -->
             <label for="dot-2">
               <span class="dot two"></span>
-              <span class="gender">Female</span>
-            </label>
-            <!-- Label for Prefer not to say -->
-            <label for="dot-3">
-              <span class="dot three"></span>
-              <span class="gender">Prefer not to say</span>
-            </label>
+              <span class="gender">Nữ</span>
+            </label>          
           </div>
         </div>
+        </div>
+       
         <!-- Submit button -->
         <div class="button">
-          <input type="submit" value="Register">
+          <input type="submit" value="Đăng ký">
         </div>
       </form>
     </div>

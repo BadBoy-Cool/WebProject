@@ -14,32 +14,16 @@ return new class extends Migration
         Schema::create('KhachHang', function (Blueprint $table) {
             $table->id();
             $table->string('KH_name');
+            $table->string('username');
+            $table->string('userpassword');
             $table->string('email')->unique();
             $table->string('sdt');
             $table->string('diachi');
             $table->boolean('KH_gioitinh');
             $table->timestamps();
         });
-
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
-        });
-
-        Schema::create('sessions', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
-            $table->longText('payload');
-            $table->integer('last_activity')->index();
-        });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('KhachHang');
