@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\TourController;
+use App\Http\Controllers\ReviewController;
+
 
 // Trang chủ
 Route::get('/', function () {
@@ -10,9 +13,14 @@ Route::get('/', function () {
 
 // Các trang khác
 Route::view('/gioithieu', 'frontend.gioithieu');
-Route::view('/tour', 'frontend.tour');
+Route::get('/tour', [TourController::class, 'index'])->name('tour');
 Route::view('/lienhe', 'frontend.lienhe');
 
 // Auth
 Route::get('/dangnhap', [AuthController::class, 'login'])->name('dangnhap');
 Route::view('/signup', 'backend.signup')->name('signup');
+
+// Route::get('/tour-detail', [TourController::class, 'detail']);
+// Route đúng:
+Route::get('/tour-detail/{slug}', [TourController::class, 'detail'])->name('tour.detail');
+Route::post('/tour-review', [ReviewController::class, 'store'])->name('tour.review.store');
