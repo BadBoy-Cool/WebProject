@@ -148,11 +148,11 @@
 									<span class="input-group-text bg-white">
 										<i class="fa fa-map-marker text-primary"></i>
 									</span>
-									<select class="form-select" onchange="window.location.href = '/tour';">
-										<option>Chọn một điểm đến</option>
-										<option value="halong">Vịnh Hạ Long</option>
-										<option value="sapa">Sapa</option>
-										<option value="phuquoc">Phú Quốc</option>
+									<select class="form-select" onchange="window.location.href = '/tour';" style="color: black">
+										<option style="color: black">Chọn một điểm đến</option>
+										<option value="halong" style="color: black">Vịnh Hạ Long</option>
+										<option value="sapa" style="color: black">Sapa</option>
+										<option value="phuquoc" style="color: black">Phú Quốc</option>
 									</select>
 
 								</div>
