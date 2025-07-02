@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('KH_name');
             $table->string('username');
-            $table->string('userpassword');
+            $table->string('password');
             $table->string('email')->unique();
-            $table->string('sdt');
-            $table->string('diachi');
-            $table->boolean('KH_gioitinh');
+            $table->string('sdt') -> nullable();
+            $table->string('diachi') -> nullable();
+            $table->boolean('KH_gioitinh') -> nullable();
             $table->timestamps();
         });
     }

@@ -55,7 +55,7 @@
 								</a>
 							</li>
 							<li class="nav-item">
-    							<a class="nav-link" href="{{ route('dangnhap') }}"
+    							<a class="nav-link" href="{{ route('auth.login') }}"
 								>Đăng nhập</a>
 							</li>
 							<li class="nav-item">
@@ -93,7 +93,7 @@
 							<a
 								type="button"
 								class="btn"
-								href="{{ route('dangnhap') }}"
+								href="{{ route('auth.login') }}"
 								id="sign-in-btn">
 								Đăng nhập
 							</a>

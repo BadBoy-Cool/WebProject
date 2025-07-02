@@ -14,5 +14,7 @@ Route::view('/tour', 'frontend.tour');
 Route::view('/lienhe', 'frontend.lienhe');
 
 // Auth
-Route::get('/dangnhap', [AuthController::class, 'login'])->name('dangnhap');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login.submit');
+Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
+Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::view('/signup', 'backend.signup')->name('signup');
