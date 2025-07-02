@@ -113,13 +113,8 @@
 		<!-- Main -->
 		<main>
 
-<<<<<<< HEAD
         <!-- Tour Grid Area start -->       
             <section class="tour-grid-page py-20 rel z-1">
-=======
-        <!-- Tour Grid Area start -->
-            <section class="tour-grid-page py-100 rel z-1">
->>>>>>> 55c9e8b38433839a30ffc5b9605c046a0139a6e7
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
