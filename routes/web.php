@@ -5,7 +5,6 @@ use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\ReviewController;
 
-
 // Trang chủ
 Route::get('/', function () {
     return view('frontend.index');
@@ -17,9 +16,12 @@ Route::get('/tour', [TourController::class, 'index'])->name('tour');
 Route::view('/lienhe', 'frontend.lienhe');
 
 // Auth
+// Đăng nhập
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login.submit');
 Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+// Đăng ký
 Route::view('/signup', 'backend.signup')->name('signup');
 Route::post('/signup', [AuthController::class, 'signup'])->name('auth.signup.submit');
 

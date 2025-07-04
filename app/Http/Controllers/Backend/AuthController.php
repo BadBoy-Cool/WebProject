@@ -7,6 +7,8 @@ use App\Http\Requests\AuthRequest as RequestsAuthRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 Class AuthController extends Controller
 {
@@ -40,4 +42,32 @@ Class AuthController extends Controller
       $request->session()->regenerateToken();
       return redirect()->route('auth.login');
    }
+
+   public function handleSignup(Request $request)
+{
+    $request->validate([
+        'KH_name' => 'required|string|max:255',
+        'username' => 'required|string|max:50|unique:KhachHang,username',
+        'email' => 'required|email|unique:KhachHang,email',
+        'sdt' => 'required|digits_between:9,12|unique:KhachHang,sdt',
+        'password' => 'required|confirmed|min:6',
+        'diachi' => 'required|string|max:255',
+        'KH_gioitinh' => 'nullable|in:0,1',
+    ]);
+
+    DB::table('KhachHang')->insert([
+        'KH_name' => $request->KH_name,
+        'username' => $request->username,
+        'password' => Hash::make($request->password),
+        'email' => $request->email,
+        'sdt' => $request->sdt,
+        'diachi' => $request->diachi,
+        'KH_gioitinh' => $request->KH_gioitinh,
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
+
+    return redirect()->route('auth.login')->with('success', 'Đăng ký thành công!');
+}
+
 }

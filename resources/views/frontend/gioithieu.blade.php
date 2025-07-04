@@ -53,7 +53,6 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('auth.login') }}">Đăng nhập</a>
-
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('signup') }}">Đăng ký</a>
