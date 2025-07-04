@@ -21,7 +21,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 // Đăng ký
 Route::view('/signup', 'backend.signup')->name('signup');
-Route::post('/signup', [AuthController::class, 'handleSignup'])->name('auth.signup.submit');
+Route::post('/signup', [AuthController::class, 'signup'])->name('auth.signup.submit');
+
 
 // Route::get('/tour-detail', [TourController::class, 'detail']);
 // Route đúng:
