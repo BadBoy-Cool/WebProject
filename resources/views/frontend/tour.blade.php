@@ -36,7 +36,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('dangnhap') }}">Đăng nhập</a>
+                                <a class="nav-link" href="{{ route('auth.login') }}">Đăng nhập</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link">Đăng ký</a>
@@ -56,7 +56,7 @@
                                 </button>
                                 <span id="cart-quantity">0</span>
                             </div>
-                            <a type="button" class="btn" href="{{ route('dangnhap') }}" id="sign-in-btn">
+                            <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn">
                                 Đăng nhập
                             </a>
                             <a type="button" class="btn" href="{{ route('signup') }}" id="sign-up-btn">

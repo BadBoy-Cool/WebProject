@@ -32,14 +32,32 @@
             </div>
             <div class="col-md-6">
                 <div class="ibox-content">
-                    <form class="m-t" role="form" action="index.blade.php">
+                    <form method="POST"  class="m-t" role="form" action="{{ route('auth.login.submit')}}">
+                        @csrf
+                        @if(session('error'))
+                            <div class="alert alert-danger text-center">{{ session('error') }}</div>
+                        @endif
+
+                        @if(session('success'))
+                            <div class="alert alert-success text-center">{{ session('success') }}</div>
+                        @endif
+
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <h2 class="text-center font-weight-bold text-primary">Đăng nhập</h2>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Username" required="">
+                            <input type="email" name="email" class="form-control" placeholder="Email" required="">
                             <i class="fa fa-user icon-input"></i>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" required="">
+                            <input type="password" name="password" class="form-control" placeholder="Password" required="">
                             <i class="fa fa-lock icon-input"></i>
                         </div>
                         <button type="submit" class="btn btn-primary block full-width m-b">Đăng nhập</button>
