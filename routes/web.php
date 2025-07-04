@@ -21,6 +21,8 @@ Route::post('/login', [AuthController::class, 'login'])->name('auth.login.submit
 Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::view('/signup', 'backend.signup')->name('signup');
+Route::post('/signup', [AuthController::class, 'signup'])->name('auth.signup.submit');
+
 
 // Route::get('/tour-detail', [TourController::class, 'detail']);
 // Route đúng:

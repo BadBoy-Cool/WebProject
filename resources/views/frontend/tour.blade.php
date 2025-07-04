@@ -3,6 +3,7 @@
 @section('content')
 
     <body>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <!-- Header -->
         <header class="border-bottom sticky-top bg-white">
             <nav class="navbar navbar-expand-lg">
@@ -18,7 +19,8 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto">
+                        <!-- Links trái: Giới thiệu, Tour, Liên hệ -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/gioithieu') }}">Giới thiệu</a>
                             </li>
@@ -29,39 +31,45 @@
                                 <a class="nav-link" href="{{ url('/lienhe') }}">Liên hệ</a>
                             </li>
                         </ul>
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none">
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample"
-                                    aria-controls="offcanvasExample">Giỏ hàng
+
+                        <!-- Menu mobile: hiện khi thu nhỏ -->
+                        <ul class="navbar-nav d-lg-none">
+                           <!-- ====== Mục YÊU THÍCH TRÊN HEADER ====== -->
+                            <li class="nav-item position-relative">
+                                <a class="nav-link d-flex align-items-center gap-1" data-bs-toggle="offcanvas"
+                                    href="#offcanvasExample" aria-controls="offcanvasExample">
+                                    <i class="fa fa-heart text-danger"></i>
+                                    <span class="favorite-count"
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                        style="display: none;">0</span>
                                 </a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('auth.login') }}">Đăng nhập</a>
+
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">Đăng ký</a>
+                                <a class="nav-link" href="{{ route('signup') }}">Đăng ký</a>
                             </li>
                         </ul>
-                        <div id="button-group" class="d-none d-lg-flex">
+
+                        <!-- Menu desktop: chỉ hiện khi đủ lớn -->
+                        <div id="button-group" class="d-none d-lg-flex align-items-center gap-3">
+                            <!-- Yêu thích - trái tim -->
                             <div class="position-relative">
                                 <button class="btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
                                     aria-controls="offcanvasExample">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                        viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
-                                    </svg>
+                                    <i class="fas fa-heart text-danger fs-5"></i>
                                 </button>
-                                <span id="cart-quantity">0</span>
+                                <span class="favorite-count badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
                             </div>
-                            <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn">
-                                Đăng nhập
-                            </a>
-                            <a type="button" class="btn" href="{{ route('signup') }}" id="sign-up-btn">
-                                Đăng ký
-                            </a>
+
+                            <!-- Đăng nhập -->
+                            <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn"> Đăng nhập </a>
+
+                            <!-- Đăng ký -->
+                            <a type="button" class="btn" href="{{ route('signup') }}" id="sign-up-btn"> Đăng ký </a>
                         </div>
                     </div>
                 </div>
@@ -464,27 +472,122 @@
             </div>
         </footer>
 
-        <!-- Shopping cart -->
+       <!-- Shopping cart -->
+		<!-- ====== OFFCANVAS YÊU THÍCH ====== -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header border-bottom">
                 <h3 class="offcanvas-title" id="offcanvasExampleLabel">
-                    Giỏ hàng
+                    Danh sách Yêu thích
                 </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div id="shopping-cart" class="offcanvas-body"></div>
-            <div id="total-cost-block"
-                class="d-flex container justify-content-between align-items-center py-3 border-top bg-white">
-                <span id="total-cost" class="fw-bold"></span>
-                <button class="btn btn-dark">Thanh toán</button>
+            <div id="shopping-cart" class="offcanvas-body">
+                <p class="text-muted">Đang tải...</p>
             </div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        <!-- ====== SCRIPT Xử LÝ YÊU THÍCH ====== -->
+        <script>
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        function saveFavorites() {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+
+        function updateFavoriteCount() {
+        const badges = document.querySelectorAll('.favorite-count');
+        badges.forEach(badge => {
+            badge.textContent = favorites.length;
+            badge.style.display = favorites.length > 0 ? 'inline-block' : 'none';
+        });
+        }
+
+        function updateFavoriteList() {
+        const cartContainer = document.getElementById('shopping-cart');
+        if (!cartContainer) return;
+
+        cartContainer.innerHTML = '';
+        if (favorites.length === 0) {
+            cartContainer.innerHTML = '<p class="text-muted">Chưa có tour nào được yêu thích.</p>';
+            return;
+        }
+
+        
+       favorites.forEach((tour, index) => {
+        const div = document.createElement('div');
+        div.className = 'd-flex align-items-center gap-2 mb-2 border-bottom pb-2';
+        div.innerHTML = `
+        <img src="${tour.img}" alt="${tour.title}" width="45" height="45" style="object-fit: cover; border-radius: 6px;">
+        <div class="flex-grow-1">
+            <p class="mb-0 fw-semibold" style="font-size: 0.85rem;">${tour.title}</p>
+            <small class="text-muted" style="font-size: 0.7rem;">${tour.location} - ${tour.duration}</small>
+        </div>
+        <button class="btn btn-sm btn-outline-danger remove-favorite" data-index="${index}" style="font-size: 0.65rem; padding: 2px 6px;">Xóa</button>
+        `;
+        cartContainer.appendChild(div);
+    });
+
+        document.querySelectorAll('.remove-favorite').forEach(btn => {
+            btn.addEventListener('click', e => {
+            const index = parseInt(e.target.getAttribute('data-index'));
+            favorites.splice(index, 1);
+            saveFavorites();
+            updateFavoriteCount();
+            updateFavoriteList();
+            });
+        });
+        }
+
+        function addToFavorites(btn) {
+        const tourCard = btn.closest('.destination-item');
+        if (!tourCard) return;
+
+        const img = tourCard.querySelector('img')?.getAttribute('src');
+        const title = tourCard.querySelector('h6 a')?.innerText;
+        const location = tourCard.querySelector('.location')?.innerText || '';
+        const duration = tourCard.querySelector('.blog-meta li:nth-child(1)')?.innerText || '';
+
+        if (!img || !title) return;
+
+        const newTour = { img, title, location, duration };
+        const isExist = favorites.some(t => t.title === newTour.title);
+
+        if (!isExist) {
+            favorites.push(newTour);
+            saveFavorites();
+            updateFavoriteCount();
+            updateFavoriteList();
+        }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+        updateFavoriteCount();
+        updateFavoriteList();
+
+        document.querySelectorAll('.heart').forEach(btn => {
+            btn.addEventListener('click', e => {
+            e.preventDefault();
+            addToFavorites(btn);
+            });
+        });
+
+        const offcanvas = document.getElementById('offcanvasExample');
+        if (offcanvas) {
+            offcanvas.addEventListener('show.bs.offcanvas', () => {
+            favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            updateFavoriteList();
+            updateFavoriteCount();
+            });
+        }
+        });
         </script>
-        <script src="../js/shopping-cart.js"></script>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"></script>
+		<script src="../js/shopping-cart.js"></script>
     </body>
 @endsection
 <script>
