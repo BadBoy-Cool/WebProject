@@ -24,90 +24,6 @@
 						aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-<<<<<<< HEAD
-					<div
-						class="collapse navbar-collapse"
-						id="navbarSupportedContent">
-						<ul class="navbar-nav me-auto">
-							<li class="nav-item">
-								<a class="nav-link" href="{{ url('/gioithieu') }}"
-									>Giới thiệu</a
-								>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{{ url('/tour') }}"
-									>Tour</a
-								>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{{ url('/lienhe') }}"
-									>Liên hệ</a
-								>
-							</li>
-						</ul>
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0 d-lg-none">
-							<li class="nav-item">
-								<a
-									class="nav-link"
-									data-bs-toggle="offcanvas"
-									href="#offcanvasExample"
-									aria-controls="offcanvasExample"
-									>Giỏ hàng
-								</a>
-							</li>
-							<li class="nav-item">
-    							<a class="nav-link" href="{{ route('auth.login') }}"
-								>Đăng nhập</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link"
-									>Đăng ký</a
-								>
-							</li>
-						</ul>
-						<div id="button-group" class="d-none d-lg-flex">
-							<div class="position-relative">
-								<button
-									class="btn"
-									data-bs-toggle="offcanvas"
-									href="#offcanvasExample"
-									role="button"
-									aria-controls="offcanvasExample">
-									<svg
-										class="w-6 h-6 text-gray-800 dark:text-white"
-										aria-hidden="true"
-										xmlns="http://www.w3.org/2000/svg"
-										width="24"
-										height="24"
-										fill="none"
-										viewBox="0 0 24 24">
-										<path
-											stroke="currentColor"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
-											d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
-									</svg>
-								</button>
-								<span id="cart-quantity">0</span>
-							</div>
-							<a
-								type="button"
-								class="btn"
-								href="{{ route('auth.login') }}"
-								id="sign-in-btn">
-								Đăng nhập
-							</a>
-							<a
-								type="button"
-								class="btn"
-								href="{{ route('signup') }}"
-								id="sign-up-btn">
-								Đăng ký
-							</a>
-						</div>
-					</div>
-=======
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Links trái: Giới thiệu, Tour, Liên hệ -->
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -136,7 +52,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('dangnhap') }}">Đăng nhập</a>
+                                <a class="nav-link" href="{{ route('auth.login') }}">Đăng nhập</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('signup') }}">Đăng ký</a>
@@ -155,13 +71,12 @@
                             </div>
 
                             <!-- Đăng nhập -->
-                            <a type="button" class="btn" href="{{ route('dangnhap') }}" id="sign-in-btn"> Đăng nhập </a>
+                            <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn"> Đăng nhập </a>
 
                             <!-- Đăng ký -->
                             <a type="button" class="btn" href="{{ route('signup') }}" id="sign-up-btn"> Đăng ký </a>
                         </div>
                     </div>
->>>>>>> f2e0ab3cb76ddc3cda7ca2d7a12497b4a9e8fbfa
 				</div>
 			</nav>
 		</header>
