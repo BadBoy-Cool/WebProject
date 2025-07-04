@@ -75,69 +75,61 @@
             <section class="tour-grid-page py-100 rel z-1">
                 <div class="container">
                     <div class="row">
+                         <!-- Sidebar bên trái -->
                         <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
                             <div class="shop-sidebar">
-                                <div class="widget widget-filter" data-aos="fade-up" data-aos-delay="50"
-                                    data-aos-duration="1500" data-aos-offset="50">
-                                    <h6 class="widget-title">Lọc theo giá</h6>
-                                    <div class="price-filter-wrap">
-                                        <div id="slider-range"></div>
-                                        <div class="price">
-                                            Giá <span id="price-range"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <div class="widget widget-activity" data-aos="fade-up" data-aos-duration="1500"
                                     data-aos-offset="50">
                                     <h6 class="widget-title">Các hoạt động</h6>
+                                    <form method="GET" action="{{ route('tour') }}">
                                     <ul class="radio-filter">
                                         <li>
-                                            <input class="form-check-input" type="radio" checked name="ByActivities"
-                                                id="activity1">
-                                            <label for="activity1">Đền Asakusa, Tokyo, Nhật Bản<span>18</span></label>
+                                            <input class="form-check-input" type="radio" name="location" id="activity1" value="den-asakusa-tokyo-nhat-ban"
+                                                onchange="this.form.submit()" {{ request('location') == 'den-asakusa-tokyo-nhat-ban' ? 'checked' : '' }}>
+                                            <label for="activity1">Đền Asakusa, Tokyo<span>18</span></label>
                                         </li>
                                         <li>
-                                            <input class="form-check-input" type="radio" name="ByActivities"
-                                                id="activity2">
-                                            <label for="activity2"> Rome, Ý <span>29</span></label>
+                                            <input class="form-check-input" type="radio" name="location" id="activity2" value="rome-y"
+                                                onchange="this.form.submit()" {{ request('location') == 'rome-y' ? 'checked' : '' }}>
+                                            <label for="activity2">Rome, Ý<span>29</span></label>
                                         </li>
                                         <li>
-                                            <input class="form-check-input" type="radio" name="ByActivities"
-                                                id="activity3">
+                                            <input class="form-check-input" type="radio" name="location" id="activity3" value="tamnougalt-morocco"
+                                                onchange="this.form.submit()" {{ request('location') == 'tamnougalt-morocco' ? 'checked' : '' }}>
                                             <label for="activity3">Tamnougalt, Morocco<span>23</span></label>
                                         </li>
                                         <li>
-                                            <input class="form-check-input" type="radio" name="ByActivities"
-                                                id="activity4">
+                                            <input class="form-check-input" type="radio" name="location" id="activity4" value="bali-indonesia"
+                                                onchange="this.form.submit()" {{ request('location') == 'bali-indonesia' ? 'checked' : '' }}>
                                             <label for="activity4"> Bali, Indonesia<span>25</span></label>
                                         </li>
                                         <li>
-                                            <input class="form-check-input" type="radio" name="ByActivities"
-                                                id="activity5">
+                                            <input class="form-check-input" type="radio" name="location" id="activity5" value="vinh-ha-long-vietnam""
+                                                onchange="this.form.submit()" {{ request('location') == 'vinh-ha-long-vietnam"' ? 'checked' : '' }}>
                                             <label for="activity5">Vịnh Hạ Long, Việt Nam<span>30</span></label>
                                         </li>
                                         <li>
-                                            <input class="form-check-input" type="radio" name="ByActivities"
-                                                id="activity6">
+                                            <input class="form-check-input" type="radio" name="location" id="activity6" value="bangkok-thai-lan"
+                                                onchange="this.form.submit()" {{ request('location') == 'bangkok-thai-lan' ? 'checked' : '' }}>
                                             <label for="activity6">Bangkok, Thái Lan<span>28</span></label>
                                         </li>
                                         <li>
-                                            <input class="form-check-input" type="radio" name="ByActivities"
-                                                id="activity6">
-                                            <label for="activity6">New York, Mỹ<span>22</span></label>
+                                            <input class="form-check-input" type="radio" name="location" id="activity7" value="new-york-my"
+                                                onchange="this.form.submit()" {{ request('location') == 'new-york-my' ? 'checked' : '' }}>
+                                            <label for="activity7">New York, Mỹ<span>22</span></label>
                                         </li>
                                         <li>
-                                            <input class="form-check-input" type="radio" name="ByActivities"
-                                                id="activity6">
-                                            <label for="activity6"> Barcelona, Tây Ban Nha<span>15</span></label>
+                                            <input class="form-check-input" type="radio" name="location" id="activity8" value="barcelona-tay-ban-nha"
+                                                onchange="this.form.submit()" {{ request('location') == 'barcelona-tay-ban-nha' ? 'checked' : '' }}>
+                                            <label for="activity8"> Barcelona, Tây Ban Nha<span>15</span></label>
                                         </li>
                                         <li>
-                                            <input class="form-check-input" type="radio" name="ByActivities"
-                                                id="activity6">
-                                            <label for="activity6">Cairo, Ai Cập<span>17</span></label>
+                                            <input class="form-check-input" type="radio" name="location" id="activity9" value="cairo-ai-cap"
+                                                onchange="this.form.submit()" {{ request('location') == 'cairo-ai-cap' ? 'checked' : '' }}>
+                                            <label for="activity9">Cairo, Ai Cập<span>17</span></label>
                                         </li>
                                     </ul>
+                                    </form>
                                 </div>
 
                                 <div class="widget widget-reviews" data-aos="fade-up" data-aos-duration="1500"
@@ -288,13 +280,31 @@
                                 <li><a href="#"><i class="fal fa-border-all"></i></a></li>
                                 <li><a href="#"><i class="far fa-list"></i></a></li>
                             </ul> --}}
-                                <select>
+                                {{-- <select>
                                     <option value="default" selected="">Sắp xếp theo</option>
                                     <option value="new">Mới nhất</option>
                                     <option value="old">Cũ nhất</option>
                                     <option value="hight-to-low">Từ cao đến thấp</option>
                                     <option value="low-to-high">Từ thấp đến cao</option>
+                                </select> --}}
+                                <form id="sortForm" method="GET" class="d-flex justify-content-end align-items-center">
+                                {{-- Giữ lại các filter hiện có --}}
+                                <input type="hidden" name="min_price" value="{{ request('min_price') }}">
+                                <input type="hidden" name="max_price" value="{{ request('max_price') }}">
+                                <input type="hidden" name="Duration" value="{{ request('Duration') }}">
+                                <input type="hidden" name="ByActivities" value="{{ request('ByActivities') }}">
+                                <input type="hidden" name="ByReviews" value="{{ request('ByReviews') }}">
+
+                                <label for="sort" class="me-2">Sắp xếp:</label>
+                                <select name="sort" id="sort" onchange="document.getElementById('sortForm').submit()" class="form-select w-auto">
+                                    <option value="">-- Sắp xếp theo --</option>
+                                    <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Mới nhất</option>
+                                    <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Cũ nhất</option>
+                                    <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Giá cao đến thấp</option>
+                                    <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Giá thấp đến cao</option>
                                 </select>
+                            </form>
+
                             </div>
 
                             <div class="tour-grid-wrap">
@@ -355,7 +365,7 @@
 
                                                 {{-- Link chi tiết --}}
                                                 <a href="{{ route('tour.detail', ['slug' => $tour->slug]) }}" class="theme-btn style-two style-three">
-                                                    <i class="fal fa-arrow-right"></i>
+                                                    <i class="fa fa-heart text-danger fs-5"></i>
                                                 </a>
                                             </div>
                                         </div>

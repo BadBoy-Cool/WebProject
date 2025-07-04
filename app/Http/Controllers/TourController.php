@@ -11,6 +11,11 @@ class TourController extends Controller
     {
         $query = Tour::query();
 
+        // Lọc theo địa điểm (activity/location)
+        if ($request->filled('location')) {
+            $query->where('slug', $request->location);
+        }
+
         // Lọc theo khoảng giá
         if ($request->filled('min_price')) {
             $query->where('giaLon', '>=', $request->min_price);
@@ -80,6 +85,12 @@ class TourController extends Controller
             'avgStar',
             'checkDisplay'
         ));
+    }
+
+        public function home()
+    {
+        $tours = Tour::latest()->take(6)->get(); // hoặc ->all() nếu muốn lấy hết
+        return view('frontend.index', compact('tours'));
     }
 
 }

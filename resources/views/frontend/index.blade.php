@@ -447,7 +447,7 @@
             return;
         }
 
-        
+
        favorites.forEach((tour, index) => {
         const div = document.createElement('div');
         div.className = 'd-flex align-items-center gap-2 mb-2 border-bottom pb-2';
