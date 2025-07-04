@@ -15,6 +15,17 @@
     <div class="content">
       <!-- Registration form -->
     <form action="{{ route('auth.signup.submit') }}" method="POST">
+    
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     @csrf
     <div class="user-details">
         <div class="input-box">
@@ -22,8 +33,8 @@
             <input type="text" name="KH_name" placeholder="Nhập họ và tên" required>
         </div>
         <div class="input-box">
-            <span class="details">Tên đăng nhập</span>
-            <input type="text" name="username" placeholder="Nhập tên đăng nhập" required>
+            <span class="details">Tên tài khoản</span>
+            <input type="text" name="username" placeholder="Nhập tên tài khoản" required>
         </div>
         <div class="input-box">
             <span class="details">Email</span>
