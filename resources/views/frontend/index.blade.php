@@ -24,10 +24,6 @@
 						aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-<<<<<<< HEAD
-
-=======
->>>>>>> fcfbb80ff5e33e03090b27494ea07c792b7f996c
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Links trái: Giới thiệu, Tour, Liên hệ -->
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -57,10 +53,6 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('auth.login') }}">Đăng nhập</a>
-<<<<<<< HEAD
-
-=======
->>>>>>> fcfbb80ff5e33e03090b27494ea07c792b7f996c
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('signup') }}">Đăng ký</a>
