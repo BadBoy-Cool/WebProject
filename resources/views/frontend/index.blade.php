@@ -2,7 +2,7 @@
 @section('title', 'Travio | Trang chủ')
 @section('content')
 	<body>
-		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 		<!-- Header -->
 		<header class="border-bottom sticky-top bg-white">
 			<nav class="navbar navbar-expand-lg">
@@ -447,7 +447,7 @@
             return;
         }
 
-        
+
        favorites.forEach((tour, index) => {
         const div = document.createElement('div');
         div.className = 'd-flex align-items-center gap-2 mb-2 border-bottom pb-2';

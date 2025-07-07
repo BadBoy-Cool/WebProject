@@ -6,7 +6,6 @@
     <title>Travio | Đăng ký </title>
     <link rel="stylesheet" href="{{ asset('backend/css/signup.css') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/img/favicon/favicon-32x32.png') }}">
-
 </head>
 <body>
   <div class="container">
@@ -15,7 +14,7 @@
     <div class="content">
       <!-- Registration form -->
     <form action="{{ route('auth.signup.submit') }}" method="POST">
-    
+
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul class="mb-0">
@@ -34,8 +33,8 @@
             <input type="text" name="KH_name" placeholder="Nhập họ và tên" required>
         </div>
         <div class="input-box">
-            <span class="details">Tên tài khoản</span>
-            <input type="text" name="username" placeholder="Nhập tên tài khoản" required>
+            <span class="details">Tên đăng nhập</span>
+            <input type="text" name="username" placeholder="Nhập tên đăng nhập" required>
         </div>
         <div class="input-box">
             <span class="details">Email</span>
@@ -69,7 +68,7 @@
                 <label for="dot-2">
                     <span class="dot two"></span>
                     <span class="gender">Nữ</span>
-                </label>          
+                </label>
             </div>
         </div>
     </div>

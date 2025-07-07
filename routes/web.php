@@ -6,9 +6,7 @@ use App\Http\Controllers\TourController;
 use App\Http\Controllers\ReviewController;
 
 // Trang chủ
-Route::get('/', function () {
-    return view('frontend.index');
-})->name('index');
+Route::get('/', [TourController::class, 'home'])->name('index');
 
 // Các trang khác
 Route::view('/gioithieu', 'frontend.gioithieu');
