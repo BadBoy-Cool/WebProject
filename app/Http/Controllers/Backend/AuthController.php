@@ -9,13 +9,18 @@ use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Models\Login;
 
 Class AuthController extends Controller
 {
-   public function __construct()
-   {
-        
-   }
+    protected $login;
+
+    public function __construct(Login $login)
+    {
+        $this->login = $login;
+    }
 
    public function index(){
       return view('backend.login');
@@ -35,7 +40,7 @@ Class AuthController extends Controller
         }
       return redirect()->route('auth.login')->with('error','Email hoặc Mật khẩu không chính xác');
    }
-   
+
    public function logout(Request $request){
       Auth::logout();
       $request->session()->invalidate();
@@ -55,6 +60,9 @@ Class AuthController extends Controller
         'KH_gioitinh' => 'nullable|in:0,1',
     ]);
 
+    $activation_token = Str::random(60);
+
+
     DB::table('KhachHang')->insert([
         'KH_name' => $request->KH_name,
         'username' => $request->username,
@@ -63,11 +71,33 @@ Class AuthController extends Controller
         'sdt' => $request->sdt,
         'diachi' => $request->diachi,
         'KH_gioitinh' => $request->KH_gioitinh,
+        'activation_token' => $activation_token,
         'created_at' => now(),
         'updated_at' => now(),
     ]);
 
-    return redirect()->route('auth.login')->with('success', 'Đăng ký thành công!');
+    $this->sendActivationEmail($request -> email, $activation_token);
+
+    return redirect()->route('auth.login')->with('success', 'Đăng ký thành công! Vui lòng kiểm tra email để kích hoạt tài khoản');
 }
 
+   public function sendActivationEmail($email, $token)
+   {
+      $activation_link = route('activate.account', ['token' => $token]);
+      
+      Mail::send('backend.email_activation',['link' => $activation_link], function ($message) use ($email) {
+         $message->to($email);   
+         $message->subject('Kích hoạt tài khoản của bạn');
+      });
+   }  
+   
+   public function activateAccount($token)
+   {
+      $kh = $this->login->getUsersByToken($token);
+
+      if ($kh) {
+         $this->login->activateUserAccount($token);
+         return redirect()->route('auth.login')->with('message','Tài khoản của bạn đã được kích hoạt');
+      }
+   }
 }

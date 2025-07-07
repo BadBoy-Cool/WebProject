@@ -26,6 +26,7 @@
     </div>
     @endif
 
+
     @csrf
     <div class="user-details">
         <div class="input-box">
