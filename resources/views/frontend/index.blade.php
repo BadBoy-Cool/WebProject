@@ -2,7 +2,9 @@
 @section('title', 'Travio | Trang chủ')
 @section('content')
 	<body>
+		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		
 		<!-- Header -->
 		<header class="border-bottom sticky-top bg-white">
 			<nav class="navbar navbar-expand-lg">
@@ -40,7 +42,7 @@
 
                         <!-- Menu mobile: hiện khi thu nhỏ -->
                         <ul class="navbar-nav d-lg-none">
-                           <!-- ====== Mục YÊU THÍCH TRÊN HEADER ====== -->
+                           <!-- Mục YÊU THÍCH TRÊN HEADER -->
                             <li class="nav-item position-relative">
                                 <a class="nav-link d-flex align-items-center gap-1" data-bs-toggle="offcanvas"
                                     href="#offcanvasExample" aria-controls="offcanvasExample">
@@ -92,8 +94,6 @@
 						background-position: center;
 						border-radius: 0.5rem;">
 					<div class="container">
-						<!-- Tiêu đề Du lịch -->
-						<!-- Dòng chữ "du lịch năm châu" -->
 						<h4 class="fw-semibold fst-italic text-center" style="
 							color: #ff4d6d;
 							font-size: 2.5rem;
@@ -101,7 +101,6 @@
 							du lịch năm châu
 						</h4>
 
-						<!-- Dòng chữ "GIÁ CẢ CHẲNG LO ÂU" -->
 						<h2 class="fw-bold text-uppercase text-center" style="
 							font-size: 3.5rem;
 							background: linear-gradient(to right, #0044ff, #00cfff);
@@ -115,23 +114,23 @@
 
 						<!-- Dòng 1: Dropdown chọn điểm đến -->
 						<div class="row mb-3">
-							<div class="col-md-4 ">
+							<div class="col-md-4">
 								<div class="input-group">
 									<span class="input-group-text bg-white">
 										<i class="fa fa-map-marker text-primary"></i>
 									</span>
-									<select class="form-select" onchange="window.location.href = '/tour';" style="color: black">
-										<option style="color: black">Chọn một điểm đến</option>
-										<option value="halong" style="color: black">Vịnh Hạ Long</option>
-										<option value="sapa" style="color: black">Sapa</option>
-										<option value="phuquoc" style="color: black">Phú Quốc</option>
+									<select class="form-select" onchange="window.location.href = '/tour?location=' + this.value;" style="color: black">
+										<option value="" style="color: black">Chọn một điểm đến</option>
+										<option value="bangkok" style="color: black">Bangkok</option>
+										<option value="bali" style="color: black">Bali</option>
+										<option value="tokyo" style="color: black">Tokyo</option>
 									</select>
-
 								</div>
 							</div>
 						</div>
 
-						<!-- Dòng 2: Ô tìm kiếm nằm thấp hơn và về bên phải -->
+
+						<!-- Dòng 2: Ô tìm kiếm -->
 						<div class="row justify-content-end" style="margin-bottom: 1cm;">
    							<div class="col-md-5">
 								<form action="/tour" method="GET">
@@ -153,23 +152,21 @@
 			<section class="featured-tours p-2 bg-white">
 				<div class="container">
 					<h2 class="text-center mb-4">Tour nổi bật</h2>
-
-					<!-- Sửa khoảng cách giữa các tour -->
 					<div class="row gx-4" style="row-gap: 2cm;">
 
-						<!-- Tour 1 -->
+						<!-- Tour 1: Vinh Ha Long  -->
 						<div class="col-md-4">
 							<div class="card h-100 shadow-sm">
 								<img src="{{ asset('backend/img/halongbay.jpg') }}" class="card-img-top" alt="Hạ Long">
 								<div class="card-body">
 									<h5 class="card-title">Du lịch Hạ Long 3N2Đ</h5>
 									<p class="card-text">Khám phá vịnh Hạ Long - kỳ quan thiên nhiên thế giới với nhiều hoạt động hấp dẫn.</p>
-									<a href="/tour#halong" class="btn btn-outline-primary">Xem chi tiết</a>
+									<a href="{{ url('/tour?location=Vịnh Hạ Long') }}" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
 
-						<!-- Tour 2 -->
+						<!-- Tour 2: Bali -->
 						<div class="col-md-4">
 							<div class="card h-100 shadow-sm">
 								<img src="{{ asset('backend/img/destinations/bali.jpg') }}" class="card-img-top" alt="Bali">
@@ -178,13 +175,13 @@
 									<p class="card-text">
 										Tận hưởng thiên đường nhiệt đới với bãi biển tuyệt đẹp, đền cổ linh thiêng và văn hóa Balinese độc đáo.
 									</p>
-									<a href="/tour#bali" class="btn btn-outline-primary">Xem chi tiết</a>
+									<a href="{{ url('/tour?location=Bali') }}" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
 
 
-						<!-- Tour 3 -->
+						<!-- Tour 3: Barcelona -->
 						<div class="col-md-4">
 							<div class="card h-100 shadow-sm">
 								<img src="{{ asset('backend/img/destinations/barcelona.jpg') }}" class="card-img-top" alt="Barcelona">
@@ -193,7 +190,7 @@
 									<p class="card-text">
 										Chiêm ngưỡng kiến trúc độc đáo của Gaudí, dạo bước trên phố La Rambla và thư giãn bên bờ Địa Trung Hải.
 									</p>
-									<a href="/tour#barcelona" class="btn btn-outline-primary">Xem chi tiết</a>
+									<a href="{{ url('/tour?location=Barcelona') }}" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
@@ -205,7 +202,7 @@
 								<div class="card-body">
 									<h5 class="card-title">Bangkok - Thái Lan</h5>
 									<p class="card-text">Khám phá thành phố sôi động Bangkok với những ngôi chùa vàng, ẩm thực đường phố hấp dẫn và trung tâm mua sắm hiện đại.</p>
-									<a href="/tour#bangkok" class="btn btn-outline-primary">Xem chi tiết</a>
+									<a href="{{ url('/tour?location=Bangkok') }}" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
@@ -217,7 +214,7 @@
 								<div class="card-body">
 									<h5 class="card-title">New York - Mỹ</h5>
 									<p class="card-text">Trải nghiệm thành phố không ngủ với những địa danh nổi tiếng như Tượng Nữ thần Tự do, Times Square và Central Park.</p>
-									<a href="/tour#newyork" class="btn btn-outline-primary">Xem chi tiết</a>
+									<a href="{{ url('/tour?location=New York') }}" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
@@ -231,7 +228,7 @@
 									<p class="card-text">
 										Thành phố hiện đại sôi động bậc nhất châu Á, nổi tiếng với tháp Tokyo, Shibuya Crossing và nền văn hóa truyền thống pha lẫn công nghệ tiên tiến.
 									</p>
-									<a href="/tour#Tokyo" class="btn btn-outline-primary">Xem chi tiết</a>
+									<a href="{{ url('/tour?location=Tokyo') }}" class="btn btn-outline-primary">Xem chi tiết</a>
 								</div>
 							</div>
 						</div>
@@ -407,7 +404,7 @@
 		</footer>
 
 		<!-- Shopping cart -->
-		<!-- ====== OFFCANVAS YÊU THÍCH ====== -->
+		<!-- OFFCANVAS YÊU THÍCH -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header border-bottom">
@@ -421,7 +418,7 @@
             </div>
         </div>
 
-        <!-- ====== SCRIPT Xử LÝ YÊU THÍCH ====== -->
+        <!-- SCRIPT Xử LÝ YÊU THÍCH -->
         <script>
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 

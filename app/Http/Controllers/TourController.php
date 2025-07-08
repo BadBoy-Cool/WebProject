@@ -11,12 +11,25 @@ class TourController extends Controller
     {
         $query = Tour::query();
 
-        // Lọc theo địa điểm (activity/location)
+        // Map location slug => tên tour_name thật trong database
+        $locationMap = [
+            'bali' => 'Bali',
+            'bangkok' => 'Bangkok',
+            'newyork' => 'New York',
+            'tokyo' => 'Tokyo',
+            'rome' => 'Rome',
+            'barcelona' => 'Barcelona',
+            'cairo' => 'Cairo',
+            'morocco' => 'Morocco',
+            'vinh-ha-long' => 'Vịnh Hạ Long',
+        ];
+
         if ($request->filled('location')) {
-            $query->where('slug', $request->location);
+            $locationSlug = strtolower($request->location);
+            $mappedName = $locationMap[$locationSlug] ?? $request->location;
+            $query->whereRaw('LOWER(tour_name) LIKE ?', ['%' . strtolower($mappedName) . '%']);
         }
 
-        // Lọc theo khoảng giá
         if ($request->filled('min_price')) {
             $query->where('giaLon', '>=', $request->min_price);
         }
@@ -25,7 +38,6 @@ class TourController extends Controller
             $query->where('giaLon', '<=', $request->max_price);
         }
 
-        // Lọc theo thời gian (ví dụ: 1-2, 2-4 ngày)
         if ($request->filled('duration')) {
             $range = explode('-', $request->duration);
             if (count($range) === 2) {
@@ -35,7 +47,6 @@ class TourController extends Controller
             }
         }
 
-        // Sắp xếp
         switch ($request->sort) {
             case 'newest':
                 $query->orderBy('created_at', 'desc');
@@ -50,17 +61,13 @@ class TourController extends Controller
                 $query->orderBy('giaLon', 'asc');
                 break;
             default:
-                $query->orderBy('created_at', 'desc'); // mặc định là mới nhất
+                $query->orderBy('created_at', 'desc');
         }
 
-        // Phân trang có giữ query string
         $tours = $query->with('chuongTrinh')->paginate(8)->appends($request->all());
 
         return view('frontend.tour', compact('tours'));
     }
-
-
-
 
     public function detail($slug)
     {
@@ -76,8 +83,6 @@ class TourController extends Controller
         $avgStar = 4;
         $checkDisplay = 'd-block';
 
-
-
         return view('frontend.tour-detail', compact(
             'tourDetail',
             'tourRecommendations',
@@ -87,10 +92,9 @@ class TourController extends Controller
         ));
     }
 
-        public function home()
+    public function home()
     {
-        $tours = Tour::latest()->take(6)->get(); // hoặc ->all() nếu muốn lấy hết
+        $tours = Tour::latest()->take(6)->get();
         return view('frontend.index', compact('tours'));
     }
-
 }

@@ -40,7 +40,7 @@
 
                         <!-- Menu mobile: hiện khi thu nhỏ -->
                         <ul class="navbar-nav d-lg-none">
-                           <!-- ====== Mục YÊU THÍCH TRÊN HEADER ====== -->
+                           <!-- Mục YÊU THÍCH TRÊN HEADER -->
                             <li class="nav-item position-relative">
                                 <a class="nav-link d-flex align-items-center gap-1" data-bs-toggle="offcanvas"
                                     href="#offcanvasExample" aria-controls="offcanvasExample">
@@ -465,7 +465,7 @@
 		</footer>
 
 		<!-- Shopping cart -->
-		<!-- ====== OFFCANVAS YÊU THÍCH ====== -->
+		<!--OFFCANVAS YÊU THÍCH -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header border-bottom">
@@ -479,7 +479,7 @@
             </div>
         </div>
 
-        <!-- ====== SCRIPT Xử LÝ YÊU THÍCH ====== -->
+        <!-- CRIPT Xử LÝ YÊU THÍCH -->
         <script>
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 

@@ -34,7 +34,7 @@
 
                         <!-- Menu mobile: hiện khi thu nhỏ -->
                         <ul class="navbar-nav d-lg-none">
-                           <!-- ====== Mục YÊU THÍCH TRÊN HEADER ====== -->
+                           <!--Mục YÊU THÍCH TRÊN HEADER -->
                             <li class="nav-item position-relative">
                                 <a class="nav-link d-flex align-items-center gap-1" data-bs-toggle="offcanvas"
                                     href="#offcanvasExample" aria-controls="offcanvasExample">
@@ -335,8 +335,8 @@
                                                     'Vịnh Hạ Long' => 'backend/img/destinations/halong.jpg'
                                                 ];
                                                 $tourImage = 'backend/img/destinations/default.png';
-                                                foreach($imageMap as $location => $img) {
-                                                    if (str_contains(strtolower($tour->tour_name), strtolower($location))) {
+                                                foreach ($imageMap as $location => $img) {
+                                                    if (stripos($tour->tour_name, $location) !== false) {
                                                         $tourImage = $img;
                                                         break;
                                                     }
@@ -380,11 +380,11 @@
                                     </div>
                                 </div>
                             @endforeach
-                                    <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up"
+                                    <!-- <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up"
                                         data-aos-duration="1500" data-aos-offset="50">
                                         <li class="page-item disabled">
                                             <span class="page-link"><i class="far fa-chevron-left"></i></span>
-                                        </li>
+                                        </li> -->
                                         {{-- <li class="page-item active">
                                             <span class="page-link">
                                                 1
@@ -483,7 +483,7 @@
         </footer>
 
        <!-- Shopping cart -->
-		<!-- ====== OFFCANVAS YÊU THÍCH ====== -->
+		<!-- OFFCANVAS YÊU THÍCH -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header border-bottom">
@@ -497,7 +497,7 @@
             </div>
         </div>
 
-        <!-- ====== SCRIPT Xử LÝ YÊU THÍCH ====== -->
+        <!-- SCRIPT Xử LÝ YÊU THÍCH -->
         <script>
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
