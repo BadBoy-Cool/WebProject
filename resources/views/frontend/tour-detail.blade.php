@@ -2,6 +2,7 @@
 @section('title', 'Travio | Chi tiết Tours')
 @section('content')
 
+
 {{-- Banner ảnh lớn --}}
 <section class="tour-banner" style="position: relative; height: 400px; overflow: hidden;">
     @php
@@ -24,6 +25,7 @@
             }
         }
     @endphp
+
     <img src="{{ asset($tourImage) }}" alt="{{ $tourDetail->tour_name }}" style="width: 100%; height: 100%; object-fit: cover;">
     <div class="position-absolute top-50 start-50 translate-middle" style="color: #495057">
         <h1 class="display-4 fw-bold">{{ $tourDetail->tour_name }}</h1>
@@ -65,7 +67,7 @@
                         ];
                         $tourImage = 'backend/img/destinations/default.png';
                         foreach($imageMap as $key => $img) {
-                            if (str_contains(strtolower($tourDetail->tour_name), strtolower($key))) {
+                           if (str_contains(strtolower($tourDetail->tour_name), strtolower($key)))  {
                                 $tourImage = $img;
                                 break;
                             }
@@ -98,7 +100,21 @@
                         </span>
                         <span class="ms-2">({{ $avgStar }}/5)</span>
                     </div>
-                    <a href="#" class="btn btn-primary rounded-pill px-4">Đặt ngay</a>
+                    <a href="#" class="btn btn-primary rounded-pill px-4" style="margin-right: 1cm;">Đặt ngay</a>
+
+                    <!-- Thêm vào mục yêu thích -->
+                    <button class="btn btn-sm border-0 bg-transparent p-0 heart-detail-hover"
+                        onclick='addDetailTourToFavorites({
+                            img: @json(asset($tourImage)),
+                            title: @json($tourDetail->title),
+                            location: @json($tourDetail->tour_name),
+                            duration: @json($tourDetail->songay)
+                        })'
+
+                        title="Thêm vào yêu thích">
+                        
+                        <i class="fa fa-heart text-danger fs-2" ></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -123,5 +139,29 @@
         @endif
     </div>
 </section>
+
+@if(request('location'))
+    <h3 class="mb-4">Các tour tại: <span class="text-primary">{{ request('location') }}</span></h3>
+@endif
+
+<script>
+function addDetailTourToFavorites(tourData) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    const isExist = favorites.some(t => t.title === tourData.title);
+    if (!isExist) {
+        favorites.push(tourData);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+
+        // Cập nhật giao diện header và danh sách
+        if (typeof updateFavoriteCount === 'function') updateFavoriteCount();
+        if (typeof updateFavoriteList === 'function') updateFavoriteList();
+
+        alert('Đã thêm vào danh sách yêu thích!');
+    } else {
+        alert('Tour này đã có trong danh sách yêu thích!');
+    }
+}
+</script>
 
 @endsection
