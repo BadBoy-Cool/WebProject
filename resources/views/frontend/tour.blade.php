@@ -426,7 +426,7 @@
                         <a href="./gioithieu.html" class="link-underline-opacity-0 link-light">Giới thiệu</a>
                         <a href="./sanpham.html" class="link-underline-opacity-0 link-light">Tour</a>
                         <a data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample"
-                            class="link-underline-opacity-0 link-light">Giỏ hàng</a>
+                            class="link-underline-opacity-0 link-light">Yêu thích</a>
                     </div>
                     <div class="col-6 col-lg-3 d-flex flex-column align-items-end">
                         <p>&copy; 2025 Travio</p>

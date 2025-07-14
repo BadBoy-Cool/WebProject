@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\AdminController;
 
 // Trang chủ
 Route::get('/', [TourController::class, 'home'])->name('index');
@@ -28,3 +29,8 @@ Route::get('activate-account/{token}', [AuthController::class, 'activateAccount'
 // Route đúng:
 Route::get('/tour-detail/{slug}', [TourController::class, 'detail'])->name('tour.detail');
 Route::post('/tour-review', [ReviewController::class, 'store'])->name('tour.review.store');
+
+// Admin
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
