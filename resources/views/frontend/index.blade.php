@@ -133,15 +133,15 @@
 						<!-- Dòng 2: Ô tìm kiếm -->
 						<div class="row justify-content-end" style="margin-bottom: 1cm;">
    							<div class="col-md-5">
-								<form action="/tour" method="GET">
-									<div class="input-group">
-										<span class="input-group-text bg-white">
-											<i class="fa fa-search text-primary"></i>
-										</span>
-										<input type="text" name="search" class="form-control" placeholder="Tìm kiếm địa điểm hoặc hoạt động">
-										<button class="btn btn-primary" type="submit">Tìm</button>
-									</div>
-								</form>
+								<form id="searchForm">
+  <div class="input-group">
+    <span class="input-group-text bg-white">
+      <i class="fa fa-search text-primary"></i>
+    </span>
+    <input type="text" name="search" id="searchInput" class="form-control" placeholder="Tìm kiếm địa điểm hoặc hoạt động">
+    <button class="btn btn-primary" type="submit">Tìm</button>
+  </div>
+</form>
 							</div>
 						</div>
 					</div>
@@ -512,6 +512,13 @@
             });
         }
         });
+		document.getElementById('searchForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+			const keyword = document.getElementById('searchInput').value;
+			if (keyword.trim() !== '') {
+			window.location.href = '/tour?search=' + encodeURIComponent(keyword);
+			}
+		});
         </script>
 
 		<script

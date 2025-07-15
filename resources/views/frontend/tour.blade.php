@@ -498,100 +498,109 @@
         </div>
 
         <!-- SCRIPT Xử LÝ YÊU THÍCH -->
-        <script>
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        <!-- SCRIPT Xử LÝ YÊU THÍCH -->
+<script>
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-        function saveFavorites() {
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        }
+function saveFavorites() {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
 
-        function updateFavoriteCount() {
-        const badges = document.querySelectorAll('.favorite-count');
-        badges.forEach(badge => {
-            badge.textContent = favorites.length;
-            badge.style.display = favorites.length > 0 ? 'inline-block' : 'none';
-        });
-        }
+function updateFavoriteCount() {
+    const badges = document.querySelectorAll('.favorite-count');
+    badges.forEach(badge => {
+        badge.textContent = favorites.length;
+        badge.style.display = favorites.length > 0 ? 'inline-block' : 'none';
+    });
+}
 
-        function updateFavoriteList() {
-        const cartContainer = document.getElementById('shopping-cart');
-        if (!cartContainer) return;
+function updateFavoriteList() {
+    const cartContainer = document.getElementById('shopping-cart');
+    if (!cartContainer) return;
 
-        cartContainer.innerHTML = '';
-        if (favorites.length === 0) {
-            cartContainer.innerHTML = '<p class="text-muted">Chưa có tour nào được yêu thích.</p>';
-            return;
-        }
+    if (favorites.length === 0) {
+        cartContainer.innerHTML = '<p class="text-muted">Chưa có tour nào được yêu thích.</p>';
+        return;
+    }
 
-        
-       favorites.forEach((tour, index) => {
+    cartContainer.innerHTML = '';
+
+    favorites.forEach((tour, index) => {
+        const slug = tour.slug ? tour.slug : '#';
         const div = document.createElement('div');
         div.className = 'd-flex align-items-center gap-2 mb-2 border-bottom pb-2';
         div.innerHTML = `
-        <img src="${tour.img}" alt="${tour.title}" width="45" height="45" style="object-fit: cover; border-radius: 6px;">
-        <div class="flex-grow-1">
-            <p class="mb-0 fw-semibold" style="font-size: 0.85rem;">${tour.title}</p>
-            <small class="text-muted" style="font-size: 0.7rem;">${tour.location} - ${tour.duration}</small>
-        </div>
-        <button class="btn btn-sm btn-outline-danger remove-favorite" data-index="${index}" style="font-size: 0.65rem; padding: 2px 6px;">Xóa</button>
+            <img src="${tour.img}" alt="${tour.title}" width="45" height="45" style="object-fit: cover; border-radius: 6px;">
+            <div class="flex-grow-1">
+                <p class="mb-0 fw-semibold" style="font-size: 0.85rem;">
+                    <a href="/tour-detail/${slug}" class="text-decoration-none text-dark">
+                        ${tour.title}
+                    </a>
+                </p>
+                <small class="text-muted" style="font-size: 0.7rem;">${tour.location} - ${tour.duration}</small>
+            </div>
+            <button class="btn btn-sm btn-outline-danger remove-favorite" data-index="${index}" style="font-size: 0.65rem; padding: 2px 6px;">Xóa</button>
         `;
         cartContainer.appendChild(div);
     });
 
-        document.querySelectorAll('.remove-favorite').forEach(btn => {
-            btn.addEventListener('click', e => {
+    document.querySelectorAll('.remove-favorite').forEach(btn => {
+        btn.addEventListener('click', e => {
             const index = parseInt(e.target.getAttribute('data-index'));
             favorites.splice(index, 1);
             saveFavorites();
             updateFavoriteCount();
             updateFavoriteList();
-            });
         });
-        }
+    });
+}
 
-        function addToFavorites(btn) {
-        const tourCard = btn.closest('.destination-item');
-        if (!tourCard) return;
+function addToFavorites(btn) {
+    const tourCard = btn.closest('.destination-item');
+    if (!tourCard) return;
 
-        const img = tourCard.querySelector('img')?.getAttribute('src');
-        const title = tourCard.querySelector('h6 a')?.innerText;
-        const location = tourCard.querySelector('.location')?.innerText || '';
-        const duration = tourCard.querySelector('.blog-meta li:nth-child(1)')?.innerText || '';
+    const img = tourCard.querySelector('img')?.getAttribute('src');
+    const title = tourCard.querySelector('h6 a')?.innerText;
+    const location = tourCard.querySelector('.location')?.innerText || '';
+    const duration = tourCard.querySelector('.blog-meta li:nth-child(1)')?.innerText || '';
+    const slug = tourCard.getAttribute('data-slug') || ''; // <- Cần gán slug vào tourCard để lấy
 
-        if (!img || !title) return;
+    if (!img || !title) return;
 
-        const newTour = { img, title, location, duration };
-        const isExist = favorites.some(t => t.title === newTour.title);
+    const newTour = { img, title, location, duration, slug };
+    const isExist = favorites.some(t => t.title === newTour.title);
 
-        if (!isExist) {
-            favorites.push(newTour);
-            saveFavorites();
-            updateFavoriteCount();
-            updateFavoriteList();
-        }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
+    if (!isExist) {
+        favorites.push(newTour);
+        saveFavorites();
         updateFavoriteCount();
         updateFavoriteList();
+    }
+}
 
-        document.querySelectorAll('.heart').forEach(btn => {
-            btn.addEventListener('click', e => {
+// Gán sự kiện khi trang load
+document.addEventListener('DOMContentLoaded', () => {
+    updateFavoriteCount();
+    updateFavoriteList();
+
+    document.querySelectorAll('.heart').forEach(btn => {
+        btn.addEventListener('click', e => {
             e.preventDefault();
             addToFavorites(btn);
-            });
         });
+    });
 
-        const offcanvas = document.getElementById('offcanvasExample');
-        if (offcanvas) {
-            offcanvas.addEventListener('show.bs.offcanvas', () => {
+    const offcanvas = document.getElementById('offcanvasExample');
+    if (offcanvas) {
+        offcanvas.addEventListener('show.bs.offcanvas', () => {
             favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             updateFavoriteList();
             updateFavoriteCount();
-            });
-        }
         });
-        </script>
+    }
+});
+</script>
+
 
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

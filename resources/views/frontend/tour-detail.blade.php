@@ -108,7 +108,8 @@
                             img: @json(asset($tourImage)),
                             title: @json($tourDetail->title),
                             location: @json($tourDetail->tour_name),
-                            duration: @json($tourDetail->songay)
+                            duration: @json($tourDetail->songay),
+                            slug: @json($tourDetail->slug)
                         })'
 
                         title="Thêm vào yêu thích">
@@ -153,7 +154,6 @@ function addDetailTourToFavorites(tourData) {
         favorites.push(tourData);
         localStorage.setItem('favorites', JSON.stringify(favorites));
 
-        // Cập nhật giao diện header và danh sách
         if (typeof updateFavoriteCount === 'function') updateFavoriteCount();
         if (typeof updateFavoriteList === 'function') updateFavoriteList();
 
@@ -163,5 +163,6 @@ function addDetailTourToFavorites(tourData) {
     }
 }
 </script>
+
 
 @endsection
