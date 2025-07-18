@@ -46,6 +46,13 @@
                                         style="display: none;">0</span>
                                 </a>
                             </li>
+                            <!-- Mục GIỎ HÀNG TRÊN HEADER -->
+                            <li class="nav-item position-relative">
+                                <a class="nav-link d-flex align-items-center gap-1" href="{{ route('cart') }}">
+                                    <i class="fa fa-shopping-cart text-dark"></i>
+                                    <span class="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+                                </a>
+                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('auth.login') }}">Đăng nhập</a>
@@ -321,11 +328,16 @@
                             Travio@gmail.com</a>
                         <a href="tel:+84123456789" class="link-light link-underline-opacity-0">Điện thoại: 0123456789</a>
                     </div>
-                    <div class="col-3 d-none d-lg-flex flex-column gap-2">
+                    <div class="col-3 d-flex flex-column gap-2">
                         <a href="{{ url('/gioithieu') }}" class="link-underline-opacity-0 link-light">Giới thiệu</a>
                         <a href="{{ route('tour') }}" class="link-underline-opacity-0 link-light">Tour</a>
                         <a data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample"
                             class="link-underline-opacity-0 link-light">Yêu thích</a>
+                        @auth
+                        <a href="{{ route('bookings.index') }}" class="link-underline-opacity-0 link-light">
+                            <i class="fa fa-shopping-cart text-warning"></i> Tour đã đặt
+                        </a>
+                        @endauth
                     </div>
                     <div class="col-6 col-lg-3 d-flex flex-column align-items-end">
                         <p>&copy; 2025 Travio</p>

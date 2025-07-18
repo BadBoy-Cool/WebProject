@@ -126,4 +126,9 @@ class BookingController extends Controller
             'data' => $data
         ]);
     }
+        public function index()
+        {
+            $bookings = Booking::where('email', Auth::user()->email)->get();
+            return view('frontend.bookings.index', compact('bookings'));
+        }
 }
