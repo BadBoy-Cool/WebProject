@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Travio | Liên hệ')
 @section('content')
-	<body>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 		<!-- Header -->
 		<header class="border-bottom sticky-top bg-white">
@@ -238,8 +237,21 @@
             <div class="col-lg-7">
                 <div class="comment-form bgc-lighter z-1 rel mb-30 rmb-55">
                     <form id="contactForm" class="contactForm" name="contactForm"
-                        action="" method="post"
-                        data-aos="fade-left" data-aos-duration="50" data-aos-offset="50">
+                        action="{{ route('contact.submit') }}" method="post">
+                        @csrf
+                        @if(session('success'))
+                            <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="section-title">
                             <h2>Liên hệ</h2>
                         </div>
@@ -366,7 +378,7 @@
 							href="#offcanvasExample"
 							aria-controls="offcanvasExample"
 							class="link-underline-opacity-0 link-light"
-							>Giỏ hàng</a
+							>Yêu thích</a
 						>
 					</div>
 					<div
@@ -505,7 +517,7 @@
             return;
         }
 
-        
+
        favorites.forEach((tour, index) => {
         const div = document.createElement('div');
         div.className = 'd-flex align-items-center gap-2 mb-2 border-bottom pb-2';
@@ -580,5 +592,4 @@
 			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 			crossorigin="anonymous"></script>
 		<script src="../js/shopping-cart.js"></script>
-	</body>
 @endsection

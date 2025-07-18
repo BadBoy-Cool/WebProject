@@ -321,7 +321,7 @@
 							href="#offcanvasExample"
 							aria-controls="offcanvasExample"
 							class="link-underline-opacity-0 link-light"
-							>Giỏ hàng</a
+							>Yêu thích</a
 						>
 					</div>
 					<div

@@ -13,15 +13,15 @@ class TourController extends Controller
 
         // Map location slug => tên tour_name thật trong database
         $locationMap = [
-            'bali' => 'Bali',
-            'bangkok' => 'Bangkok',
-            'newyork' => 'New York',
-            'tokyo' => 'Tokyo',
-            'rome' => 'Rome',
-            'barcelona' => 'Barcelona',
-            'cairo' => 'Cairo',
-            'morocco' => 'Morocco',
-            'vinh-ha-long' => 'Vịnh Hạ Long',
+            'den-asakusa-tokyo-nhat-ban' => 'Tokyo',
+            'rome-y' => 'Rome',
+            'tamnougalt-morocco' => 'Morocco',
+            'bali-indonesia' => 'Bali',
+            'vinh-ha-long-vietnam' => 'Vịnh Hạ Long',
+            'bangkok-thai-lan' => 'Bangkok',
+            'new-york-my' => 'New York',
+            'barcelona-tay-ban-nha' => 'Barcelona',
+            'cairo-ai-cap' => 'Cairo',
         ];
 
         if ($request->filled('location')) {
