@@ -19,6 +19,7 @@ use App\Models\TourTimeline;
             'giaEmBe',
             'slug',
         ];
+        protected $table = 'tours';
 
         protected $primaryKey = 'tour_ID';
         public $incrementing = false;
