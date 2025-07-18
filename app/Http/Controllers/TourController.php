@@ -11,7 +11,7 @@ class TourController extends Controller
     {
         $query = Tour::query();
 
-        // Map location slug => tên tour_name thật trong database
+        // Map slug location => tên thật trong DB
         $locationMap = [
             'den-asakusa-tokyo-nhat-ban' => 'Tokyo',
             'rome-y' => 'Rome',
@@ -24,20 +24,30 @@ class TourController extends Controller
             'cairo-ai-cap' => 'Cairo',
         ];
 
+        // Lọc theo location
         if ($request->filled('location')) {
             $locationSlug = strtolower($request->location);
             $mappedName = $locationMap[$locationSlug] ?? $request->location;
             $query->whereRaw('LOWER(tour_name) LIKE ?', ['%' . strtolower($mappedName) . '%']);
         }
 
+        // Lọc theo search keyword
+        if ($request->filled('search')) {
+            $keyword = strtolower($request->search);
+            $query->whereRaw('LOWER(tour_name) LIKE ?', ['%' . $keyword . '%']);
+        }
+
+        // Lọc theo min price
         if ($request->filled('min_price')) {
             $query->where('giaLon', '>=', $request->min_price);
         }
 
+        // Lọc theo max price
         if ($request->filled('max_price')) {
             $query->where('giaLon', '<=', $request->max_price);
         }
 
+        // Lọc theo duration (số ngày)
         if ($request->filled('duration')) {
             $range = explode('-', $request->duration);
             if (count($range) === 2) {
@@ -47,6 +57,7 @@ class TourController extends Controller
             }
         }
 
+        // Sắp xếp
         switch ($request->sort) {
             case 'newest':
                 $query->orderBy('created_at', 'desc');
@@ -64,6 +75,7 @@ class TourController extends Controller
                 $query->orderBy('created_at', 'desc');
         }
 
+        // Lấy dữ liệu + paginate
         $tours = $query->with('chuongTrinh')->paginate(8)->appends($request->all());
 
         return view('frontend.tour', compact('tours'));

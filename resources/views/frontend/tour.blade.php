@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Travio | Trang chủ')
+@section('title', 'Travio | Tour')
 @section('content')
 
     <body>
@@ -34,7 +34,7 @@
 
                         <!-- Menu mobile: hiện khi thu nhỏ -->
                         <ul class="navbar-nav d-lg-none">
-                           <!--Mục YÊU THÍCH TRÊN HEADER -->
+                            <!--Mục YÊU THÍCH TRÊN HEADER -->
                             <li class="nav-item position-relative">
                                 <a class="nav-link d-flex align-items-center gap-1" data-bs-toggle="offcanvas"
                                     href="#offcanvasExample" aria-controls="offcanvasExample">
@@ -62,11 +62,14 @@
                                     aria-controls="offcanvasExample">
                                     <i class="fas fa-heart text-danger fs-5"></i>
                                 </button>
-                                <span class="favorite-count badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
+                                <span
+                                    class="favorite-count badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle"
+                                    style="display: none;">0</span>
                             </div>
 
                             <!-- Đăng nhập -->
-                            <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn"> Đăng nhập </a>
+                            <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn"> Đăng nhập
+                            </a>
 
                             <!-- Đăng ký -->
                             <a type="button" class="btn" href="{{ route('signup') }}" id="sign-up-btn"> Đăng ký </a>
@@ -83,60 +86,72 @@
             <section class="tour-grid-page py-100 rel z-1">
                 <div class="container">
                     <div class="row">
-                         <!-- Sidebar bên trái -->
+                        <!-- Sidebar bên trái -->
                         <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
                             <div class="shop-sidebar">
                                 <div class="widget widget-activity" data-aos="fade-up" data-aos-duration="1500"
                                     data-aos-offset="50">
                                     <h6 class="widget-title">Các hoạt động</h6>
                                     <form method="GET" action="{{ route('tour') }}">
-                                    <ul class="radio-filter">
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="location" id="activity1" value="den-asakusa-tokyo-nhat-ban"
-                                                onchange="this.form.submit()" {{ request('location') == 'den-asakusa-tokyo-nhat-ban' ? 'checked' : '' }}>
-                                            <label for="activity1">Đền Asakusa, Tokyo<span>18</span></label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="location" id="activity2" value="rome-y"
-                                                onchange="this.form.submit()" {{ request('location') == 'rome-y' ? 'checked' : '' }}>
-                                            <label for="activity2">Rome, Ý<span>29</span></label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="location" id="activity3" value="tamnougalt-morocco"
-                                                onchange="this.form.submit()" {{ request('location') == 'tamnougalt-morocco' ? 'checked' : '' }}>
-                                            <label for="activity3">Tamnougalt, Morocco<span>23</span></label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="location" id="activity4" value="bali-indonesia"
-                                                onchange="this.form.submit()" {{ request('location') == 'bali-indonesia' ? 'checked' : '' }}>
-                                            <label for="activity4"> Bali, Indonesia<span>25</span></label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="location" id="activity5" value="vinh-ha-long-vietnam""
-                                                onchange="this.form.submit()" {{ request('location') == 'vinh-ha-long-vietnam"' ? 'checked' : '' }}>
-                                            <label for="activity5">Vịnh Hạ Long, Việt Nam<span>30</span></label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="location" id="activity6" value="bangkok-thai-lan"
-                                                onchange="this.form.submit()" {{ request('location') == 'bangkok-thai-lan' ? 'checked' : '' }}>
-                                            <label for="activity6">Bangkok, Thái Lan<span>28</span></label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="location" id="activity7" value="new-york-my"
-                                                onchange="this.form.submit()" {{ request('location') == 'new-york-my' ? 'checked' : '' }}>
-                                            <label for="activity7">New York, Mỹ<span>22</span></label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="location" id="activity8" value="barcelona-tay-ban-nha"
-                                                onchange="this.form.submit()" {{ request('location') == 'barcelona-tay-ban-nha' ? 'checked' : '' }}>
-                                            <label for="activity8"> Barcelona, Tây Ban Nha<span>15</span></label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="location" id="activity9" value="cairo-ai-cap"
-                                                onchange="this.form.submit()" {{ request('location') == 'cairo-ai-cap' ? 'checked' : '' }}>
-                                            <label for="activity9">Cairo, Ai Cập<span>17</span></label>
-                                        </li>
-                                    </ul>
+                                        <ul class="radio-filter">
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="location"
+                                                    id="activity1" value="den-asakusa-tokyo-nhat-ban"
+                                                    onchange="this.form.submit()"
+                                                    {{ request('location') == 'den-asakusa-tokyo-nhat-ban' ? 'checked' : '' }}>
+                                                <label for="activity1">Đền Asakusa, Tokyo<span>18</span></label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="location"
+                                                    id="activity2" value="rome-y" onchange="this.form.submit()"
+                                                    {{ request('location') == 'rome-y' ? 'checked' : '' }}>
+                                                <label for="activity2">Rome, Ý<span>29</span></label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="location"
+                                                    id="activity3" value="tamnougalt-morocco" onchange="this.form.submit()"
+                                                    {{ request('location') == 'tamnougalt-morocco' ? 'checked' : '' }}>
+                                                <label for="activity3">Tamnougalt, Morocco<span>23</span></label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="location"
+                                                    id="activity4" value="bali-indonesia" onchange="this.form.submit()"
+                                                    {{ request('location') == 'bali-indonesia' ? 'checked' : '' }}>
+                                                <label for="activity4"> Bali, Indonesia<span>25</span></label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="location"
+                                                    id="activity5" value="vinh-ha-long-vietnam""
+                                                    onchange="this.form.submit()"
+                                                    {{ request('location') == 'vinh-ha-long-vietnam"' ? 'checked' : '' }}>
+                                                <label for="activity5">Vịnh Hạ Long, Việt Nam<span>30</span></label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="location"
+                                                    id="activity6" value="bangkok-thai-lan" onchange="this.form.submit()"
+                                                    {{ request('location') == 'bangkok-thai-lan' ? 'checked' : '' }}>
+                                                <label for="activity6">Bangkok, Thái Lan<span>28</span></label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="location"
+                                                    id="activity7" value="new-york-my" onchange="this.form.submit()"
+                                                    {{ request('location') == 'new-york-my' ? 'checked' : '' }}>
+                                                <label for="activity7">New York, Mỹ<span>22</span></label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="location"
+                                                    id="activity8" value="barcelona-tay-ban-nha"
+                                                    onchange="this.form.submit()"
+                                                    {{ request('location') == 'barcelona-tay-ban-nha' ? 'checked' : '' }}>
+                                                <label for="activity8"> Barcelona, Tây Ban Nha<span>15</span></label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="location"
+                                                    id="activity9" value="cairo-ai-cap" onchange="this.form.submit()"
+                                                    {{ request('location') == 'cairo-ai-cap' ? 'checked' : '' }}>
+                                                <label for="activity9">Cairo, Ai Cập<span>17</span></label>
+                                            </li>
+                                        </ul>
                                     </form>
                                 </div>
 
@@ -295,103 +310,113 @@
                                     <option value="hight-to-low">Từ cao đến thấp</option>
                                     <option value="low-to-high">Từ thấp đến cao</option>
                                 </select> --}}
-                                <form id="sortForm" method="GET" class="d-flex justify-content-end align-items-center">
-                                {{-- Giữ lại các filter hiện có --}}
-                                <input type="hidden" name="min_price" value="{{ request('min_price') }}">
-                                <input type="hidden" name="max_price" value="{{ request('max_price') }}">
-                                <input type="hidden" name="Duration" value="{{ request('Duration') }}">
-                                <input type="hidden" name="ByActivities" value="{{ request('ByActivities') }}">
-                                <input type="hidden" name="ByReviews" value="{{ request('ByReviews') }}">
+                                <form id="sortForm" method="GET"
+                                    class="d-flex justify-content-end align-items-center">
+                                    {{-- Giữ lại các filter hiện có --}}
+                                    <input type="hidden" name="min_price" value="{{ request('min_price') }}">
+                                    <input type="hidden" name="max_price" value="{{ request('max_price') }}">
+                                    <input type="hidden" name="Duration" value="{{ request('Duration') }}">
+                                    <input type="hidden" name="ByActivities" value="{{ request('ByActivities') }}">
+                                    <input type="hidden" name="ByReviews" value="{{ request('ByReviews') }}">
 
-                                <label for="sort" class="me-2">Sắp xếp:</label>
-                                <select name="sort" id="sort" onchange="document.getElementById('sortForm').submit()" class="form-select w-auto">
-                                    <option value="">-- Sắp xếp theo --</option>
-                                    <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Mới nhất</option>
-                                    <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Cũ nhất</option>
-                                    <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Giá cao đến thấp</option>
-                                    <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Giá thấp đến cao</option>
-                                </select>
-                            </form>
+                                    <label for="sort" class="me-2">Sắp xếp:</label>
+                                    <select name="sort" id="sort"
+                                        onchange="document.getElementById('sortForm').submit()"
+                                        class="form-select w-auto">
+                                        <option value="">-- Sắp xếp theo --</option>
+                                        <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Mới
+                                            nhất</option>
+                                        <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Cũ nhất
+                                        </option>
+                                        <option value="price_desc"
+                                            {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Giá cao đến thấp
+                                        </option>
+                                        <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>
+                                            Giá thấp đến cao</option>
+                                    </select>
+                                </form>
 
                             </div>
 
                             <div class="tour-grid-wrap">
                                 <div class="row">
 
-                            @foreach ($tours as $tour)
-                                <div class="col-xl-4 col-md-6">
-                                    <div class="destination-item tour-grid style-three bgc-lighter">
-                                        <div class="image">
-                                            @php
-                                                $imageMap = [
-                                                    'Tokyo' => 'backend/img/destinations/japan.png',
-                                                    'Bangkok' => 'backend/img/destinations/Bangkok.png',
-                                                    'Rome' => 'backend/img/destinations/Roma.png',
-                                                    'Bali' => 'backend/img/destinations/bali.png',
-                                                    'Barcelona' => 'backend/img/destinations/tbn.png',
-                                                    'New York' => 'backend/img/destinations/newyork.png',
-                                                    'Cairo' => 'backend/img/destinations/aicap.png',
-                                                    'Morocco' => 'backend/img/destinations/samac.png',
-                                                    'Vịnh Hạ Long' => 'backend/img/destinations/halong.jpg'
-                                                ];
-                                                $tourImage = 'backend/img/destinations/default.png';
-                                                foreach ($imageMap as $location => $img) {
-                                                    if (stripos($tour->tour_name, $location) !== false) {
-                                                        $tourImage = $img;
-                                                        break;
-                                                    }
-                                                }
-                                            @endphp
-                                            <img src="{{ asset($tourImage) }}" alt="{{ $tour->tour_name }}">
-                                        </div>
-                                        <div class="content">
-                                            <span class="location">
-                                                <i class="fas fa-map-marker-alt"></i> {{ $tour->tour_name }}
-                                            </span>
+                                    @foreach ($tours as $tour)
+                                        <div class="col-xl-4 col-md-6">
+                                            <div class="destination-item tour-grid style-three bgc-lighter">
+                                                <div class="image">
+                                                    @php
+                                                        $imageMap = [
+                                                            'Tokyo' => 'backend/img/destinations/japan.png',
+                                                            'Bangkok' => 'backend/img/destinations/Bangkok.png',
+                                                            'Rome' => 'backend/img/destinations/Roma.png',
+                                                            'Bali' => 'backend/img/destinations/bali.png',
+                                                            'Barcelona' => 'backend/img/destinations/tbn.png',
+                                                            'New York' => 'backend/img/destinations/newyork.png',
+                                                            'Cairo' => 'backend/img/destinations/aicap.png',
+                                                            'Morocco' => 'backend/img/destinations/samac.png',
+                                                            'Vịnh Hạ Long' => 'backend/img/destinations/halong.jpg',
+                                                        ];
+                                                        $tourImage = 'backend/img/destinations/default.png';
+                                                        foreach ($imageMap as $location => $img) {
+                                                            if (stripos($tour->tour_name, $location) !== false) {
+                                                                $tourImage = $img;
+                                                                break;
+                                                            }
+                                                        }
+                                                    @endphp
+                                                    <img src="{{ asset($tourImage) }}" alt="{{ $tour->tour_name }}">
+                                                </div>
+                                                <div class="content">
+                                                    <span class="location">
+                                                        <i class="fas fa-map-marker-alt"></i> {{ $tour->tour_name }}
+                                                    </span>
 
-                                            {{-- Hiện tiêu đề mô tả --}}
-                                            <h6 style="font-weight: bold; font-size: 16px;">
-                                                <a href="{{ route('tour.detail', ['slug' => $tour->slug]) }}" style="text-decoration: none; color: #333;">
-                                                    {{ $tour->title }}
-                                                </a>
-                                            </h6>
+                                                    {{-- Hiện tiêu đề mô tả --}}
+                                                    <h6 style="font-weight: bold; font-size: 16px;">
+                                                        <a href="{{ route('tour.detail', ['slug' => $tour->slug]) }}"
+                                                            style="text-decoration: none; color: #333;">
+                                                            {{ $tour->title }}
+                                                        </a>
+                                                    </h6>
 
 
-                                            {{-- Hiện thời gian và số khách --}}
-                                            <ul class="blog-meta">
-                                                <li><i class="far fa-clock"></i> {{ $tour->songay }}</li>
-                                                <li><i class="far fa-user"></i> {{ $tour->soluong }}/khách</li>
-                                            </ul>
+                                                    {{-- Hiện thời gian và số khách --}}
+                                                    <ul class="blog-meta">
+                                                        <li><i class="far fa-clock"></i> {{ $tour->songay }}</li>
+                                                        <li><i class="far fa-user"></i> {{ $tour->soluong }}/khách</li>
+                                                    </ul>
 
-                                            {{-- Giá cả --}}
-                                            <div class="destination-footer mt-2">
-                                                <span class="price">
-                                                    <span>${{ number_format($tour->giaLon) }}</span>/người lớn
-                                                    <br>
-                                                    <span>${{ number_format($tour->giaEmBe) }}</span>/trẻ em
-                                                </span>
+                                                    {{-- Giá cả --}}
+                                                    <div class="destination-footer mt-2">
+                                                        <span class="price">
+                                                            <span>${{ number_format($tour->giaLon) }}</span>/người lớn
+                                                            <br>
+                                                            <span>${{ number_format($tour->giaEmBe) }}</span>/trẻ em
+                                                        </span>
 
-                                                {{-- Link chi tiết --}}
-                                                <a href="{{ route('tour.detail', ['slug' => $tour->slug]) }}" class="theme-btn style-two style-three">
-                                                    <i class="fa fa-heart text-danger fs-5"></i>
-                                                </a>
+                                                        {{-- Link chi tiết --}}
+                                                        <a href="{{ route('tour.detail', ['slug' => $tour->slug]) }}"
+                                                            class="theme-btn style-two style-three">
+                                                            <i class="fa fa-heart text-danger fs-5"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            @endforeach
+                                    @endforeach
                                     <!-- <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up"
-                                        data-aos-duration="1500" data-aos-offset="50">
-                                        <li class="page-item disabled">
-                                            <span class="page-link"><i class="far fa-chevron-left"></i></span>
-                                        </li> -->
-                                        {{-- <li class="page-item active">
+                                                data-aos-duration="1500" data-aos-offset="50">
+                                                <li class="page-item disabled">
+                                                    <span class="page-link"><i class="far fa-chevron-left"></i></span>
+                                                </li> -->
+                                    {{-- <li class="page-item active">
                                             <span class="page-link">
                                                 1
                                                 <span class="sr-only">(current)</span>
                                             </span>
                                         </li> --}}
-                                        {{-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    {{-- <li class="page-item"><a class="page-link" href="#">2</a></li>
                                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                                         <li class="page-item"><a class="page-link" href="#">...</a></li>
                                         <li class="page-item">
@@ -423,8 +448,8 @@
                         <a href="tel:+84123456789" class="link-light link-underline-opacity-0">Điện thoại: 0123456789</a>
                     </div>
                     <div class="col-3 d-none d-lg-flex flex-column gap-2">
-                        <a href="./gioithieu.html" class="link-underline-opacity-0 link-light">Giới thiệu</a>
-                        <a href="./sanpham.html" class="link-underline-opacity-0 link-light">Tour</a>
+                        <a href="{{ url('/gioithieu') }}" class="link-underline-opacity-0 link-light">Giới thiệu</a>
+                        <a href="{{ route('tour') }}" class="link-underline-opacity-0 link-light">Tour</a>
                         <a data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample"
                             class="link-underline-opacity-0 link-light">Yêu thích</a>
                     </div>
@@ -482,8 +507,8 @@
             </div>
         </footer>
 
-       <!-- Shopping cart -->
-		<!-- OFFCANVAS YÊU THÍCH -->
+        <!-- Shopping cart -->
+        <!-- OFFCANVAS YÊU THÍCH -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header border-bottom">
@@ -498,106 +523,118 @@
         </div>
 
         <!-- SCRIPT Xử LÝ YÊU THÍCH -->
+        <!-- SCRIPT Xử LÝ YÊU THÍCH -->
         <script>
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-        function saveFavorites() {
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        }
+            function saveFavorites() {
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+            }
 
-        function updateFavoriteCount() {
-        const badges = document.querySelectorAll('.favorite-count');
-        badges.forEach(badge => {
-            badge.textContent = favorites.length;
-            badge.style.display = favorites.length > 0 ? 'inline-block' : 'none';
-        });
-        }
+            function updateFavoriteCount() {
+                const badges = document.querySelectorAll('.favorite-count');
+                badges.forEach(badge => {
+                    badge.textContent = favorites.length;
+                    badge.style.display = favorites.length > 0 ? 'inline-block' : 'none';
+                });
+            }
 
-        function updateFavoriteList() {
-        const cartContainer = document.getElementById('shopping-cart');
-        if (!cartContainer) return;
+            function updateFavoriteList() {
+                const cartContainer = document.getElementById('shopping-cart');
+                if (!cartContainer) return;
 
-        cartContainer.innerHTML = '';
-        if (favorites.length === 0) {
-            cartContainer.innerHTML = '<p class="text-muted">Chưa có tour nào được yêu thích.</p>';
-            return;
-        }
+                if (favorites.length === 0) {
+                    cartContainer.innerHTML = '<p class="text-muted">Chưa có tour nào được yêu thích.</p>';
+                    return;
+                }
 
 
-       favorites.forEach((tour, index) => {
-        const div = document.createElement('div');
-        div.className = 'd-flex align-items-center gap-2 mb-2 border-bottom pb-2';
-        div.innerHTML = `
-        <img src="${tour.img}" alt="${tour.title}" width="45" height="45" style="object-fit: cover; border-radius: 6px;">
-        <div class="flex-grow-1">
-            <p class="mb-0 fw-semibold" style="font-size: 0.85rem;">${tour.title}</p>
-            <small class="text-muted" style="font-size: 0.7rem;">${tour.location} - ${tour.duration}</small>
-        </div>
-        <button class="btn btn-sm btn-outline-danger remove-favorite" data-index="${index}" style="font-size: 0.65rem; padding: 2px 6px;">Xóa</button>
+                favorites.forEach((tour, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'd-flex align-items-center gap-2 mb-2 border-bottom pb-2';
+                    div.innerHTML = `
+            <img src="${tour.img}" alt="${tour.title}" width="45" height="45" style="object-fit: cover; border-radius: 6px;">
+            <div class="flex-grow-1">
+                <p class="mb-0 fw-semibold" style="font-size: 0.85rem;">
+                    <a href="/tour-detail/${slug}" class="text-decoration-none text-dark">
+                        ${tour.title}
+                    </a>
+                </p>
+                <small class="text-muted" style="font-size: 0.7rem;">${tour.location} - ${tour.duration}</small>
+            </div>
+            <button class="btn btn-sm btn-outline-danger remove-favorite" data-index="${index}" style="font-size: 0.65rem; padding: 2px 6px;">Xóa</button>
         `;
-        cartContainer.appendChild(div);
-    });
+                    cartContainer.appendChild(div);
+                });
 
-        document.querySelectorAll('.remove-favorite').forEach(btn => {
-            btn.addEventListener('click', e => {
-            const index = parseInt(e.target.getAttribute('data-index'));
-            favorites.splice(index, 1);
-            saveFavorites();
-            updateFavoriteCount();
-            updateFavoriteList();
+                document.querySelectorAll('.remove-favorite').forEach(btn => {
+                    btn.addEventListener('click', e => {
+                        const index = parseInt(e.target.getAttribute('data-index'));
+                        favorites.splice(index, 1);
+                        saveFavorites();
+                        updateFavoriteCount();
+                        updateFavoriteList();
+                    });
+                });
+            }
+
+            function addToFavorites(btn) {
+                const tourCard = btn.closest('.destination-item');
+                if (!tourCard) return;
+
+                const img = tourCard.querySelector('img')?.getAttribute('src');
+                const title = tourCard.querySelector('h6 a')?.innerText;
+                const location = tourCard.querySelector('.location')?.innerText || '';
+                const duration = tourCard.querySelector('.blog-meta li:nth-child(1)')?.innerText || '';
+                const slug = tourCard.getAttribute('data-slug') || ''; // <- Cần gán slug vào tourCard để lấy
+
+                if (!img || !title) return;
+
+                const newTour = {
+                    img,
+                    title,
+                    location,
+                    duration,
+                    slug
+                };
+                const isExist = favorites.some(t => t.title === newTour.title);
+
+                if (!isExist) {
+                    favorites.push(newTour);
+                    saveFavorites();
+                    updateFavoriteCount();
+                    updateFavoriteList();
+                }
+            }
+
+            // Gán sự kiện khi trang load
+            document.addEventListener('DOMContentLoaded', () => {
+                updateFavoriteCount();
+                updateFavoriteList();
+
+                document.querySelectorAll('.heart').forEach(btn => {
+                    btn.addEventListener('click', e => {
+                        e.preventDefault();
+                        addToFavorites(btn);
+                    });
+                });
+
+                const offcanvas = document.getElementById('offcanvasExample');
+                if (offcanvas) {
+                    offcanvas.addEventListener('show.bs.offcanvas', () => {
+                        favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                        updateFavoriteList();
+                        updateFavoriteCount();
+                    });
+                }
             });
-        });
-        }
-
-        function addToFavorites(btn) {
-        const tourCard = btn.closest('.destination-item');
-        if (!tourCard) return;
-
-        const img = tourCard.querySelector('img')?.getAttribute('src');
-        const title = tourCard.querySelector('h6 a')?.innerText;
-        const location = tourCard.querySelector('.location')?.innerText || '';
-        const duration = tourCard.querySelector('.blog-meta li:nth-child(1)')?.innerText || '';
-
-        if (!img || !title) return;
-
-        const newTour = { img, title, location, duration };
-        const isExist = favorites.some(t => t.title === newTour.title);
-
-        if (!isExist) {
-            favorites.push(newTour);
-            saveFavorites();
-            updateFavoriteCount();
-            updateFavoriteList();
-        }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-        updateFavoriteCount();
-        updateFavoriteList();
-
-        document.querySelectorAll('.heart').forEach(btn => {
-            btn.addEventListener('click', e => {
-            e.preventDefault();
-            addToFavorites(btn);
-            });
-        });
-
-        const offcanvas = document.getElementById('offcanvasExample');
-        if (offcanvas) {
-            offcanvas.addEventListener('show.bs.offcanvas', () => {
-            favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            updateFavoriteList();
-            updateFavoriteCount();
-            });
-        }
-        });
         </script>
 
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-			crossorigin="anonymous"></script>
-		<script src="../js/shopping-cart.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+        <script src="../js/shopping-cart.js"></script>
     </body>
 @endsection
 <script>

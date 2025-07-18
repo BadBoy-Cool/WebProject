@@ -14,11 +14,14 @@ class KhachHang extends Authenticatable
     protected $fillable = [
         'KH_name',
         'username',
-        'userpassword',
+        'password',
         'email',
         'sdt',
         'diachi',
         'KH_gioitinh',
+        'activation_token',
+        'is_active',
+        'is_admin',
     ];
 
     // Laravel mặc định dùng 'password', override

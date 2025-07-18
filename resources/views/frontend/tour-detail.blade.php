@@ -119,7 +119,8 @@
                             img: @json(asset($tourImage)),
                             title: @json($tourDetail->title),
                             location: @json($tourDetail->tour_name),
-                            duration: @json($tourDetail->songay)
+                            duration: @json($tourDetail->songay),
+                            slug: @json($tourDetail->slug)
                         })'
                             title="Thêm vào yêu thích">
 
@@ -167,11 +168,24 @@
                 if (typeof updateFavoriteCount === 'function') updateFavoriteCount();
                 if (typeof updateFavoriteList === 'function') updateFavoriteList();
 
+<<<<<<< HEAD
                 alert('Đã thêm vào danh sách yêu thích!');
             } else {
                 alert('Tour này đã có trong danh sách yêu thích!');
             }
         }
     </script>
+=======
+        if (typeof updateFavoriteCount === 'function') updateFavoriteCount();
+        if (typeof updateFavoriteList === 'function') updateFavoriteList();
+
+        alert('Đã thêm vào danh sách yêu thích!');
+    } else {
+        alert('Tour này đã có trong danh sách yêu thích!');
+    }
+}
+</script>
+>>>>>>> 313bc59d72309648051c0d9799cfde30aecad6e7
+
 
 @endsection

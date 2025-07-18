@@ -4,8 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\BookingController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\Admin\TourController as AdminTourController;
 
 // Trang chủ
 Route::get('/', [TourController::class, 'home'])->name('index');
@@ -33,11 +37,35 @@ Route::get('activate-account/{token}', [AuthController::class, 'activateAccount'
 Route::get('/tour-detail/{slug}', [TourController::class, 'detail'])->name('tour.detail');
 Route::post('/tour-review', [ReviewController::class, 'store'])->name('tour.review.store');
 
-Route::get('/book-tour/{id}/create', [BookingController::class, 'create'])->name('book.tour.formdat');
-Route::post('/book-tour/{id}', [BookingController::class, 'store'])->name('book.tour.store');
-Route::post('/book-tour/{id}/confirm', [BookingController::class, 'confirm'])->name('book.tour.confirm');
-// Sau khi chọn hình thức thanh toán → hiển thị hóa đơn
-Route::post('/book-tour/{id}/pay', [BookingController::class, 'pay'])->name('book.tour.pay');
-Route::get('/book-tour/{id}/method', [BookingController::class, 'selectMethod'])->name('book.tour.method');
-// Form tạo booking (cho phù hợp với Blade)
-Route::get('/book-tour/{id}/create', [BookingController::class, 'create'])->name('book.tour.create');
+// Admin
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
+
+// Hiển thị form đặt tour (create booking)
+Route::get('/book/tour/create/{id}', [BookingController::class, 'create'])->name('book.tour.create');
+
+// Xử lý lưu booking (submit form đặt tour)
+Route::post('/book/tour/store/{id}', [BookingController::class, 'store'])->name('book.tour.store');
+
+// Hiển thị chọn phương thức thanh toán
+Route::get('/book/tour/method/{id}', [BookingController::class, 'selectMethod'])->name('book.tour.method');
+
+// Xử lý thanh toán
+Route::post('/book/tour/pay/{id}', [BookingController::class, 'pay'])->name('book.tour.pay');
+
+Route::prefix('admin')->group(function () {
+
+    // ✅ Dùng controller admin riêng
+    Route::get('/tours', [AdminTourController::class, 'index'])->name('admin.tours.index');
+    Route::get('/tours/{id}', [AdminTourController::class, 'show'])->name('admin.tours.show');
+    Route::delete('/tours/{id}', [AdminTourController::class, 'destroy'])->name('admin.tours.destroy');
+
+
+    Route::get('/messages', [MessageController::class, 'index'])->name('admin.messages.index');
+    Route::get('/messages/{id}', [MessageController::class, 'show'])->name('admin.messages.show');
+    Route::delete('/messages/{id}', [MessageController::class, 'destroy'])->name('admin.messages.destroy');
+
+    Route::get('/account', [AccountController::class, 'index'])
+        ->name('admin.accounts.index');
+});
