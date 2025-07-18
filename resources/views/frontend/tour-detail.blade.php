@@ -168,7 +168,7 @@
                 if (typeof updateFavoriteCount === 'function') updateFavoriteCount();
                 if (typeof updateFavoriteList === 'function') updateFavoriteList();
 
-<<<<<<< HEAD
+
                 alert('Đã thêm vào danh sách yêu thích!');
             } else {
                 alert('Tour này đã có trong danh sách yêu thích!');
