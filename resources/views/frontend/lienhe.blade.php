@@ -65,11 +65,36 @@
                                 style="display: none;">0</span>
                         </div>
 
-                        <!-- Đăng nhập -->
-                        <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn"> Đăng nhập </a>
+                        @guest
+                                <!-- Đăng nhập -->
+                                <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn"> Đăng nhập
+                                </a>
 
-                        <!-- Đăng ký -->
-                        <a type="button" class="btn" href="{{ route('signup') }}" id="sign-up-btn"> Đăng ký </a>
+                                <!-- Đăng ký -->
+                                <a type="button" class="btn" href="{{ route('signup') }}" id="sign-up-btn"> Đăng ký </a>
+                            @endguest
+
+                            @auth
+                                <!-- Avatar khi đã đăng nhập -->
+                                <div class="dropdown">
+                                    <a class="btn dropdown-toggle d-flex align-items-center gap-2" href="#" role="button"
+                                        id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{ asset('frontend/img/logo/user.png') }}" alt="avatar"
+                                            style="width: 32px; height: 32px; border-radius: 50%;">
+                                        <span>{{ Auth::user()->KH_name ?? (Auth::user()->username ?? Auth::user()->email) }}</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
+                                        @if (Auth::user()->is_admin === 1)
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                                    Trang quản trị
+                                                </a>
+                                            </li>
+                                        @endif
+                                        <li><a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            @endauth
                     </div>
                 </div>
             </div>
