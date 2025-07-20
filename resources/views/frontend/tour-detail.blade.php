@@ -166,7 +166,7 @@
         }
     }
 
-    // Hiển thị danh sách tour yêu thích (cho trang yêu thích)
+    // Hiển thị danh sách tour yêu thích 
     function renderFavoriteTours(containerSelector) {
         const container = document.querySelector(containerSelector);
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
