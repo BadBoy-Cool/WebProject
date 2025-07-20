@@ -114,18 +114,17 @@
                             class="btn btn-primary rounded-pill px-4" style="margin-right: 1cm;">Đặt ngay</a>
 
                         <!-- Thêm vào mục yêu thích -->
-                        <button class="btn btn-sm border-0 bg-transparent p-0 heart-detail-hover"
-                            onclick='addDetailTourToFavorites({
+                        <button onclick='addToFavorites({
                             img: @json(asset($tourImage)),
                             title: @json($tourDetail->title),
                             location: @json($tourDetail->tour_name),
                             duration: @json($tourDetail->songay),
                             slug: @json($tourDetail->slug)
-                        })'
-                            title="Thêm vào yêu thích">
-
-                            <i class="fa fa-heart text-danger fs-2"></i>
+                            })' 
+                            class="btn btn-outline-danger" title="Thêm vào yêu thích">
+                            <i class="fa fa-heart fa-2x"></i>
                         </button>
+
                     </div>
                 </div>
             </div>
@@ -155,37 +154,43 @@
         <h3 class="mb-4">Các tour tại: <span class="text-primary">{{ request('location') }}</span></h3>
     @endif
 
-    <script>
-        function addDetailTourToFavorites(tourData) {
-            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-            const isExist = favorites.some(t => t.title === tourData.title);
-            if (!isExist) {
-                favorites.push(tourData);
-                localStorage.setItem('favorites', JSON.stringify(favorites));
-
-                // Cập nhật giao diện header và danh sách
-                if (typeof updateFavoriteCount === 'function') updateFavoriteCount();
-                if (typeof updateFavoriteList === 'function') updateFavoriteList();
-
-
-                alert('Đã thêm vào danh sách yêu thích!');
-            } else {
-                alert('Tour này đã có trong danh sách yêu thích!');
-            }
+   <script>
+    function addToFavorites(tour) {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        if (!favorites.some(t => t.slug === tour.slug)) {
+            favorites.push(tour);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            alert("Đã thêm vào danh sách yêu thích!");
+        } else {
+            alert("Tour đã có trong danh sách yêu thích!");
         }
-    </script>
-=======
-        if (typeof updateFavoriteCount === 'function') updateFavoriteCount();
-        if (typeof updateFavoriteList === 'function') updateFavoriteList();
-
-        alert('Đã thêm vào danh sách yêu thích!');
-    } else {
-        alert('Tour này đã có trong danh sách yêu thích!');
     }
-}
-</script>
->>>>>>> 313bc59d72309648051c0d9799cfde30aecad6e7
 
+    // Hiển thị danh sách tour yêu thích (cho trang yêu thích)
+    function renderFavoriteTours(containerSelector) {
+        const container = document.querySelector(containerSelector);
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-@endsection
+        if (favorites.length === 0) {
+            container.innerHTML = '<p>Chưa có tour yêu thích nào.</p>';
+            return;
+        }
+
+        container.innerHTML = '';
+        favorites.forEach(tour => {
+            const item = document.createElement('div');
+            item.className = 'destination-item';
+            item.innerHTML = `
+                <img src="${tour.img}" alt="${tour.title}">
+                <h6><a href="/tour-detail/${tour.slug}">${tour.title}</a></h6>
+                <p class="location">${tour.location}</p>
+                <ul class="blog-meta">
+                    <li><i class="far fa-clock"></i> ${tour.duration}</li>
+                </ul>
+            `;
+            container.appendChild(item);
+        });
+    }
+    </script>
+
+    @endsection

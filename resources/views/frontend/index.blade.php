@@ -158,14 +158,18 @@
                         <!-- Dòng 2: Ô tìm kiếm -->
                         <div class="row justify-content-end" style="margin-bottom: 1cm;">
                             <div class="col-md-5">
-                                <form id="searchForm">
-                                    <div class="input-group">
+                                <form id="searchForm" action="{{ route('tours.index') }}" method="GET" autocomplete="off">
+                                    <div class="input-group position-relative">
                                         <span class="input-group-text bg-white">
                                             <i class="fa fa-search text-primary"></i>
                                         </span>
                                         <input type="text" name="search" id="searchInput" class="form-control"
                                             placeholder="Tìm kiếm địa điểm hoặc hoạt động">
                                         <button class="btn btn-primary" type="submit">Tìm</button>
+
+                                        <!-- Gợi ý kết quả -->
+                                        <div id="searchSuggestions" class="list-group position-absolute w-100 z-3"
+                                            style="top: 100%; max-height: 250px; overflow-y: auto; display: none;"></div>
                                     </div>
                                 </form>
                             </div>
@@ -381,10 +385,9 @@
             </div>
         </footer>
 
-        <!-- Shopping cart -->
-        <!-- OFFCANVAS YÊU THÍCH -->
+         <!-- OFFCANVAS YÊU THÍCH -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel">
+            aria-labelledby="offcanvasExampleLabel" style="width: 700px; max-width: 90vw;">
             <div class="offcanvas-header border-bottom">
                 <h3 class="offcanvas-title" id="offcanvasExampleLabel">
                     Danh sách Yêu thích
@@ -396,117 +399,168 @@
             </div>
         </div>
 
-        <!-- SCRIPT Xử LÝ YÊU THÍCH -->
+         <!-- SCRIPT Xử LÝ YÊU THÍCH -->
         <script>
-            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-            function saveFavorites() {
-                localStorage.setItem('favorites', JSON.stringify(favorites));
+        function saveFavorites() {
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+
+        function updateFavoriteCount() {
+            const badges = document.querySelectorAll('.favorite-count');
+            badges.forEach(badge => {
+                badge.textContent = favorites.length;
+                badge.style.display = favorites.length > 0 ? 'inline-block' : 'none';
+            });
+        }
+
+        function updateFavoriteList() {
+            const cartContainer = document.getElementById('shopping-cart');
+            if (!cartContainer) return;
+
+            if (favorites.length === 0) {
+                cartContainer.innerHTML = '<p class="text-muted">Chưa có tour nào được yêu thích.</p>';
+                return;
             }
 
-            function updateFavoriteCount() {
-                const badges = document.querySelectorAll('.favorite-count');
-                badges.forEach(badge => {
-                    badge.textContent = favorites.length;
-                    badge.style.display = favorites.length > 0 ? 'inline-block' : 'none';
-                });
-            }
+            cartContainer.innerHTML = '';
+            favorites.forEach((tour, index) => {
+                const slug = tour.slug || '#';
+                const div = document.createElement('div');
+                div.className = 'd-flex align-items-center gap-3 mb-3 border-bottom pb-3';
+                div.innerHTML = `
+                    <img src="${tour.img}" alt="${tour.title}" width="80" height="80" style="object-fit: cover; border-radius: 8px;">
+                    <div class="flex-grow-1">
+                        <p class="mb-1 fw-bold fs-7">
+                            <a href="/tour-detail/${slug}" class="text-decoration-none text-dark">
+                                ${tour.title}
+                            </a>
+                        </p>
+                        <p class="text-muted mb-1 fs-6">${tour.location}</p>
+                        <p class="text-muted mb-0 fs-6"><i class="far fa-clock"></i> ${tour.duration}</p>
+                    </div>
+                    <button class="btn btn-sm btn-outline-danger remove-favorite fs-6 px-2 py-1" data-index="${index}">
+                        Xóa
+                    </button>
+                `;
+                cartContainer.appendChild(div);
+            });
 
-            function updateFavoriteList() {
-                const cartContainer = document.getElementById('shopping-cart');
-                if (!cartContainer) return;
-
-                cartContainer.innerHTML = '';
-                if (favorites.length === 0) {
-                    cartContainer.innerHTML = '<p class="text-muted">Chưa có tour nào được yêu thích.</p>';
-                    return;
-                }
-
-
-                favorites.forEach((tour, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'd-flex align-items-center gap-2 mb-2 border-bottom pb-2';
-                    div.innerHTML = `
-        <img src="${tour.img}" alt="${tour.title}" width="45" height="45" style="object-fit: cover; border-radius: 6px;">
-        <div class="flex-grow-1">
-            <p class="mb-0 fw-semibold" style="font-size: 0.85rem;">${tour.title}</p>
-            <small class="text-muted" style="font-size: 0.7rem;">${tour.location} - ${tour.duration}</small>
-        </div>
-        <button class="btn btn-sm btn-outline-danger remove-favorite" data-index="${index}" style="font-size: 0.65rem; padding: 2px 6px;">Xóa</button>
-        `;
-                    cartContainer.appendChild(div);
-                });
-
-                document.querySelectorAll('.remove-favorite').forEach(btn => {
-                    btn.addEventListener('click', e => {
-                        const index = parseInt(e.target.getAttribute('data-index'));
-                        favorites.splice(index, 1);
-                        saveFavorites();
-                        updateFavoriteCount();
-                        updateFavoriteList();
-                    });
-                });
-            }
-
-            function addToFavorites(btn) {
-                const tourCard = btn.closest('.destination-item');
-                if (!tourCard) return;
-
-                const img = tourCard.querySelector('img')?.getAttribute('src');
-                const title = tourCard.querySelector('h6 a')?.innerText;
-                const location = tourCard.querySelector('.location')?.innerText || '';
-                const duration = tourCard.querySelector('.blog-meta li:nth-child(1)')?.innerText || '';
-
-                if (!img || !title) return;
-
-                const newTour = {
-                    img,
-                    title,
-                    location,
-                    duration
-                };
-                const isExist = favorites.some(t => t.title === newTour.title);
-
-                if (!isExist) {
-                    favorites.push(newTour);
+            document.querySelectorAll('.remove-favorite').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    favorites.splice(index, 1);
                     saveFavorites();
                     updateFavoriteCount();
                     updateFavoriteList();
-                }
-            }
+                });
+            });
+        }
 
-            document.addEventListener('DOMContentLoaded', () => {
+        function addToFavorites(btn) {
+            const tourCard = btn.closest('.destination-item');
+            if (!tourCard) return;
+
+            const img = tourCard.querySelector('img')?.getAttribute('src') || '';
+            const title = tourCard.querySelector('h6 a')?.innerText || '';
+            const location = tourCard.querySelector('.location')?.innerText || '';
+            const duration = tourCard.querySelector('.blog-meta li')?.innerText || '';
+            const slug = tourCard.getAttribute('data-slug') || '';
+
+            if (!img || !title || !slug) return;
+
+            const newTour = { img, title, location, duration, slug };
+
+            const isExist = favorites.some(t => t.title === newTour.title);
+            if (!isExist) {
+                favorites.push(newTour);
+                saveFavorites();
                 updateFavoriteCount();
                 updateFavoriteList();
+                alert('Đã thêm vào danh sách yêu thích!');
+            } else {
+                alert('Tour này đã có trong danh sách yêu thích!');
+            }
+        }
 
-                document.querySelectorAll('.heart').forEach(btn => {
-                    btn.addEventListener('click', e => {
-                        e.preventDefault();
-                        addToFavorites(btn);
-                    });
+        document.addEventListener('DOMContentLoaded', () => {
+            updateFavoriteCount();
+            updateFavoriteList();
+
+            document.querySelectorAll('.heart').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    e.preventDefault();
+                    addToFavorites(btn);
                 });
+            });
 
-                const offcanvas = document.getElementById('offcanvasExample');
-                if (offcanvas) {
-                    offcanvas.addEventListener('show.bs.offcanvas', () => {
-                        favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-                        updateFavoriteList();
-                        updateFavoriteCount();
-                    });
-                }
-            });
-            document.getElementById('searchForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const keyword = document.getElementById('searchInput').value;
-                if (keyword.trim() !== '') {
-                    window.location.href = '/tour?search=' + encodeURIComponent(keyword);
-                }
-            });
+            const offcanvas = document.getElementById('offcanvasExample');
+            if (offcanvas) {
+                offcanvas.addEventListener('show.bs.offcanvas', () => {
+                    favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                    updateFavoriteList();
+                    updateFavoriteCount();
+                });
+            }
+        });
         </script>
+        <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('searchInput');
+    const suggestionsBox = document.getElementById('searchSuggestions');
+
+    let timeout = null;
+
+    input.addEventListener('input', () => {
+        clearTimeout(timeout);
+
+        const query = input.value.trim();
+
+        if (query.length < 2) {
+            suggestionsBox.innerHTML = '';
+            suggestionsBox.style.display = 'none';
+            return;
+        }
+
+        timeout = setTimeout(() => {
+            fetch(`/autocomplete?query=${encodeURIComponent(query)}`)
+                .then(res => res.json())
+                .then(data => {
+                    suggestionsBox.innerHTML = '';
+                    if (data.length === 0) {
+                        suggestionsBox.style.display = 'none';
+                        return;
+                    }
+
+                    data.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'list-group-item list-group-item-action';
+                        div.textContent = item.title;
+                        div.addEventListener('click', () => {
+                            input.value = item.title;
+                            suggestionsBox.style.display = 'none';
+                            document.getElementById('searchForm').submit();
+                        });
+                        suggestionsBox.appendChild(div);
+                    });
+
+                    suggestionsBox.style.display = 'block';
+                });
+        }, 300); // debounce 300ms
+    });
+
+    // Ẩn gợi ý khi click ra ngoài
+    document.addEventListener('click', (e) => {
+        if (!suggestionsBox.contains(e.target) && e.target !== input) {
+            suggestionsBox.style.display = 'none';
+        }
+    });
+});
+</script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
-        <script src="../js/shopping-cart.js"></script>
-    </body>
+     </body>
 @endsection
