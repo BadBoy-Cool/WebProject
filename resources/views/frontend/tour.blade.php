@@ -66,13 +66,46 @@
                                     class="favorite-count badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle"
                                     style="display: none;">0</span>
                             </div>
+                            
+                            <!-- Tour đã đặt (giỏ hàng) -->
+                            @auth
+                                <div class="position-relative">
+                                    <a class="btn" href="{{ route('bookings.index') }}">
+                                        <i class="fa fa-shopping-cart text-warning fs-5"></i>
+                                    </a>
+                                </div>
+                            @endauth
 
-                            <!-- Đăng nhập -->
-                            <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn"> Đăng nhập
-                            </a>
+                            @guest
+                                <!-- Đăng nhập -->
+                                <a type="button" class="btn" href="{{ route('auth.login') }}" id="sign-in-btn"> Đăng nhập
+                                </a>
 
-                            <!-- Đăng ký -->
-                            <a type="button" class="btn" href="{{ route('signup') }}" id="sign-up-btn"> Đăng ký </a>
+                                <!-- Đăng ký -->
+                                <a type="button" class="btn" href="{{ route('signup') }}" id="sign-up-btn"> Đăng ký </a>
+                            @endguest
+
+                            @auth
+                                <!-- Avatar khi đã đăng nhập -->
+                                <div class="dropdown">
+                                    <a class="btn dropdown-toggle d-flex align-items-center gap-2" href="#" role="button"
+                                        id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{ asset('frontend/img/logo/user.png') }}" alt="avatar"
+                                            style="width: 32px; height: 32px; border-radius: 50%;">
+                                        <span>{{ Auth::user()->KH_name ?? (Auth::user()->username ?? Auth::user()->email) }}</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
+                                        @if (Auth::user()->is_admin === 1)
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                                    Trang quản trị
+                                                </a>
+                                            </li>
+                                        @endif
+                                        <li><a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -82,357 +115,357 @@
         <!-- Main -->
         <main>
 
-            <!-- Tour Grid Area start -->
-            <section class="tour-grid-page py-100 rel z-1">
-                <div class="container">
-                    <div class="row">
-                        <!-- Sidebar bên trái -->
-                        <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
-                            <div class="shop-sidebar">
-                                <div class="widget widget-activity" data-aos="fade-up" data-aos-duration="1500"
-                                    data-aos-offset="50">
-                                    <h6 class="widget-title">Các hoạt động</h6>
-                                    <form method="GET" action="{{ route('tour') }}">
+                <!-- Tour Grid Area start -->
+                <section class="tour-grid-page py-100 rel z-1">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Sidebar bên trái -->
+                            <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
+                                <div class="shop-sidebar">
+                                    <div class="widget widget-activity" data-aos="fade-up" data-aos-duration="1500"
+                                        data-aos-offset="50">
+                                        <h6 class="widget-title">Các hoạt động</h6>
+                                        <form method="GET" action="{{ route('tour') }}">
+                                            <ul class="radio-filter">
+                                                <li>
+                                                    <input class="form-check-input" type="radio" name="location"
+                                                        id="activity1" value="den-asakusa-tokyo-nhat-ban"
+                                                        onchange="this.form.submit()"
+                                                        {{ request('location') == 'den-asakusa-tokyo-nhat-ban' ? 'checked' : '' }}>
+                                                    <label for="activity1">Đền Asakusa, Tokyo<span>18</span></label>
+                                                </li>
+                                                <li>
+                                                    <input class="form-check-input" type="radio" name="location"
+                                                        id="activity2" value="rome-y" onchange="this.form.submit()"
+                                                        {{ request('location') == 'rome-y' ? 'checked' : '' }}>
+                                                    <label for="activity2">Rome, Ý<span>29</span></label>
+                                                </li>
+                                                <li>
+                                                    <input class="form-check-input" type="radio" name="location"
+                                                        id="activity3" value="tamnougalt-morocco" onchange="this.form.submit()"
+                                                        {{ request('location') == 'tamnougalt-morocco' ? 'checked' : '' }}>
+                                                    <label for="activity3">Tamnougalt, Morocco<span>23</span></label>
+                                                </li>
+                                                <li>
+                                                    <input class="form-check-input" type="radio" name="location"
+                                                        id="activity4" value="bali-indonesia" onchange="this.form.submit()"
+                                                        {{ request('location') == 'bali-indonesia' ? 'checked' : '' }}>
+                                                    <label for="activity4"> Bali, Indonesia<span>25</span></label>
+                                                </li>
+                                                <li>
+                                                    <input class="form-check-input" type="radio" name="location"
+                                                        id="activity5" value="vinh-ha-long-vietnam""
+                                                        onchange="this.form.submit()"
+                                                        {{ request('location') == 'vinh-ha-long-vietnam"' ? 'checked' : '' }}>
+                                                    <label for="activity5">Vịnh Hạ Long, Việt Nam<span>30</span></label>
+                                                </li>
+                                                <li>
+                                                    <input class="form-check-input" type="radio" name="location"
+                                                        id="activity6" value="bangkok-thai-lan" onchange="this.form.submit()"
+                                                        {{ request('location') == 'bangkok-thai-lan' ? 'checked' : '' }}>
+                                                    <label for="activity6">Bangkok, Thái Lan<span>28</span></label>
+                                                </li>
+                                                <li>
+                                                    <input class="form-check-input" type="radio" name="location"
+                                                        id="activity7" value="new-york-my" onchange="this.form.submit()"
+                                                        {{ request('location') == 'new-york-my' ? 'checked' : '' }}>
+                                                    <label for="activity7">New York, Mỹ<span>22</span></label>
+                                                </li>
+                                                <li>
+                                                    <input class="form-check-input" type="radio" name="location"
+                                                        id="activity8" value="barcelona-tay-ban-nha"
+                                                        onchange="this.form.submit()"
+                                                        {{ request('location') == 'barcelona-tay-ban-nha' ? 'checked' : '' }}>
+                                                    <label for="activity8"> Barcelona, Tây Ban Nha<span>15</span></label>
+                                                </li>
+                                                <li>
+                                                    <input class="form-check-input" type="radio" name="location"
+                                                        id="activity9" value="cairo-ai-cap" onchange="this.form.submit()"
+                                                        {{ request('location') == 'cairo-ai-cap' ? 'checked' : '' }}>
+                                                    <label for="activity9">Cairo, Ai Cập<span>17</span></label>
+                                                </li>
+                                            </ul>
+                                        </form>
+                                    </div>
+
+                                    <div class="widget widget-reviews" data-aos="fade-up" data-aos-duration="1500"
+                                        data-aos-offset="50">
+                                        <h6 class="widget-title">Theo đánh giá</h6>
                                         <ul class="radio-filter">
                                             <li>
-                                                <input class="form-check-input" type="radio" name="location"
-                                                    id="activity1" value="den-asakusa-tokyo-nhat-ban"
-                                                    onchange="this.form.submit()"
-                                                    {{ request('location') == 'den-asakusa-tokyo-nhat-ban' ? 'checked' : '' }}>
-                                                <label for="activity1">Đền Asakusa, Tokyo<span>18</span></label>
+                                                <input class="form-check-input" type="radio" checked name="ByReviews"
+                                                    id="review1">
+                                                <label for="review1">
+                                                    <span class="ratting">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </span>
+                                                </label>
                                             </li>
                                             <li>
-                                                <input class="form-check-input" type="radio" name="location"
-                                                    id="activity2" value="rome-y" onchange="this.form.submit()"
-                                                    {{ request('location') == 'rome-y' ? 'checked' : '' }}>
-                                                <label for="activity2">Rome, Ý<span>29</span></label>
+                                                <input class="form-check-input" type="radio" name="ByReviews"
+                                                    id="review2">
+                                                <label for="review2">
+                                                    <span class="ratting">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-half-alt white"></i>
+                                                    </span>
+                                                </label>
                                             </li>
                                             <li>
-                                                <input class="form-check-input" type="radio" name="location"
-                                                    id="activity3" value="tamnougalt-morocco" onchange="this.form.submit()"
-                                                    {{ request('location') == 'tamnougalt-morocco' ? 'checked' : '' }}>
-                                                <label for="activity3">Tamnougalt, Morocco<span>23</span></label>
+                                                <input class="form-check-input" type="radio" name="ByReviews"
+                                                    id="review3">
+                                                <label for="review3">
+                                                    <span class="ratting">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star white"></i>
+                                                        <i class="fa fa-star-half-alt white"></i>
+                                                    </span>
+                                                </label>
                                             </li>
                                             <li>
-                                                <input class="form-check-input" type="radio" name="location"
-                                                    id="activity4" value="bali-indonesia" onchange="this.form.submit()"
-                                                    {{ request('location') == 'bali-indonesia' ? 'checked' : '' }}>
-                                                <label for="activity4"> Bali, Indonesia<span>25</span></label>
+                                                <input class="form-check-input" type="radio" name="ByReviews"
+                                                    id="review4">
+                                                <label for="review4">
+                                                    <span class="ratting">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star white"></i>
+                                                        <i class="fa fa-star white"></i>
+                                                        <i class="fa fa-star-half-alt white"></i>
+                                                    </span>
+                                                </label>
                                             </li>
                                             <li>
-                                                <input class="form-check-input" type="radio" name="location"
-                                                    id="activity5" value="vinh-ha-long-vietnam""
-                                                    onchange="this.form.submit()"
-                                                    {{ request('location') == 'vinh-ha-long-vietnam"' ? 'checked' : '' }}>
-                                                <label for="activity5">Vịnh Hạ Long, Việt Nam<span>30</span></label>
-                                            </li>
-                                            <li>
-                                                <input class="form-check-input" type="radio" name="location"
-                                                    id="activity6" value="bangkok-thai-lan" onchange="this.form.submit()"
-                                                    {{ request('location') == 'bangkok-thai-lan' ? 'checked' : '' }}>
-                                                <label for="activity6">Bangkok, Thái Lan<span>28</span></label>
-                                            </li>
-                                            <li>
-                                                <input class="form-check-input" type="radio" name="location"
-                                                    id="activity7" value="new-york-my" onchange="this.form.submit()"
-                                                    {{ request('location') == 'new-york-my' ? 'checked' : '' }}>
-                                                <label for="activity7">New York, Mỹ<span>22</span></label>
-                                            </li>
-                                            <li>
-                                                <input class="form-check-input" type="radio" name="location"
-                                                    id="activity8" value="barcelona-tay-ban-nha"
-                                                    onchange="this.form.submit()"
-                                                    {{ request('location') == 'barcelona-tay-ban-nha' ? 'checked' : '' }}>
-                                                <label for="activity8"> Barcelona, Tây Ban Nha<span>15</span></label>
-                                            </li>
-                                            <li>
-                                                <input class="form-check-input" type="radio" name="location"
-                                                    id="activity9" value="cairo-ai-cap" onchange="this.form.submit()"
-                                                    {{ request('location') == 'cairo-ai-cap' ? 'checked' : '' }}>
-                                                <label for="activity9">Cairo, Ai Cập<span>17</span></label>
+                                                <input class="form-check-input" type="radio" name="ByReviews"
+                                                    id="review5">
+                                                <label for="review5">
+                                                    <span class="ratting">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star white"></i>
+                                                        <i class="fa fa-star white"></i>
+                                                        <i class="fa fa-star white"></i>
+                                                        <i class="fa fa-star-half-alt white"></i>
+                                                    </span>
+                                                </label>
                                             </li>
                                         </ul>
+                                    </div>
+
+                                    {{-- <div class="widget widget-languages" data-aos="fade-up" data-aos-duration="1500"
+                                        data-aos-offset="50">
+                                        <h6 class="widget-title">Các Nước</h6>
+                                        <ul class="radio-filter">
+                                            <li>
+                                                <input class="form-check-input" type="radio" checked name="ByLanguages"
+                                                    id="language1">
+                                                <label for="language1">Anh Mỹ</label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="ByLanguages"
+                                                    id="language2">
+                                                <label for="language2">Anh</label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="ByLanguages"
+                                                    id="language3">
+                                                <label for="language3">Đức</label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="ByLanguages"
+                                                    id="language4">
+                                                <label for="language4">Nhật Bản</label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="ByLanguages"
+                                                    id="language5">
+                                                <label for="language5">Việt Nam</label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="ByLanguages"
+                                                    id="language6">
+                                                <label for="language6">Pháp</label>
+                                            </li>
+                                        </ul>
+                                    </div> --}}
+
+                                    <div class="widget widget-duration" data-aos="fade-up" data-aos-duration="1500"
+                                        data-aos-offset="50">
+                                        <h6 class="widget-title">Thời gian</h6>
+                                        <ul class="radio-filter">
+                                            <li>
+                                                <input class="form-check-input" type="radio" checked name="Duration"
+                                                    id="duration1">
+                                                <label for="duration1">1 - 2 ngày</label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="Duration"
+                                                    id="duration2">
+                                                <label for="duration2">2 - 4 ngày</label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="Duration"
+                                                    id="duration3">
+                                                <label for="duration3">4 - 8 ngày</label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="Duration"
+                                                    id="duration4">
+                                                <label for="duration4">hơn 8 ngày</label>
+                                            </li>
+                                            <li>
+                                                <input class="form-check-input" type="radio" name="Duration"
+                                                    id="duration5">
+                                                <label for="duration5">Nhiều ngày</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="shop-shorter rel z-3 mb-20">
+                                    {{-- <ul class="grid-list mb-15 me-2">
+                                    <li><a href="#"><i class="fal fa-border-all"></i></a></li>
+                                    <li><a href="#"><i class="far fa-list"></i></a></li>
+                                </ul> --}}
+                                    {{-- <select>
+                                        <option value="default" selected="">Sắp xếp theo</option>
+                                        <option value="new">Mới nhất</option>
+                                        <option value="old">Cũ nhất</option>
+                                        <option value="hight-to-low">Từ cao đến thấp</option>
+                                        <option value="low-to-high">Từ thấp đến cao</option>
+                                    </select> --}}
+                                    <form id="sortForm" method="GET"
+                                        class="d-flex justify-content-end align-items-center">
+                                        {{-- Giữ lại các filter hiện có --}}
+                                        <input type="hidden" name="min_price" value="{{ request('min_price') }}">
+                                        <input type="hidden" name="max_price" value="{{ request('max_price') }}">
+                                        <input type="hidden" name="Duration" value="{{ request('Duration') }}">
+                                        <input type="hidden" name="ByActivities" value="{{ request('ByActivities') }}">
+                                        <input type="hidden" name="ByReviews" value="{{ request('ByReviews') }}">
+
+                                        <label for="sort" class="me-2">Sắp xếp:</label>
+                                        <select name="sort" id="sort"
+                                            onchange="document.getElementById('sortForm').submit()"
+                                            class="form-select w-auto">
+                                            <option value="">-- Sắp xếp theo --</option>
+                                            <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Mới
+                                                nhất</option>
+                                            <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Cũ nhất
+                                            </option>
+                                            <option value="price_desc"
+                                                {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Giá cao đến thấp
+                                            </option>
+                                            <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>
+                                                Giá thấp đến cao</option>
+                                        </select>
                                     </form>
+
                                 </div>
 
-                                <div class="widget widget-reviews" data-aos="fade-up" data-aos-duration="1500"
-                                    data-aos-offset="50">
-                                    <h6 class="widget-title">Theo đánh giá</h6>
-                                    <ul class="radio-filter">
-                                        <li>
-                                            <input class="form-check-input" type="radio" checked name="ByReviews"
-                                                id="review1">
-                                            <label for="review1">
-                                                <span class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="ByReviews"
-                                                id="review2">
-                                            <label for="review2">
-                                                <span class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-alt white"></i>
-                                                </span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="ByReviews"
-                                                id="review3">
-                                            <label for="review3">
-                                                <span class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star white"></i>
-                                                    <i class="fa fa-star-half-alt white"></i>
-                                                </span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="ByReviews"
-                                                id="review4">
-                                            <label for="review4">
-                                                <span class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star white"></i>
-                                                    <i class="fa fa-star white"></i>
-                                                    <i class="fa fa-star-half-alt white"></i>
-                                                </span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="ByReviews"
-                                                id="review5">
-                                            <label for="review5">
-                                                <span class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star white"></i>
-                                                    <i class="fa fa-star white"></i>
-                                                    <i class="fa fa-star white"></i>
-                                                    <i class="fa fa-star-half-alt white"></i>
-                                                </span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <div class="tour-grid-wrap">
+                                    <div class="row">
 
-                                {{-- <div class="widget widget-languages" data-aos="fade-up" data-aos-duration="1500"
-                                    data-aos-offset="50">
-                                    <h6 class="widget-title">Các Nước</h6>
-                                    <ul class="radio-filter">
-                                        <li>
-                                            <input class="form-check-input" type="radio" checked name="ByLanguages"
-                                                id="language1">
-                                            <label for="language1">Anh Mỹ</label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="ByLanguages"
-                                                id="language2">
-                                            <label for="language2">Anh</label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="ByLanguages"
-                                                id="language3">
-                                            <label for="language3">Đức</label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="ByLanguages"
-                                                id="language4">
-                                            <label for="language4">Nhật Bản</label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="ByLanguages"
-                                                id="language5">
-                                            <label for="language5">Việt Nam</label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="ByLanguages"
-                                                id="language6">
-                                            <label for="language6">Pháp</label>
-                                        </li>
-                                    </ul>
-                                </div> --}}
-
-                                <div class="widget widget-duration" data-aos="fade-up" data-aos-duration="1500"
-                                    data-aos-offset="50">
-                                    <h6 class="widget-title">Thời gian</h6>
-                                    <ul class="radio-filter">
-                                        <li>
-                                            <input class="form-check-input" type="radio" checked name="Duration"
-                                                id="duration1">
-                                            <label for="duration1">1 - 2 ngày</label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="Duration"
-                                                id="duration2">
-                                            <label for="duration2">2 - 4 ngày</label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="Duration"
-                                                id="duration3">
-                                            <label for="duration3">4 - 8 ngày</label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="Duration"
-                                                id="duration4">
-                                            <label for="duration4">hơn 8 ngày</label>
-                                        </li>
-                                        <li>
-                                            <input class="form-check-input" type="radio" name="Duration"
-                                                id="duration5">
-                                            <label for="duration5">Nhiều ngày</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="shop-shorter rel z-3 mb-20">
-                                {{-- <ul class="grid-list mb-15 me-2">
-                                <li><a href="#"><i class="fal fa-border-all"></i></a></li>
-                                <li><a href="#"><i class="far fa-list"></i></a></li>
-                            </ul> --}}
-                                {{-- <select>
-                                    <option value="default" selected="">Sắp xếp theo</option>
-                                    <option value="new">Mới nhất</option>
-                                    <option value="old">Cũ nhất</option>
-                                    <option value="hight-to-low">Từ cao đến thấp</option>
-                                    <option value="low-to-high">Từ thấp đến cao</option>
-                                </select> --}}
-                                <form id="sortForm" method="GET"
-                                    class="d-flex justify-content-end align-items-center">
-                                    {{-- Giữ lại các filter hiện có --}}
-                                    <input type="hidden" name="min_price" value="{{ request('min_price') }}">
-                                    <input type="hidden" name="max_price" value="{{ request('max_price') }}">
-                                    <input type="hidden" name="Duration" value="{{ request('Duration') }}">
-                                    <input type="hidden" name="ByActivities" value="{{ request('ByActivities') }}">
-                                    <input type="hidden" name="ByReviews" value="{{ request('ByReviews') }}">
-
-                                    <label for="sort" class="me-2">Sắp xếp:</label>
-                                    <select name="sort" id="sort"
-                                        onchange="document.getElementById('sortForm').submit()"
-                                        class="form-select w-auto">
-                                        <option value="">-- Sắp xếp theo --</option>
-                                        <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Mới
-                                            nhất</option>
-                                        <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Cũ nhất
-                                        </option>
-                                        <option value="price_desc"
-                                            {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Giá cao đến thấp
-                                        </option>
-                                        <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>
-                                            Giá thấp đến cao</option>
-                                    </select>
-                                </form>
-
-                            </div>
-
-                            <div class="tour-grid-wrap">
-                                <div class="row">
-
-                                    @foreach ($tours as $tour)
-                                        <div class="col-xl-4 col-md-6">
-                                            <div class="destination-item tour-grid style-three bgc-lighter">
-                                                <div class="image">
-                                                    @php
-                                                        $imageMap = [
-                                                            'Tokyo' => 'backend/img/destinations/japan.png',
-                                                            'Bangkok' => 'backend/img/destinations/Bangkok.png',
-                                                            'Rome' => 'backend/img/destinations/Roma.png',
-                                                            'Bali' => 'backend/img/destinations/bali.png',
-                                                            'Barcelona' => 'backend/img/destinations/tbn.png',
-                                                            'New York' => 'backend/img/destinations/newyork.png',
-                                                            'Cairo' => 'backend/img/destinations/aicap.png',
-                                                            'Morocco' => 'backend/img/destinations/samac.png',
-                                                            'Vịnh Hạ Long' => 'backend/img/destinations/halong.jpg',
-                                                        ];
-                                                        $tourImage = 'backend/img/destinations/default.png';
-                                                        foreach ($imageMap as $location => $img) {
-                                                            if (stripos($tour->tour_name, $location) !== false) {
-                                                                $tourImage = $img;
-                                                                break;
+                                        @foreach ($tours as $tour)
+                                            <div class="col-xl-4 col-md-6">
+                                                <div class="destination-item tour-grid style-three bgc-lighter">
+                                                    <div class="image">
+                                                        @php
+                                                            $imageMap = [
+                                                                'Tokyo' => 'backend/img/destinations/japan.png',
+                                                                'Bangkok' => 'backend/img/destinations/Bangkok.png',
+                                                                'Rome' => 'backend/img/destinations/Roma.png',
+                                                                'Bali' => 'backend/img/destinations/bali.png',
+                                                                'Barcelona' => 'backend/img/destinations/tbn.png',
+                                                                'New York' => 'backend/img/destinations/newyork.png',
+                                                                'Cairo' => 'backend/img/destinations/aicap.png',
+                                                                'Morocco' => 'backend/img/destinations/samac.png',
+                                                                'Vịnh Hạ Long' => 'backend/img/destinations/halong.jpg',
+                                                            ];
+                                                            $tourImage = 'backend/img/destinations/default.png';
+                                                            foreach ($imageMap as $location => $img) {
+                                                                if (stripos($tour->tour_name, $location) !== false) {
+                                                                    $tourImage = $img;
+                                                                    break;
+                                                                }
                                                             }
-                                                        }
-                                                    @endphp
-                                                    <img src="{{ asset($tourImage) }}" alt="{{ $tour->tour_name }}">
-                                                </div>
-                                                <div class="content">
-                                                    <span class="location">
-                                                        <i class="fas fa-map-marker-alt"></i> {{ $tour->tour_name }}
-                                                    </span>
-
-                                                    {{-- Hiện tiêu đề mô tả --}}
-                                                    <h6 style="font-weight: bold; font-size: 16px;">
-                                                        <a href="{{ route('tour.detail', ['slug' => $tour->slug]) }}"
-                                                            style="text-decoration: none; color: #333;">
-                                                            {{ $tour->title }}
-                                                        </a>
-                                                    </h6>
-
-
-                                                    {{-- Hiện thời gian và số khách --}}
-                                                    <ul class="blog-meta">
-                                                        <li><i class="far fa-clock"></i> {{ $tour->songay }}</li>
-                                                        <li><i class="far fa-user"></i> {{ $tour->soluong }}/khách</li>
-                                                    </ul>
-
-                                                    {{-- Giá cả --}}
-                                                    <div class="destination-footer mt-2">
-                                                        <span class="price">
-                                                            <span>${{ number_format($tour->giaLon) }}</span>/người lớn
-                                                            <br>
-                                                            <span>${{ number_format($tour->giaEmBe) }}</span>/trẻ em
+                                                        @endphp
+                                                        <img src="{{ asset($tourImage) }}" alt="{{ $tour->tour_name }}">
+                                                    </div>
+                                                    <div class="content">
+                                                        <span class="location">
+                                                            <i class="fas fa-map-marker-alt"></i> {{ $tour->tour_name }}
                                                         </span>
 
-                                                        {{-- Link chi tiết --}}
-                                                        <a href="{{ route('tour.detail', ['slug' => $tour->slug]) }}"
-                                                            class="theme-btn style-two style-three">
-                                                            <i class="fa fa-heart text-danger fs-5"></i>
-                                                        </a>
+                                                        {{-- Hiện tiêu đề mô tả --}}
+                                                        <h6 style="font-weight: bold; font-size: 16px;">
+                                                            <a href="{{ route('tour.detail', ['slug' => $tour->slug]) }}"
+                                                                style="text-decoration: none; color: #333;">
+                                                                {{ $tour->title }}
+                                                            </a>
+                                                        </h6>
+
+
+                                                        {{-- Hiện thời gian và số khách --}}
+                                                        <ul class="blog-meta">
+                                                            <li><i class="far fa-clock"></i> {{ $tour->songay }}</li>
+                                                            <li><i class="far fa-user"></i> {{ $tour->soluong }}/khách</li>
+                                                        </ul>
+
+                                                        {{-- Giá cả --}}
+                                                        <div class="destination-footer mt-2">
+                                                            <span class="price">
+                                                                <span>${{ number_format($tour->giaLon) }}</span>/người lớn
+                                                                <br>
+                                                                <span>${{ number_format($tour->giaEmBe) }}</span>/trẻ em
+                                                            </span>
+
+                                                            {{-- Link chi tiết --}}
+                                                            <a href="{{ route('tour.detail', ['slug' => $tour->slug]) }}"
+                                                                class="theme-btn style-two style-three">
+                                                                <i class="fa fa-heart text-danger fs-5"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endforeach
-                                    <!-- <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up"
-                                                data-aos-duration="1500" data-aos-offset="50">
-                                                <li class="page-item disabled">
-                                                    <span class="page-link"><i class="far fa-chevron-left"></i></span>
-                                                </li> -->
-                                    {{-- <li class="page-item active">
-                                            <span class="page-link">
-                                                1
-                                                <span class="sr-only">(current)</span>
-                                            </span>
-                                        </li> --}}
-                                    {{-- <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#"><i
-                                                    class="far fa-chevron-right"></i></a>
-                                        </li> --}}
-                                    </ul>
+                                        @endforeach
+                                        <!-- <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up"
+                                                    data-aos-duration="1500" data-aos-offset="50">
+                                                    <li class="page-item disabled">
+                                                        <span class="page-link"><i class="far fa-chevron-left"></i></span>
+                                                    </li> -->
+                                        {{-- <li class="page-item active">
+                                                <span class="page-link">
+                                                    1
+                                                    <span class="sr-only">(current)</span>
+                                                </span>
+                                            </li> --}}
+                                        {{-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#"><i
+                                                        class="far fa-chevron-right"></i></a>
+                                            </li> --}}
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
-                </div>
-            </section>
-            <!-- Tour Grid Area end -->
+                    </div>
+                </section>
+                <!-- Tour Grid Area end -->
         </main>
 
         <!-- Footer -->

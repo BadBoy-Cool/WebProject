@@ -10,6 +10,8 @@
     <link href="{{ asset('backend/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/css/style.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ asset('frontend/img/logo/logo.png') }}">
+
 </head>
 
 <body>
@@ -55,6 +57,11 @@
                     <li>
                         <a href="{{ route('admin.tours.index') }}">
                             <i class="fa fa-map-marker"></i> <span class="nav-label">Quản lý Tour</span>
+                        </a>
+                    </li>
+                                        <li>
+                        <a href="{{ route('admin.bookings.index') }}">
+                            <i class="fa fa-map-marker"></i> <span class="nav-label">Quản lý Booking</span>
                         </a>
                     </li>
                     <li>

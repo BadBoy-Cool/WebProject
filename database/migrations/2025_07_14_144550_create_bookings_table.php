@@ -31,7 +31,7 @@ return new class extends Migration
             $table->integer('soEmBe')->default(0);
             $table->text('note')->nullable();
             $table->bigInteger('tongGia')->default(0);
-            $table->string('status')->default('pending');
+            $table->enum('status', ['pending', 'paid', 'cancelled'])->default('pending');
 
             // Thời gian
             $table->dateTime('thoiGianDat')->nullable();

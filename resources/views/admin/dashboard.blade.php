@@ -2,7 +2,7 @@
 
     @section('content')
         <h2>Chào mừng đến trang quản trị Travio!</h2>
-
+        
         <div class="row m-t-md">
             <div class="col-lg-3">
                 <div class="ibox">

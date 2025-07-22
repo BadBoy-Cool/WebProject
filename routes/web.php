@@ -74,8 +74,18 @@ Route::prefix('admin')->group(function () {
     Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
     Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
     Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::get('bookings', [BookingController::class, 'adminIndex'])->name('admin.bookings.index');
+    Route::put('bookings/{id}/confirm', [BookingController::class, 'confirmBooking'])->name('admin.bookings.confirm');
+    Route::delete('bookings/{id}', [BookingController::class, 'destroy'])->name('admin.bookings.destroy');
 
 
 });
 // Tour đã đặt của người dùng (giỏ hàng / lịch sử đặt)
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index')->middleware('auth');
+// Sửa đơn đặt tour
+Route::get('/bookings/{id}/edit', [BookingController::class, 'edit'])->name('bookings.edit');
+Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
+
+// Xoá đơn đặt tour
+Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+

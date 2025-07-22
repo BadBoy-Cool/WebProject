@@ -74,6 +74,15 @@
                                     class="favorite-count badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle"
                                     style="display: none;">0</span>
                             </div>
+                            <!-- Tour đã đặt (giỏ hàng) -->
+                            @auth
+                                <div class="position-relative">
+                                    <a class="btn" href="{{ route('bookings.index') }}">
+                                        <i class="fa fa-shopping-cart text-warning fs-5"></i>
+                                    </a>
+                                </div>
+                            @endauth
+
 
                             @guest
                                 <!-- Đăng nhập -->
@@ -333,11 +342,6 @@
                         <a href="{{ route('tour') }}" class="link-underline-opacity-0 link-light">Tour</a>
                         <a data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample"
                             class="link-underline-opacity-0 link-light">Yêu thích</a>
-                        @auth
-                        <a href="{{ route('bookings.index') }}" class="link-underline-opacity-0 link-light">
-                            <i class="fa fa-shopping-cart text-warning"></i> Tour đã đặt
-                        </a>
-                        @endauth
                     </div>
                     <div class="col-6 col-lg-3 d-flex flex-column align-items-end">
                         <p>&copy; 2025 Travio</p>
