@@ -14,6 +14,9 @@ use App\Http\Controllers\CartController;
 
 // Trang chủ
 Route::get('/', [TourController::class, 'home'])->name('index');
+Route::get('/tours', [TourController::class, 'index'])->name('tours.index');
+Route::get('/autocomplete', [TourController::class, 'autocomplete']);
+
 
 // Các trang khác
 Route::view('/gioithieu', 'frontend.gioithieu');
