@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Tour;
 use Illuminate\Support\Str;
 
-class TourController extends Controller
+class AdminTourController extends Controller
 {
     public function index()
     {
@@ -21,36 +21,42 @@ class TourController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'tour_name' => 'required|string|max:255',
-            'title' => 'nullable|string|max:255',
-            'image' => 'nullable|string|max:255',
-            'songay' => 'required|string',
-            'soluong' => 'required|integer|min:1',
-            'giaLon' => 'required|numeric|min:0',
-            'giaEmBe' => 'required|numeric|min:0'
-        ]);
+{
+    $request->validate([
+        'tour_ID' => 'required|string|unique:tours,tour_ID',
+        'tour_name' => 'required|string|max:255',
+        'title' => 'nullable|string|max:255',
+        'image' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
+        'songay' => 'required|string',
+        'soluong' => 'required|integer|min:1',
+        'giaLon' => 'required|numeric|min:0',
+        'giaEmBe' => 'required|numeric|min:0'
+    ]);
 
-        // Tự động tạo mã tour_ID
-        $lastTour = Tour::orderBy('tour_ID', 'desc')->first();
-        $lastIdNumber = $lastTour ? (int)substr($lastTour->tour_ID, 1) : 0;
-        $newId = 'T' . str_pad($lastIdNumber + 1, 3, '0', STR_PAD_LEFT);
-
-        $tour = new Tour();
-        $tour->tour_ID = $newId;
-        $tour->tour_name = $request->tour_name;
-        $tour->title = $request->title;
-        $tour->image = $request->image;
-        $tour->slug = Str::slug($request->tour_name);
-        $tour->songay = $request->songay;
-        $tour->soluong = $request->soluong;
-        $tour->giaLon = $request->giaLon;
-        $tour->giaEmBe = $request->giaEmBe;
-        $tour->save();
-
-        return redirect()->route('admin.tours.index')->with('success', 'Thêm tour thành công');
+    // Xử lý upload ảnh
+    $imagePath = null;
+    if ($request->hasFile('image')) {
+        $file = $request->file('image');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->storeAs('public/tours', $filename); // Lưu vào storage/app/public/tours
+        $imagePath = 'storage/tours/' . $filename; // Dùng asset() để hiển thị
     }
+
+    // Tạo Tour mới
+    $tour = new Tour();
+    $tour->tour_ID = $request->tour_ID;
+    $tour->tour_name = $request->tour_name;
+    $tour->title = $request->title;
+    $tour->image = $imagePath;
+    $tour->slug = Str::slug($request->tour_name);
+    $tour->songay = $request->songay;
+    $tour->soluong = $request->soluong;
+    $tour->giaLon = $request->giaLon;
+    $tour->giaEmBe = $request->giaEmBe;
+    $tour->save();
+
+    return redirect()->route('admin.tours.index')->with('success', 'Thêm tour thành công');
+}
 
     public function edit($id)
     {
@@ -65,7 +71,7 @@ class TourController extends Controller
         $request->validate([
             'tour_name' => 'required|string|max:255',
             'title' => 'nullable|string|max:255',
-            'image' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'songay' => 'required|string',
             'soluong' => 'required|integer|min:1',
             'giaLon' => 'required|numeric|min:0',
@@ -74,7 +80,6 @@ class TourController extends Controller
 
         $tour->tour_name = $request->tour_name;
         $tour->title = $request->title;
-        $tour->image = $request->image;
         $tour->slug = Str::slug($request->tour_name);
         $tour->songay = $request->songay;
         $tour->soluong = $request->soluong;

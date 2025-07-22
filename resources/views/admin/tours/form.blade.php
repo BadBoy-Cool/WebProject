@@ -8,7 +8,10 @@
             </ul>
         </div>
     @endif
-    <input type="text" name="tour_ID" class="form-control" value="{{ old('tour_ID', $tour->tour_ID ?? '') }}" readonly>
+    <div class="mb-3">
+        <label for="tour_ID" class="form-label">Mã Tour</label>
+        <input type="text" name="tour_ID" class="form-control" value="{{ old('tour_ID', $tour->tour_ID ?? '') }}">
+    </div>
     <div class="form-group">
         <label for="tour_name">Tên Tour</label>
         <input type="text" name="tour_name" class="form-control" value="{{ old('tour_name', $tour->tour_name ?? '') }}" required>
@@ -32,10 +35,6 @@
     <div class="form-group">
         <label for="giaEmBe">Giá trẻ em</label>
         <input type="number" name="giaEmBe" class="form-control" value="{{ old('giaEmBe', $tour->giaEmBe ?? '') }}">
-    </div>
-    <div class="form-group">
-        <label for="image">Link ảnh (URL)</label>
-        <input type="file" name="image" class="form-control">
     </div>
 
     <button type="submit" class="btn btn-primary mt-2">Lưu</button>
