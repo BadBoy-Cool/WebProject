@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('phone');
 
             // Thông tin tour (dùng mã T001 thay vì id số)
-            $table->string('tour_id', 5);  // ✅ cùng kiểu với tours.tour_ID
+            $table->string('tour_id', 5); 
             $table->foreign('tour_id')
-                ->references('tour_ID')   // ✅ tham chiếu đúng cột
+                ->references('tour_ID')   
                 ->on('tours')
                 ->onDelete('cascade');
 
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->integer('soEmBe')->default(0);
             $table->text('note')->nullable();
             $table->bigInteger('tongGia')->default(0);
-            $table->string('status')->default('pending');
+            $table->enum('status', ['pending', 'paid', 'cancelled'])->default('pending');
 
             // Thời gian
             $table->dateTime('thoiGianDat')->nullable();

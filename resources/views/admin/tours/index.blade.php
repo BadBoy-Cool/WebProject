@@ -50,6 +50,12 @@
             </tr>
         @endforeach
     </tbody>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a href="{{ route('admin.tours.create') }}" class="btn btn-primary">
+            Thêm Tour
+        </a>
+    </div>
+
 </table>
 
 {{-- Phân trang --}}

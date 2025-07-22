@@ -18,6 +18,7 @@ use App\Models\TourTimeline;
             'giaLon',
             'giaEmBe',
             'slug',
+            'image',
         ];
         protected $table = 'tours';
 

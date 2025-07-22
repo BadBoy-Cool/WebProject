@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Tour;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class TourController extends Controller
 {
@@ -108,5 +111,16 @@ class TourController extends Controller
     {
         $tours = Tour::latest()->take(6)->get();
         return view('frontend.index', compact('tours'));
+    }
+    public function autocomplete(Request $request)
+    {
+        $query = $request->query('query');
+
+        $results = Tour::where('title', 'like', "%$query%")
+            ->orWhere('location', 'like', "%$query%")
+            ->limit(10)
+            ->get(['title']);
+
+        return response()->json($results);
     }
 }

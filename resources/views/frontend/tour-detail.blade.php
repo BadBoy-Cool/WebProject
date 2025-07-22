@@ -114,18 +114,17 @@
                             class="btn btn-primary rounded-pill px-4" style="margin-right: 1cm;">Đặt ngay</a>
 
                         <!-- Thêm vào mục yêu thích -->
-                        <button class="btn btn-sm border-0 bg-transparent p-0 heart-detail-hover"
-                            onclick='addDetailTourToFavorites({
+                        <button onclick='addToFavorites({
                             img: @json(asset($tourImage)),
                             title: @json($tourDetail->title),
                             location: @json($tourDetail->tour_name),
                             duration: @json($tourDetail->songay),
                             slug: @json($tourDetail->slug)
-                        })'
-                            title="Thêm vào yêu thích">
-
-                            <i class="fa fa-heart text-danger fs-2"></i>
+                            })'
+                            class="btn btn-outline-danger" title="Thêm vào yêu thích">
+                            <i class="fa fa-heart fa-2x"></i>
                         </button>
+
                     </div>
                 </div>
             </div>
@@ -179,4 +178,4 @@
 </script>
 
 
-@endsection
+    @endsection

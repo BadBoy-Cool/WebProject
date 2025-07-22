@@ -59,6 +59,11 @@
                             <i class="fa fa-map-marker"></i> <span class="nav-label">Quản lý Tour</span>
                         </a>
                     </li>
+                                        <li>
+                        <a href="{{ route('admin.bookings.index') }}">
+                            <i class="fa fa-map-marker"></i> <span class="nav-label">Quản lý Booking</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="{{ route('admin.messages.index') }}">
                             <i class="fa fa-comments"></i> <span class="nav-label">Đánh giá của khách hàng</span>
