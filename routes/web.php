@@ -37,11 +37,6 @@ Route::get('activate-account/{token}', [AuthController::class, 'activateAccount'
 Route::get('/tour-detail/{slug}', [TourController::class, 'detail'])->name('tour.detail');
 Route::post('/tour-review', [ReviewController::class, 'store'])->name('tour.review.store');
 
-// Admin
-Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-});
-
 // Hiển thị form đặt tour (create booking)
 Route::get('/book/tour/create/{id}', [BookingController::class, 'create'])->name('book.tour.create');
 
@@ -54,18 +49,22 @@ Route::get('/book/tour/method/{id}', [BookingController::class, 'selectMethod'])
 // Xử lý thanh toán
 Route::post('/book/tour/pay/{id}', [BookingController::class, 'pay'])->name('book.tour.pay');
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
-    // ✅ Dùng controller admin riêng
-    Route::get('/tours', [AdminTourController::class, 'index'])->name('admin.tours.index');
-    Route::get('/tours/{id}', [AdminTourController::class, 'show'])->name('admin.tours.show');
-    Route::delete('/tours/{id}', [AdminTourController::class, 'destroy'])->name('admin.tours.destroy');
-
+    Route::prefix('tours')->name('admin.tours.')->group(function () {
+        Route::get('/', [AdminTourController::class, 'index'])->name('index');
+        Route::get('/create', [AdminTourController::class, 'create'])->name('create');
+        Route::post('/', [AdminTourController::class, 'store'])->name('store');
+        Route::get('/{id}/edit', [AdminTourController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [AdminTourController::class, 'update'])->name('update');
+        Route::delete('/{id}', [AdminTourController::class, 'destroy'])->name('destroy');
+        Route::get('/{id}', [AdminTourController::class, 'show'])->name('show');
+    });
 
     Route::get('/messages', [MessageController::class, 'index'])->name('admin.messages.index');
     Route::get('/messages/{id}', [MessageController::class, 'show'])->name('admin.messages.show');
     Route::delete('/messages/{id}', [MessageController::class, 'destroy'])->name('admin.messages.destroy');
 
-    Route::get('/account', [AccountController::class, 'index'])
-        ->name('admin.accounts.index');
+    Route::get('/account', [AccountController::class, 'index'])->name('admin.accounts.index');
 });
