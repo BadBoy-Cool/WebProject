@@ -155,7 +155,7 @@
     @endif
 
     <script>
-        function addDetailTourToFavorites(tourData) {
+        function addToFavorites(tourData) {
             let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
             const isExist = favorites.some(t => t.title === tourData.title);
@@ -163,19 +163,23 @@
                 favorites.push(tourData);
                 localStorage.setItem('favorites', JSON.stringify(favorites));
 
-                // Cập nhật giao diện header và danh sách
-                if (typeof updateFavoriteCount === 'function') updateFavoriteCount();
-                if (typeof updateFavoriteList === 'function') updateFavoriteList();
+                updateFavoriteCount();
+                alert('Đã thêm vào danh sách yêu thích!');
+            } else {
+                alert('Tour này đã có trong danh sách yêu thích!');
+            }
+        }
 
-        if (typeof updateFavoriteCount === 'function') updateFavoriteCount();
-        if (typeof updateFavoriteList === 'function') updateFavoriteList();
-
-        alert('Đã thêm vào danh sách yêu thích!');
-    } else {
-        alert('Tour này đã có trong danh sách yêu thích!');
-    }
-}
-</script>
+        // Hàm đếm và hiển thị số lượng tour yêu thích
+        function updateFavoriteCount() {
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const countElement = document.getElementById('favorite-count');
+            if (countElement) {
+                countElement.textContent = favorites.length;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateFavoriteCount);
+    </script>
 
 
     @endsection
