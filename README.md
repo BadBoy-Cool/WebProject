@@ -1,13 +1,12 @@
 <img align="left" width="400" src="https://github.githubassets.com/images/modules/profile/profile-first-repo.svg">
-<h1 align="center">Hi 👋, We're Group 1</h1>
+<h1 align="center">Hi 👋, I'm Trần Nguyễn Gia Bảo</h1>
 <p align="center">
   <h3 align="center">Infomation System students from Vietnam 🇻🇳 </h3>
 </p>
 
 
-- ✍ We're students of: Cần Thơ University (CTU).
+- ✍ I'm a student of: Cần Thơ University (CTU).
 
-- 🌱 We're currently learning **WebDevelopment.**
 
 <br />
 
